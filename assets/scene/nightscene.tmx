@@ -12,12 +12,6 @@
  <tileset firstgid="6583" name="tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640" tilewidth="16" tileheight="16" tilecount="880" columns="40">
   <image source="source/tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640.jpg" width="640" height="360"/>
  </tileset>
- <tileset firstgid="7463" name="PSP - Final Fantasy 1 - Black Mage" tilewidth="16" tileheight="16" tilecount="270" columns="30">
-  <image source="C:/Users/MSI GP72/Downloads/PSP - Final Fantasy 1 - Black Mage.png" width="480" height="144"/>
- </tileset>
- <tileset firstgid="7733" name="PC Computer - Stardew Valley - Witch Swamp" tilewidth="16" tileheight="16" tilecount="128" columns="8">
-  <image source="C:/Users/MSI GP72/Downloads/PC Computer - Stardew Valley - Witch Swamp.png" width="128" height="256"/>
- </tileset>
  <layer name="background" width="64" height="48">
   <data encoding="csv">
 6583,6584,6585,6586,6587,6588,6589,6590,6591,6592,6593,6594,6595,6596,6597,6598,6599,6600,6601,6602,6603,6604,6605,6606,6607,6608,6609,6610,6611,6612,6613,6614,6615,6612,6612,6612,6612,6612,6612,6612,6613,6614,6615,6616,6612,6612,6612,6612,6612,6612,6612,6612,6612,6612,6612,6612,6612,6612,6612,6613,6614,6615,6653,6654,
