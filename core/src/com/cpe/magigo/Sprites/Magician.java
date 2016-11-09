@@ -1,19 +1,16 @@
 package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.CircleShape;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
 
 /**
  * Created by Toufu on 9/11/2559.
  */
 public class Magician extends Sprite {
     public World world;
-    public body b2body;
+    public Body b2body;
 
-    public  magicgo (World world)
+    public  Magician (World world)
     {
         this.world = world;
         defineMagician();
