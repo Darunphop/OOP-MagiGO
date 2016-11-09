@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="16" tileheight="16" nextobjectid="12">
  <tileset firstgid="1" name="DS DSi - Mario &amp; Luigi Partners in Time - Hollijolli Village Outskirts" tilewidth="16" tileheight="16" tilecount="4608" columns="96">
-  <image source="C:/Users/MSI GP72/Downloads/DS DSi - Mario &amp; Luigi Partners in Time - Hollijolli Village Outskirts.png" width="1536" height="770"/>
+  <image source="source/DS DSi - Mario &amp; Luigi Partners in Time - Hollijolli Village Outskirts.png" width="1536" height="770"/>
  </tileset>
  <tileset firstgid="4609" name="DS DSi - Pokemon HeartGold SoulSilver - Text Boxes" tilewidth="16" tileheight="16" tilecount="1056" columns="32">
-  <image source="C:/Users/MSI GP72/Downloads/DS DSi - Pokemon HeartGold SoulSilver - Text Boxes.png" width="515" height="540"/>
+  <image source="source/DS DSi - Pokemon HeartGold SoulSilver - Text Boxes.png" width="515" height="540"/>
  </tileset>
  <tileset firstgid="5665" name="Game Boy Advance - Castlevania Harmony of Dissonance - Room of Illusion Castle A" tilewidth="16" tileheight="16" tilecount="918" columns="51">
-  <image source="C:/Users/MSI GP72/Downloads/Game Boy Advance - Castlevania Harmony of Dissonance - Room of Illusion Castle A.png" width="819" height="293"/>
+  <image source="source/Game Boy Advance - Castlevania Harmony of Dissonance - Room of Illusion Castle A.png" width="819" height="293"/>
  </tileset>
  <tileset firstgid="6583" name="tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640" tilewidth="16" tileheight="16" tilecount="880" columns="40">
   <image source="C:/Users/MSI GP72/Downloads/tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640.jpg" width="640" height="360"/>
