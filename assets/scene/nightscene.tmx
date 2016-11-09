@@ -10,7 +10,7 @@
   <image source="source/Game Boy Advance - Castlevania Harmony of Dissonance - Room of Illusion Castle A.png" width="819" height="293"/>
  </tileset>
  <tileset firstgid="6583" name="tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640" tilewidth="16" tileheight="16" tilecount="880" columns="40">
-  <image source="C:/Users/MSI GP72/Downloads/tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640.jpg" width="640" height="360"/>
+  <image source="source/tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640.jpg" width="640" height="360"/>
  </tileset>
  <tileset firstgid="7463" name="PSP - Final Fantasy 1 - Black Mage" tilewidth="16" tileheight="16" tilecount="270" columns="30">
   <image source="C:/Users/MSI GP72/Downloads/PSP - Final Fantasy 1 - Black Mage.png" width="480" height="144"/>
