@@ -18,7 +18,7 @@ import com.cpe.magigo.Scenes.Hud;
  */
 public class PlayScreen implements Screen {
     private MagiGO game;
-    //Texture texture;
+    Texture texture;
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Hud hud;
@@ -29,6 +29,7 @@ public class PlayScreen implements Screen {
         //texture = new Texture("badlogic.jpg");
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MagiGO.V_WIDTH, MagiGO.V_HEIGHT,gamecam);
+        hud = new Hud(game.batch);
     }
 
     @Override
