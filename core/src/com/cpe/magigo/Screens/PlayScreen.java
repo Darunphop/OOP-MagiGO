@@ -46,7 +46,6 @@ public class PlayScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
     public void handleInput(float dt)
@@ -73,6 +72,8 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+
+        gamecam.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight()/2,0);
 
         renderer.render();
     }
