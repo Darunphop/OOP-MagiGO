@@ -12,8 +12,8 @@ public class MagiGO extends Game {
 	public static final int V_WIDTH = 1024;
 	public static final int V_HEIGHT = 768;
 	public SpriteBatch batch;
-	
-	@Override
+
+
 	public void create () {
 		batch = new SpriteBatch();
 		setScreen(new PlayScreen(this));
