@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="PC Computer - MapleStory - Halloween Tiles" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="1632" columns="34">
+  <image source="source/PC Computer - MapleStory - Halloween Tiles.png" width="617" height="875"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt17kVAkEQQ8FZrkQ4E4EFEuHM30YhYPa8KeM7FYE0tdYWaZlWaZ02aeKcl/dt2qV9OqRjOnHOu/BzuqQ5XdMt3TnnXfgjPdMrvdMnfTnnXXi1Pc859385H8Gr7XnOuf/L+Qhebc9zzv1fzkfwanuec+7/cj6CV9vznPP//QdxJWiH
+  </data>
+ </layer>
+</map>
