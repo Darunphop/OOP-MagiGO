@@ -40,7 +40,7 @@ public class PlayScreen implements Screen {
 
         //Import background
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("dayscene.tmx");// <---- locate file name here ******
+        map = mapLoader.load("scene/level.tmx");// <---- locate file name here ******
         renderer = new OrthogonalTiledMapRenderer(map);
     }
 
@@ -73,6 +73,8 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+
+        renderer.render();
     }
 
     @Override
