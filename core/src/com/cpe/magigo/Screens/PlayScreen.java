@@ -40,7 +40,7 @@ public class PlayScreen implements Screen {
 
         //Import background
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("1.tmx");// <---- locate file name here ******
+        map = mapLoader.load("dayscene.tmx");// <---- locate file name here ******
         renderer = new OrthogonalTiledMapRenderer(map);
     }
 
