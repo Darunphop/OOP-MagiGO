@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="16" tileheight="16" nextobjectid="10">
+ <tileset firstgid="1" name="DS DSi - Pokemon HeartGold SoulSilver - Text Boxes" tilewidth="16" tileheight="16" tilecount="1056" columns="32">
+  <image source="source/DS DSi - Pokemon HeartGold SoulSilver - Text Boxes.png" width="515" height="540"/>
+ </tileset>
+ <tileset firstgid="1057" name="tile2" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="source/tile2.png" width="16" height="16"/>
+ </tileset>
+ <tileset firstgid="1058" name="tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640" tilewidth="16" tileheight="16" tilecount="880" columns="40">
+  <image source="source/tumblr_static_tumblr_static_6cmh3hy2y3s4co8040cc8804k_640.jpg" width="640" height="360"/>
+ </tileset>
+ <tileset firstgid="1938" name="ground1" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="source/ground1.png" width="16" height="16"/>
+ </tileset>
+ <layer name="Background" width="64" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt0EdzjWEcxuFjBjMWhq8Q0Wuidw4rNdFF74SV3kv0TljpJUiid8JK77134VPYuZYZG2bOkJjnWVy7/zvv/XtqVU4k0qlNHepSj/o0oCGNaEwTmtKMDDJpTgta0orWtKEt7WhPBzrSic50oStJutGdWuW0I9X/DGM4IxjJKEYzhrGMYzwTmMgkJjOFXKYyjZ70ojd96EsW2fSjPwMYyCAGM4Sh5KSwI9X+5axgJatYzRrWso71bGAjm9jMFraSzza2M4OZzGI2c5jLPOazgIUsYjFLWMoy8lLYkWr/UY5xnBOc5BSnOcNZznGeC1zkEpcp4QpX2ckudrOHvexjPwc4SAGHOMwRCimiOIUdyTJ+9wZlb8u+wQte8orXvOEt73jPBz7yic984SulfOM717nBTW5xmzvc5R73ecBDHvGYJzzlGc9/2Zf8wx2/fhOa3MDlB64kcKWBq1YlbJmBywlcXuCKA/cscD8Cl1Y1bD0CNz1wOwJ3LXAFHOIwRyikiGKOcozjnPiLt2X3/OsNFaG/PG//l52xP/bH/tgf+2N/7I/9sT/2x/7YH/tTu62USCSqB6gGNUkjPUDNyIj9sb8CbIn9sT/2x/7y6E/SN0BZZPMTfrzbdA==
+  </data>
+ </layer>
+ <layer name="Graphic" width="64" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt1cEJACAMBEEfgnXYshVbxhkzA/sPgZAxAAAAAAD+tGfvzpJ6V/GGKs4svVb6/6ZL71/6LXcq1Sj9f9MBANDLBUlFG1s=
+  </data>
+ </layer>
+ <objectgroup name="floor">
+  <object id="1" x="1" y="334" width="1025" height="19"/>
+  <object id="2" x="16" y="401" width="255" height="16"/>
+  <object id="3" x="737" y="402" width="256" height="16"/>
+  <object id="7" x="1" y="463" width="1025" height="15"/>
+  <object id="8" x="336" y="529" width="338" height="13"/>
+  <object id="9" x="1" y="592" width="1021" height="177"/>
+ </objectgroup>
+</map>
