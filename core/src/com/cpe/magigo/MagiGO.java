@@ -11,6 +11,7 @@ import com.cpe.magigo.Screens.PlayScreen;
 public class MagiGO extends Game {
 	public static final int V_WIDTH = 1024;
 	public static final int V_HEIGHT = 768;
+	public static final int PPM = 100;
 	public SpriteBatch batch;
 
 

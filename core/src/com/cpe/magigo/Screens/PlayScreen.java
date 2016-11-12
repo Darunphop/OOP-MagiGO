@@ -2,6 +2,7 @@ package com.cpe.magigo.Screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
 import com.badlogic.gdx.graphics.GL20;
@@ -21,6 +22,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
+import com.cpe.magigo.Sprites.Magician;
 
 /**
  * Created by darunphop on 02-Nov-16.
@@ -30,6 +32,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Hud hud;
+    private Magician player;
 
     //Tilemap variable
     private TmxMapLoader mapLoader;
@@ -55,25 +58,26 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map);
 
         //
-        world = new World(new Vector2(0,0),true);
+        world = new World(new Vector2(0,-10),true);
         b2dr = new Box2DDebugRenderer();
+        player = new Magician(world);
 
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
 
-        //create Ground object 
+        //create Ground object
         for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set(rect.getX()+rect.getWidth() / 2 , rect.getY()+rect.getHeight() / 2);
+            bdef.position.set((rect.getX()+rect.getWidth() / 2) / MagiGO.PPM , (rect.getY()+rect.getHeight() / 2) / MagiGO.PPM);
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 , rect.getHeight() /2 );
+            shape.setAsBox((rect.getWidth() / 2) / MagiGO.PPM  , (rect.getHeight() /2 ) / MagiGO.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
         }
@@ -86,17 +90,32 @@ public class PlayScreen implements Screen {
 
     public void handleInput(float dt)
     {
-        if(Gdx.input.isTouched())
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
         {
-            gamecam.position.x += 100 * dt;
+            player.b2body.applyLinearImpulse(new Vector2(0,4f) , player.b2body.getWorldCenter(),true);
+        }
+        if(Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
+        {
+            player.b2body.applyLinearImpulse(new Vector2(0.1f,0) , player.b2body.getWorldCenter(),true);
+        }
+        if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= 2)
+        {
+            player.b2body.applyLinearImpulse(new Vector2(-0.1f,0) , player.b2body.getWorldCenter(),true);
         }
     }
 
     public void update(float dt)
     {
+        //handle user input first
         handleInput(dt);
 
+        world.step(1/10f , 6 , 2 );
+
+        gamecam.position.x = player.b2body.getPosition().x;
+        //update our gamecam with correct coordinates after changes
         gamecam.update();
+
+        //tell our renderer to draw only whay our camera can see in our game world;
         renderer.setView(gamecam);
     }
 
@@ -107,13 +126,13 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
-        hud.stage.draw();
+
 
 
         gamecam.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight()/2,0);
 
         renderer.render();
-
+        hud.stage.draw();
 
     }
 
