@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Sprites.Magician;
+import com.cpe.magigo.Tools.B2WorldCreator;
 import com.sun.corba.se.impl.oa.poa.ActiveObjectMap;
 
 /**
@@ -63,25 +64,9 @@ public class PlayScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
         player = new Magician(world);
 
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
+        new B2WorldCreator(world,map);
 
-        //create Ground object
-        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class))
-        {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX()+rect.getWidth() / 2)/ MagiGO.PPM  , (rect.getY()+rect.getHeight() / 2) / MagiGO.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox((rect.getWidth() / 2)/ MagiGO.PPM  , (rect.getHeight() /2)/ MagiGO.PPM );
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
 
     }
 
@@ -158,6 +143,10 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        map.dispose();
+        renderer.dispose();
+        world.dispose();
+        b2dr.dispose();
+        hud.dispose();
     }
 }
