@@ -1,30 +1,34 @@
 package com.cpe.magigo.System;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
  * Created by darunphop on 13-Nov-16.
  */
 public class MagicSequence {
-    Stack<Element> sequence;
+    ArrayList<Element> sequence;
+    final int CAPACITY = 5;
+    int size;
 
     public MagicSequence(){
-        sequence = new Stack<Element>();
+        sequence = new ArrayList<Element>(CAPACITY);
+        size = 0;
     }
 
     public void addElement(Element e){
-        if (isEmpty()) sequence.push(e);
+        if (isEmpty()) sequence.set(size++, e);
         else if (!isFull()){
-            if (sequence.peek().isWeak(e.getElement())) sequence.pop();
-            else sequence.push(e);
+            if (sequence.get(size-1).isWeak(e.getElement())) size--;
+            else sequence.set(size++,e);
         }
     }
     public boolean isFull(){
-        return sequence.size()==5;
+        return size==CAPACITY;
     }
 
     public boolean isEmpty(){
-        return sequence.size()==0;
+        return size==0;
     }
 
 }

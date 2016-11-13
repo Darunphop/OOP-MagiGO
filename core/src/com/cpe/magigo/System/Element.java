@@ -25,7 +25,7 @@ public  class Element {
                  weak = ElementType.LIGHT;
                  break;
              default:
-                 weak = ElementType.DARK;
+                 weak = ElementType.NULL;
                  break;
          }
      }
