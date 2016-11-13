@@ -112,6 +112,7 @@ public class PlayScreen implements Screen {
         world.step(1/10f , 6 , 2 );
 
         gamecam.position.x = player.b2body.getPosition().x;
+        gamecam.position.y = player.b2body.getPosition().y;
         //update our gamecam with correct coordinates after changes
         gamecam.update();
 
