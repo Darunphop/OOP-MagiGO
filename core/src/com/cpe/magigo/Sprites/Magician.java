@@ -5,27 +5,28 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
 
 /**
- * Created by Toufu on 9/11/2559.
+ * Created by Asuka on 13/11/2559.
  */
 public class Magician extends Sprite {
     public World world;
     public Body b2body;
 
-    public  Magician (World world)
+    public Magician (World world)
     {
         this.world = world;
         defineMagician();
     }
-    public  void  defineMagician()
+
+    public void defineMagician()
     {
-        BodyDef bdef = new BodyDef();
-        bdef.position.set(32/ MagiGO.PPM,32/ MagiGO.PPM);
-        bdef.type = BodyDef.BodyType.DynamicBody;
-        b2body = world.createBody((bdef));
+        BodyDef bodydef = new BodyDef();
+        bodydef.position.set(50f/ MagiGO.PPM,50f/ MagiGO.PPM);
+        bodydef.type = BodyDef.BodyType.DynamicBody;
+        b2body = world.createBody(bodydef);
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(5 / MagiGO.PPM);
+        shape.setRadius(5/ MagiGO.PPM);
 
         fdef.shape = shape;
         b2body.createFixture(fdef);

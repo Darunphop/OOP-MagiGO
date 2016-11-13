@@ -47,7 +47,7 @@ public class Hud {
         timeLabel = new Label("TIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         levelLabel = new Label("1-1",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label("WORLD",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        MagiGOLabel = new Label("Magician",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        MagiGOLabel = new Label("Magicians",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         table.add(MagiGOLabel).expandX().padTop(10);
         table.add(worldLabel).expandX().padTop(10);
