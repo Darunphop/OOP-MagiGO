@@ -55,7 +55,7 @@ public class PlayScreen implements Screen {
 
         //Import background
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("scene/test.tmx");// <---- locate file name here ******
+        map = mapLoader.load("scene/dayscene.tmx");// <---- locate file name here ******
         renderer = new OrthogonalTiledMapRenderer(map, 1/ MagiGO.PPM);
 
         //
@@ -69,7 +69,7 @@ public class PlayScreen implements Screen {
         Body body;
 
         //create Ground object
-        for(MapObject object : map.getLayers().get(1).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 

@@ -20,7 +20,7 @@ public class Magician extends Sprite {
     public void defineMagician()
     {
         BodyDef bodydef = new BodyDef();
-        bodydef.position.set(50f/ MagiGO.PPM,50f/ MagiGO.PPM);
+        bodydef.position.set(512/ MagiGO.PPM,384/ MagiGO.PPM);
         bodydef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bodydef);
 
