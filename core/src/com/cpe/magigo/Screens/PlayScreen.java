@@ -23,6 +23,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Sprites.Magician;
+import com.cpe.magigo.System.Element;
+import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.Tools.B2WorldCreator;
 import com.sun.corba.se.impl.oa.poa.ActiveObjectMap;
 
@@ -78,18 +80,34 @@ public class PlayScreen implements Screen {
 
     public void handleInput(float dt)
     {
-        if(player.currentState != Magician.State.DEAD) {
-            if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
-                player.jump();
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
-                player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
-                player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
+        if(player.currentState != Magician.State.DEAD ) {
+            if (player.currentState != Magician.State.CASTING){//if not casting
+                if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
+                    player.jump();
+                if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
+                    player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
+                if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
+                    player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
 
-            if (player.currentState == Magician.State.STANDING || player.currentState == Magician.State.RUNNING){
-                if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
+                if (player.getState() == Magician.State.STANDING || player.getState() == Magician.State.RUNNING){
+                    if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
+                        player.casting(); //Enter casting state
+                }
+            }else {// is casting
+                if (Gdx.input.isKeyJustPressed(Input.Keys.A))
+                    player.casting(new Element(ElementType.FIRE));
+                if (Gdx.input.isKeyJustPressed(Input.Keys.S))
+                    player.casting(new Element(ElementType.WATER));
+                if (Gdx.input.isKeyJustPressed(Input.Keys.D))
+                    player.casting(new Element(ElementType.WIND));
+                if (Gdx.input.isKeyJustPressed(Input.Keys.Z))
+                    player.casting(new Element(ElementType.LIGHT));
+                if (Gdx.input.isKeyJustPressed(Input.Keys.X))
+                    player.casting(new Element(ElementType.DARK));
+                if (Gdx.input.isKeyJustPressed(Input.Keys.C))
                     player.casting();
             }
+
         }
     }
 
