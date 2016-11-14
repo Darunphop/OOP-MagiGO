@@ -44,6 +44,7 @@ public class PlayScreen implements Screen {
     //Box2d variable
     private World world;
     private Box2DDebugRenderer b2dr;
+    private B2WorldCreator creator;
 
 
     public PlayScreen(MagiGO game){
@@ -59,13 +60,14 @@ public class PlayScreen implements Screen {
         map = mapLoader.load("scene/dayscene.tmx");// <---- locate file name here ******
         renderer = new OrthogonalTiledMapRenderer(map, 1/ MagiGO.PPM);
 
-        //
+        //create our Box2D world, setting no gravity in X, -10 gravity in Y, and allow bodies to sleep
         world = new World(new Vector2(0,-10),true);
         b2dr = new Box2DDebugRenderer();
+
+        creator = new B2WorldCreator(world,map);
+
+        //create mario in our game world
         player = new Magician(world);
-
-        new B2WorldCreator(world,map);
-
 
 
     }
@@ -109,15 +111,25 @@ public class PlayScreen implements Screen {
     public void render(float delta) {
         update(delta);
 
+        //Clear the game screen with Green
         Gdx.gl.glClearColor(0f, 0.7f, 0.4f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        //render our game map
+        renderer.render();
+
+        //renderer our Box2DDebugLines
+        b2dr.render(world, gamecam.combined);
+
+        //game.batch.setProjectionMatrix(gamecam.combined);
+
+        //Set our batch to now draw what the Hud camera sees.
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
 
-        gamecam.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight()/2,0);
+        //gamecam.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight()/2,0);
 
-        renderer.render();
 
 
     }
