@@ -1,0 +1,12 @@
+
+Magician.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Magician
+  rotate: false
+  xy: 1, 1
+  size: 480, 144
+  orig: 480, 144
+  offset: 0, 0
+  index: -1
