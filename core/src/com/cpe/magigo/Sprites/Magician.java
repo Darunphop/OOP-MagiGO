@@ -49,7 +49,7 @@ public class Magician extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(17/ MagiGO.PPM);
+        shape.setRadius(17 / MagiGO.PPM);
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
