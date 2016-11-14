@@ -1,6 +1,7 @@
 package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
@@ -16,6 +17,7 @@ public class Magician extends Sprite {
 
     public World world;
     public Body b2body;
+    private TextureRegion MagicianStand;
 
     private float stateTimer;
     private boolean runningRight;
@@ -23,10 +25,19 @@ public class Magician extends Sprite {
     private boolean magicianIsDead;
     private PlayScreen screen;
 
-    public Magician (World world)
+    public Magician (World world , PlayScreen screen)
     {
+        super(screen.getAtlas().findRegion("Magician"));
         this.world = world;
         defineMagician();
+        MagicianStand = new TextureRegion(getTexture(),10,10,69,69);
+        setBounds(10 / MagiGO.PPM,10 / MagiGO.PPM,68 / MagiGO.PPM , 69 / MagiGO.PPM);
+        setRegion(MagicianStand);
+    }
+
+    public void update (float dt)
+    {
+        setPosition(b2body.getPosition().x - getWidth() /2 ,b2body.getPosition().y - getHeight() / 2);
     }
 
     public void defineMagician()
@@ -38,7 +49,7 @@ public class Magician extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(5/ MagiGO.PPM);
+        shape.setRadius(17/ MagiGO.PPM);
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
