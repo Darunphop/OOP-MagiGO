@@ -62,6 +62,10 @@ public class Magician extends Sprite {
             return State.STANDING;
     }
 
+    public void casting(){
+
+    }
+
     public boolean isDead(){
         return magicianIsDead;
     }
@@ -72,7 +76,7 @@ public class Magician extends Sprite {
 
 
     public void jump(){
-        if ( currentState != State.JUMPING ) {
+        if ( getState() != State.JUMPING  && getState() != State.FALLING) {
             b2body.applyLinearImpulse(new Vector2(0, 4f), b2body.getWorldCenter(), true);
             currentState = State.JUMPING;
         }

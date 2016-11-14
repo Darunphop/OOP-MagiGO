@@ -6,6 +6,7 @@ package com.cpe.magigo.System;
 public  class Element {
     ElementType e;
     ElementType weak;
+
      public Element(ElementType e){
          this.e = e;
          switch (e){
