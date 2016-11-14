@@ -36,7 +36,7 @@ public class Hud implements Disposable{
         timeCount = 0;
         Scores = 0;
 
-        viewport = new FitViewport(MagiGO.V_WIDTH,MagiGO.V_HEIGHT,new OrthographicCamera());
+        viewport = new FitViewport(MagiGO.V_WIDTH ,MagiGO.V_HEIGHT ,new OrthographicCamera());
         stage = new Stage(viewport,sb);
 
         Table table = new Table();

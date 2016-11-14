@@ -50,7 +50,7 @@ public class PlayScreen implements Screen {
     public PlayScreen(MagiGO game){
         this.game = game;
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT/ MagiGO.PPM,gamecam);
+        gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT / MagiGO.PPM,gamecam);
 
         //create HUD for score/time/level
         hud = new Hud(game.batch);
@@ -121,7 +121,7 @@ public class PlayScreen implements Screen {
         //renderer our Box2DDebugLines
         b2dr.render(world, gamecam.combined);
 
-        //game.batch.setProjectionMatrix(gamecam.combined);
+        game.batch.setProjectionMatrix(gamecam.combined);
 
         //Set our batch to now draw what the Hud camera sees.
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
@@ -162,4 +162,6 @@ public class PlayScreen implements Screen {
         b2dr.dispose();
         hud.dispose();
     }
+
+    public Hud getHud(){ return hud; }
 }
