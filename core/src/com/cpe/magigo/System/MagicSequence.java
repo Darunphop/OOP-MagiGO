@@ -17,11 +17,21 @@ public class MagicSequence {
     }
 
     public void addElement(Element e){
-        if (isEmpty()) sequence.set(size++, e);
+        if (isEmpty()){
+            sequence.add(e);
+            size++;
+        }
         else if (!isFull()){
             if (sequence.get(size-1).isWeak(e.getElement())) size--;
-            else sequence.set(size++,e);
+            else{
+                sequence.add(e);
+                size++;
+            }
         }
+    }
+
+    public void clear(){
+        this.size = 0;
     }
     public boolean isFull(){
         return size==CAPACITY;

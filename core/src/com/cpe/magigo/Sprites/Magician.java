@@ -8,6 +8,9 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.System.Element;
+import com.cpe.magigo.System.ElementType;
+import com.cpe.magigo.System.MagicSequence;
 
 /**
  * Created by Asuka on 13/11/2559.
@@ -16,6 +19,7 @@ public class Magician extends Sprite {
     public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING};
     public State currentState;
     public State previousState;
+    MagicSequence attack;
 
     public World world;
     public Body b2body;
@@ -135,8 +139,20 @@ public class Magician extends Sprite {
             return State.STANDING;
     }
 
-    public void casting(){
 
+    public void casting(){
+        if (currentState != State.CASTING){
+            attack = new MagicSequence();
+            currentState = State.CASTING;
+        }else {
+            attack.clear();
+            currentState = State.STANDING;
+        }
+
+    }
+
+    public void casting(Element e){
+        attack.addElement(e);
     }
 
     public boolean isDead(){
