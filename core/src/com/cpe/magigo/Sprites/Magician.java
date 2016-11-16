@@ -116,9 +116,19 @@ public class Magician extends Sprite {
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(17 / MagiGO.PPM);
+        fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT;
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
+
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-2 / MagiGO.PPM, 17 / MagiGO.PPM), new Vector2(2 / MagiGO.PPM, 17 / MagiGO.PPM));
+        fdef.filter.categoryBits = MagiGO.MAGIGO_HEAD_BIT;
+        fdef.shape = head;
+        fdef.isSensor = true;
+
+        b2body.createFixture(fdef).setUserData("head");
     }
 
     public State getState(){

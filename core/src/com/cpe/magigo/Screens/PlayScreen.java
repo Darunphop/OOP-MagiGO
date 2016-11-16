@@ -27,6 +27,7 @@ import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.Tools.B2WorldCreator;
+import com.cpe.magigo.Tools.WorldContactListener;
 import com.sun.corba.se.impl.oa.poa.ActiveObjectMap;
 
 /**
@@ -79,6 +80,7 @@ public class PlayScreen implements Screen {
         //create mario in our game world
         player = new Magician(world , this);
 
+        world.setContactListener(new WorldContactListener());
 
     }
     public TextureAtlas getAtlas()

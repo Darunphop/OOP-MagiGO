@@ -12,6 +12,13 @@ public class MagiGO extends Game {
 	public static final int V_WIDTH = 1024;
 	public static final int V_HEIGHT = 768;
 	public static final float PPM = 100;
+
+	public static final short DEFAULT_BIT = 1;
+	public static final short MAGIGO_BIT = 2;
+	public static final short PLATFORM_BIT = 4;
+	public static final short DESTROY_BIT = 8;
+	public static final short MAGIGO_HEAD_BIT = 16;
+
 	public SpriteBatch batch;
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="16" tileheight="16" nextobjectid="29">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="16" tileheight="16" nextobjectid="40">
  <tileset firstgid="1" name="DS DSi - Pokemon HeartGold SoulSilver - Text Boxes" tilewidth="16" tileheight="16" tilecount="1056" columns="32">
   <image source="source/DS DSi - Pokemon HeartGold SoulSilver - Text Boxes.png" width="515" height="540"/>
  </tileset>
@@ -29,11 +29,12 @@
   <object id="20" x="0" y="592" width="1024" height="176"/>
  </objectgroup>
  <objectgroup name="platform">
-  <object id="21" x="352" y="528" width="320" height="16"/>
-  <object id="22" x="0" y="464" width="1024" height="16"/>
-  <object id="23" x="736" y="400" width="256" height="16"/>
-  <object id="24" x="32" y="400" width="256" height="16"/>
-  <object id="25" x="0" y="336" width="1024" height="16"/>
+  <object id="32" x="16" y="336" width="240"/>
+  <object id="35" x="0" y="336" width="1024" height="16"/>
+  <object id="36" x="32" y="400" width="256" height="16"/>
+  <object id="37" x="736" y="400" width="256" height="16"/>
+  <object id="38" x="0" y="464" width="1024" height="16"/>
+  <object id="39" x="352" y="528" width="320" height="16"/>
  </objectgroup>
  <objectgroup name="frame">
   <object id="26" x="-16" y="0" width="16" height="768"/>

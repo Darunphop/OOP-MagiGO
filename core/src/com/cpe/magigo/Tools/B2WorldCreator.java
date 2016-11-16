@@ -6,6 +6,8 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
+import com.cpe.magigo.Sprites.InteractiveTileObject;
+import com.cpe.magigo.Sprites.Platform;
 
 /**
  * Created by MSI GP72 on 13/11/2559.
@@ -36,14 +38,7 @@ public class B2WorldCreator {
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX()+rect.getWidth() / 2)/ MagiGO.PPM  , (rect.getY()+rect.getHeight() / 2) / MagiGO.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox((rect.getWidth() / 2)/ MagiGO.PPM  , (rect.getHeight() /2)/ MagiGO.PPM );
-            fdef.shape = shape;
-            body.createFixture(fdef);
+            new Platform(world, map, rect);
         }
 
         for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
