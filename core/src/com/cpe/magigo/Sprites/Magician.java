@@ -53,7 +53,7 @@ public class Magician extends Sprite {
         //Animation Magician jump
         for(int i = 0 ; i < 2 ; i++)
         {
-            frame.add(new TextureRegion(getTexture(),i*40 + 236 , 0 , 38 , 60 ));
+            frame.add(new TextureRegion(getTexture(),i*40 + 236  , 0 , 38 , 60 ));
         }
         magicianJump = new Animation(0.1f , frame);
         defineMagician();
