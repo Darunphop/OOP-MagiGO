@@ -58,7 +58,7 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(MagiGO game){
-        atlas = new TextureAtlas("character/Magician.pack");
+        atlas = new TextureAtlas("character/MagicianFix.pack");
         this.game = game;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT / MagiGO.PPM,gamecam);

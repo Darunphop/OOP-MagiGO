@@ -35,7 +35,7 @@ public class Magician extends Sprite {
 
     public Magician (World world , PlayScreen screen)
     {
-        super(screen.getAtlas().findRegion("Magician"));
+        super(screen.getAtlas().findRegion("MagicianNew"));
         this.world = world;
         currentState = State.STANDING;
         previousState = State.STANDING;
@@ -47,18 +47,18 @@ public class Magician extends Sprite {
         //Animation Magician walk
         for(int i = 1 ; i < 5 ; i++)
         {
-            frame.add(new TextureRegion(getTexture(),i*66 , 10 , 69 , 69));
+            frame.add(new TextureRegion(getTexture(),i*39 , 0 , 38 , 60));
         }
         magicianRun = new Animation(0.1f , frame);
         //Animation Magician jump
         for(int i = 0 ; i < 2 ; i++)
         {
-            frame.add(new TextureRegion(getTexture(),i*10 , 10 , 69 , 69 ));
+            frame.add(new TextureRegion(getTexture(),i*40 + 236 , 0 , 38 , 60 ));
         }
         magicianJump = new Animation(0.1f , frame);
         defineMagician();
-        MagicianStand = new TextureRegion(getTexture(),10,10,69,69);
-        setBounds(10 / MagiGO.PPM,10 / MagiGO.PPM,68 / MagiGO.PPM , 69 / MagiGO.PPM);
+        MagicianStand = new TextureRegion(getTexture(),0,0,39,60);
+        setBounds(0 / MagiGO.PPM,0 / MagiGO.PPM,38 / MagiGO.PPM , 60 / MagiGO.PPM);
         setRegion(MagicianStand);
     }
 
@@ -91,12 +91,12 @@ public class Magician extends Sprite {
 
         if((b2body.getLinearVelocity().x < 0 || !runningRight) && !region.isFlipX())
         {
-            //region.flip(true,false);
+            region.flip(true,false);
             runningRight = false;
         }
         else if((b2body.getLinearVelocity().x > 0 || runningRight) && region.isFlipX())
         {
-            region.isFlipY();
+            region.flip(true,false);
             runningRight = true;
         }
 
