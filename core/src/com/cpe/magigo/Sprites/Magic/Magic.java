@@ -1,16 +1,15 @@
 package com.cpe.magigo.Sprites.Magic;
 
+import com.cpe.magigo.System.ElementType;
+
 /**
  * Created by ICQCQ on 15-Nov-16.
  */
 public class Magic {
-    protected int ID;
-
-    public int getID() {
-        return ID;
+    public Magic(ElementType e) {
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public Magic() {
     }
+
 }
