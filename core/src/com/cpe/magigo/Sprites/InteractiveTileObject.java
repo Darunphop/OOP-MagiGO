@@ -38,6 +38,8 @@ public abstract class InteractiveTileObject {
 
     }
     public abstract void onHeadHit();
+    public abstract void onLegHit();
+
 
     public void setCategoryFilter(short fileterbit){
         Filter filter = new Filter();

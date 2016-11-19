@@ -22,4 +22,10 @@ public class Platform extends InteractiveTileObject {
         Gdx.app.log("Platform", "Collision");
         setCategoryFilter(MagiGO.DESTROY_BIT);
     }
+
+    @Override
+    public void onLegHit() {
+        Gdx.app.log("Platform", "Build");
+        setCategoryFilter(MagiGO.PLATFORM_BIT);
+    }
 }

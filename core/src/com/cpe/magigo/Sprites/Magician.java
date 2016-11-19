@@ -1,5 +1,6 @@
 package com.cpe.magigo.Sprites;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -32,6 +33,7 @@ public class Magician extends Sprite {
     private boolean timeToRedefineMagician;
     private boolean magicianIsDead;
     private PlayScreen screen;
+    private FixtureDef fdef;
 
     public Magician (World world , PlayScreen screen)
     {
@@ -64,8 +66,10 @@ public class Magician extends Sprite {
 
     public void update (float dt)
     {
+
         setPosition(b2body.getPosition().x - getWidth() /2 ,b2body.getPosition().y - getHeight() / 2);
         setRegion(getFrame(dt));
+
     }
 
     public TextureRegion getFrame (float dt)
@@ -119,6 +123,7 @@ public class Magician extends Sprite {
         fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
         fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT;
 
+
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
@@ -129,6 +134,15 @@ public class Magician extends Sprite {
         fdef.isSensor = true;
 
         b2body.createFixture(fdef).setUserData("head");
+
+        EdgeShape leg = new EdgeShape();
+        leg.set(new Vector2(-2 / MagiGO.PPM, -17 / MagiGO.PPM), new Vector2(2 / MagiGO.PPM, -17 / MagiGO.PPM));
+        fdef.filter.categoryBits = MagiGO.MAGIGO_LEG_BIT;
+        fdef.shape = leg;
+        fdef.isSensor = true;
+
+        b2body.createFixture(fdef).setUserData("leg");
+
     }
 
     public State getState(){
@@ -136,8 +150,9 @@ public class Magician extends Sprite {
         //if mario is going positive in Y-Axis he is jumping... or if he just jumped and is falling remain in jump state
         if(magicianIsDead)
             return State.DEAD;
-        else if((b2body.getLinearVelocity().y > 0 && currentState == State.JUMPING) || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
+        else if((b2body.getLinearVelocity().y > 0 && currentState == State.JUMPING) || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING)){
             return State.JUMPING;
+        }
             //if negative in Y-Axis mario is falling
         else if(b2body.getLinearVelocity().y < 0)
             return State.FALLING;
@@ -180,4 +195,6 @@ public class Magician extends Sprite {
             currentState = State.JUMPING;
         }
     }
+
+
 }
