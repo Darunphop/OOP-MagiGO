@@ -1,6 +1,7 @@
 package com.cpe.magigo.Tools;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
@@ -73,6 +74,9 @@ public class WorldContactListener implements ContactListener {
                 contact.setEnabled(false);
             } else {
                 contact.setEnabled(true);
+            }
+            if(player_y > platform_y + 0.22f && Gdx.input.isKeyPressed(Input.Keys.DOWN)) {  //the player is above platform
+                contact.setEnabled(false);
             }
         }
     }

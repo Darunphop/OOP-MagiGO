@@ -150,9 +150,10 @@ public class Magician extends Sprite {
         //if mario is going positive in Y-Axis he is jumping... or if he just jumped and is falling remain in jump state
         if(magicianIsDead)
             return State.DEAD;
-        else if((b2body.getLinearVelocity().y > 0 && currentState == State.JUMPING) || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING)){
+        else if (currentState == State.CASTING)
+            return State.CASTING;
+        else if((b2body.getLinearVelocity().y > 0 && currentState == State.JUMPING) || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
             return State.JUMPING;
-        }
             //if negative in Y-Axis mario is falling
         else if(b2body.getLinearVelocity().y < 0)
             return State.FALLING;
@@ -169,7 +170,9 @@ public class Magician extends Sprite {
         if (currentState != State.CASTING){
             attack = new MagicSequence();
             currentState = State.CASTING;
+            Gdx.app.log("State", "CASTING");
         }else {
+            Gdx.app.log("State", "CANCEL CASTING");
             attack.clear();
             currentState = State.STANDING;
         }

@@ -95,7 +95,7 @@ public class PlayScreen implements Screen {
     public void handleInput(float dt)
     {
         if(player.currentState != Magician.State.DEAD ) {
-            if (player.currentState != Magician.State.CASTING){//if not casting
+            if (player.currentState != Magician.State.CASTING){ //if not casting
                 if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
                     player.jump();
                 if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
@@ -104,10 +104,12 @@ public class PlayScreen implements Screen {
                     player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
 
                 if (player.getState() == Magician.State.STANDING || player.getState() == Magician.State.RUNNING){
-                    if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
+                    if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
                         player.casting(); //Enter casting state
+                        Gdx.app.log("State", player.getState().toString());
+                    }
                 }
-            }else {// is casting
+            }else { // is casting
                 if (Gdx.input.isKeyJustPressed(Input.Keys.A))
                     player.casting(new Element(ElementType.FIRE));
                 if (Gdx.input.isKeyJustPressed(Input.Keys.S))

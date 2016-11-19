@@ -8,7 +8,7 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "Magigo";
-		config.width = 1024;
+		config.width = 985;
 		config.height = 768;
 		new LwjglApplication(new MagiGO(), config);
 	}
