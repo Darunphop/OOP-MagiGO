@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
+import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.Sprites.InteractiveTileObject;
 import com.cpe.magigo.Sprites.Platform;
 
@@ -13,7 +14,9 @@ import com.cpe.magigo.Sprites.Platform;
  * Created by MSI GP72 on 13/11/2559.
  */
 public class B2WorldCreator {
-    public B2WorldCreator(World world,TiledMap map){
+    public B2WorldCreator(PlayScreen screen){
+        World world = screen.getWorld();
+        TiledMap map = screen.getMap();
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
@@ -33,14 +36,14 @@ public class B2WorldCreator {
             fdef.shape = shape;
             body.createFixture(fdef);
         }
-
+        //create Platform object
         for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            new Platform(world, map, rect);
+            new Platform(screen, rect);
         }
-
+        //create frame object
         for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
@@ -52,6 +55,7 @@ public class B2WorldCreator {
 
             shape.setAsBox((rect.getWidth() / 2)/ MagiGO.PPM  , (rect.getHeight() /2)/ MagiGO.PPM );
             fdef.shape = shape;
+            fdef.filter.categoryBits = MagiGO.OBJECT_BIT;
             body.createFixture(fdef);
         }
     }

@@ -35,10 +35,10 @@ public class Magician extends Sprite {
     private PlayScreen screen;
     private FixtureDef fdef;
 
-    public Magician (World world , PlayScreen screen)
+    public Magician ( PlayScreen screen)
     {
         super(screen.getAtlas().findRegion("MagicianNew"));
-        this.world = world;
+        this.world = screen.getWorld();
         currentState = State.STANDING;
         previousState = State.STANDING;
         stateTimer = 0;
@@ -121,7 +121,7 @@ public class Magician extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(17 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
-        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT;
 
 
         fdef.shape = shape;
