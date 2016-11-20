@@ -121,8 +121,6 @@ public class PlayScreen implements Screen {
                 if (Gdx.input.isKeyJustPressed(Input.Keys.X))
                     player.casting(new Element(ElementType.DARK));
                 if (Gdx.input.isKeyJustPressed(Input.Keys.C))
-                    player.cancelCasting();
-                if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
                     player.casting();
             }
 
@@ -137,13 +135,10 @@ public class PlayScreen implements Screen {
 
         //player Texture
         player.update(dt);
-        hud.update(dt);
 
         //camera on your character
-        gamecam.position.x = 512/MagiGO.PPM;
-        gamecam.position.y = 364/MagiGO.PPM;
-        /* gamecam.position.x = player.b2body.getPosition().x;
-        gamecam.position.y = player.b2body.getPosition().y;*/
+        gamecam.position.x = player.b2body.getPosition().x;
+        gamecam.position.y = player.b2body.getPosition().y;
 
         gamecam.update();
         renderer.setView(gamecam);
