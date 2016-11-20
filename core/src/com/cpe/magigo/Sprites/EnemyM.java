@@ -19,11 +19,11 @@ public class EnemyM extends Enemy {
     public EnemyM(PlayScreen screen, float x, float y) {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
-        for ( int i = 0 ; i < 5 ; i++)
-            frames.add(new TextureRegion(screen.getAtlas().findRegion("MagicianNew"), i * 39 , 0 , 39 , 60  ));
-        walkAnimation = new Animation(0.4f , frames);
+        for ( int i = 0 ; i < 3 ; i++)
+            frames.add(new TextureRegion(screen.getAtlastMon().findRegion("enemiesM"), i * 29 , 0 , 30 , 30  ));
+        walkAnimation = new Animation(0.1f , frames);
         statetime = 0;
-        setBounds(getX(),getY() ,16/MagiGO.PPM , 16/MagiGO.PPM);
+        setBounds(getX(),getY() ,45/MagiGO.PPM , 45/MagiGO.PPM);
     }
 
     public void update(float dt)
@@ -43,7 +43,7 @@ public class EnemyM extends Enemy {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(17 / MagiGO.PPM);
+        shape.setRadius(15 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.ENEMY_BIT;
         fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.MAGIGO_BIT;
 

@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -38,6 +39,7 @@ public class PlayScreen implements Screen {
     //Reference to our game
     private MagiGO game;
     private TextureAtlas atlas;
+    private TextureAtlas atlastMon;
 
     //basic screen variable
     private OrthographicCamera gamecam;
@@ -61,6 +63,7 @@ public class PlayScreen implements Screen {
 
     public PlayScreen(MagiGO game){
         atlas = new TextureAtlas("character/MagicianFix.pack");
+        atlastMon = new TextureAtlas("enemy/EnemyM/enemyM.pack");
         this.game = game;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT / MagiGO.PPM,gamecam);
@@ -89,6 +92,11 @@ public class PlayScreen implements Screen {
     public TextureAtlas getAtlas()
     {
         return atlas;
+    }
+
+    public TextureAtlas getAtlastMon()
+    {
+        return atlastMon;
     }
 
     @Override
