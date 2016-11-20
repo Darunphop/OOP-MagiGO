@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
+import com.cpe.magigo.Sprites.EnemyM;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
@@ -45,6 +46,7 @@ public class PlayScreen implements Screen {
 
     //Character variable
     private Magician player;
+    private EnemyM malee;
 
     //Tilemap variable
     private TmxMapLoader mapLoader;
@@ -79,6 +81,7 @@ public class PlayScreen implements Screen {
 
         //create mario in our game world
         player = new Magician(this);
+        malee = new EnemyM(this , 0.32f , 0.32f);
 
         world.setContactListener(new WorldContactListener());
 
@@ -135,6 +138,7 @@ public class PlayScreen implements Screen {
 
         //player Texture
         player.update(dt);
+        malee.update(dt);
 
         //camera on your character
         gamecam.position.x = player.b2body.getPosition().x;
@@ -161,6 +165,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        malee.draw(game.batch);
         game.batch.end();
 
         //Set our batch to now draw what the Hud camera sees.
