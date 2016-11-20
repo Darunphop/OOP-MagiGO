@@ -172,11 +172,15 @@ public class Magician extends Sprite {
             currentState = State.CASTING;
             Gdx.app.log("State", "CASTING");
         }else {
-            Gdx.app.log("State", "CANCEL CASTING");
-            attack.clear();
-            currentState = State.STANDING;
+            Gdx.app.log("State", attack.sequenceAnalyse().getClass().getName());
+            cancelCasting();
         }
+    }
 
+    public void cancelCasting(){
+        Gdx.app.log("State", "CANCEL CASTING");
+        attack.clear();
+        currentState = State.STANDING;
     }
 
     public void casting(Element e){

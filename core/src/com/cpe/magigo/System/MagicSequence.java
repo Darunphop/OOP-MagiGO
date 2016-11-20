@@ -55,7 +55,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new MagicBolt(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new MagicBolt(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.FIRE)).intValue() >= 2 && elementList.get(elementList.get(ElementType.WATER)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WATER)) &&(elementList.get(ElementType.FIRE).intValue() >= 2 && (elementList.get(ElementType.WATER).intValue() >=2))){
                 if (size == 4) return new StreamGayser(ElementType.NEUTRAL);
                 removeElement(ElementType.FIRE);removeElement(ElementType.FIRE);
                 removeElement(ElementType.WATER);removeElement(ElementType.WATER);
@@ -64,8 +64,8 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.WIND)) return new StreamGayser(ElementType.WIND);
                 else if (elementList.containsKey(ElementType.LIGHT)) return new StreamGayser(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new StreamGayser(ElementType.DARK);
-            }else
-            if (elementList.get(elementList.get(ElementType.FIRE)).intValue() >= 2 && elementList.get(elementList.get(ElementType.WIND)).intValue() >=2){
+            }
+            if ((elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WIND)) && (elementList.get(ElementType.FIRE).intValue() >= 2 && elementList.get(ElementType.WIND).intValue() >=2)){
                 if (size == 4) return new MagicMine(ElementType.NEUTRAL);
                 removeElement(ElementType.FIRE);removeElement(ElementType.FIRE);
                 removeElement(ElementType.WIND);removeElement(ElementType.WIND);
@@ -75,7 +75,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new MagicMine(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new MagicMine(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.FIRE)).intValue() >= 2 && elementList.get(elementList.get(ElementType.LIGHT)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.LIGHT)) && (elementList.get(ElementType.FIRE).intValue() >= 2 && elementList.get(ElementType.LIGHT).intValue() >=2)){
                 if (size == 4) return new MagicArray(ElementType.NEUTRAL);
                 removeElement(ElementType.FIRE);removeElement(ElementType.FIRE);
                 removeElement(ElementType.LIGHT);removeElement(ElementType.LIGHT);
@@ -85,7 +85,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new MagicArray(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new MagicArray(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.FIRE)).intValue() >= 2 && elementList.get(elementList.get(ElementType.DARK)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.DARK)) && (elementList.get(ElementType.FIRE).intValue() >= 2 && elementList.get(ElementType.DARK).intValue() >=2)){
                 if (size == 4) return new MagicBomb(ElementType.NEUTRAL);
                 removeElement(ElementType.FIRE);removeElement(ElementType.FIRE);
                 removeElement(ElementType.DARK);removeElement(ElementType.DARK);
@@ -95,7 +95,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new MagicBomb(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new MagicBomb(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.WATER)).intValue() >= 2 && elementList.get(elementList.get(ElementType.WIND)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.WIND)) && (elementList.get(ElementType.WATER).intValue() >= 2 && elementList.get(ElementType.WIND).intValue() >=2)){
                 if (size == 4) return new MagicPulse(ElementType.NEUTRAL);
                 removeElement(ElementType.WATER);removeElement(ElementType.WATER);
                 removeElement(ElementType.WIND);removeElement(ElementType.WIND);
@@ -105,7 +105,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new MagicPulse(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new MagicPulse(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.WATER)).intValue() >= 2 && elementList.get(elementList.get(ElementType.LIGHT)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.LIGHT)) && (elementList.get(ElementType.WATER).intValue() >= 2 && elementList.get(ElementType.LIGHT).intValue() >=2)){
                 if (size == 4) return new ChainLighting(ElementType.NEUTRAL);
                 removeElement(ElementType.WATER);removeElement(ElementType.WATER);
                 removeElement(ElementType.LIGHT);removeElement(ElementType.LIGHT);
@@ -115,7 +115,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new ChainLighting(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new ChainLighting(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.WATER)).intValue() >= 2 && elementList.get(elementList.get(ElementType.DARK)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.DARK)) && (elementList.get(ElementType.WATER).intValue() >= 2 && elementList.get(ElementType.DARK).intValue() >=2)){
                 if (size == 4) return new ElementalMagnetic(ElementType.NEUTRAL);
                 removeElement(ElementType.WATER);removeElement(ElementType.WATER);
                 removeElement(ElementType.DARK);removeElement(ElementType.DARK);
@@ -125,7 +125,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new ElementalMagnetic(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new ElementalMagnetic(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.LIGHT)).intValue() >= 2 && elementList.get(elementList.get(ElementType.WIND)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.LIGHT) && elementList.containsKey(ElementType.WIND)) && (elementList.get(ElementType.LIGHT).intValue() >= 2 && elementList.get(ElementType.WIND).intValue() >=2)){
                 if (size == 4) return new PiercingArrow(ElementType.NEUTRAL);
                 removeElement(ElementType.LIGHT);removeElement(ElementType.LIGHT);
                 removeElement(ElementType.WIND);removeElement(ElementType.WIND);
@@ -135,7 +135,7 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new PiercingArrow(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new PiercingArrow(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.DARK)).intValue() >= 2 && elementList.get(elementList.get(ElementType.WIND)).intValue() >=2){
+            if ((elementList.containsKey(ElementType.DARK) && elementList.containsKey(ElementType.WIND)) && (elementList.get(ElementType.DARK).intValue() >= 2 && elementList.get(ElementType.WIND).intValue() >=2)){
                 if (size == 4) return new MagicBullet(ElementType.NEUTRAL);
                 removeElement(ElementType.DARK);removeElement(ElementType.DARK);
                 removeElement(ElementType.WIND);removeElement(ElementType.WIND);
@@ -145,14 +145,14 @@ public class MagicSequence {
                 else if (elementList.containsKey(ElementType.LIGHT)) return new MagicBullet(ElementType.LIGHT);
                 else if (elementList.containsKey(ElementType.DARK)) return new MagicBullet(ElementType.DARK);
             }else
-            if (elementList.get(elementList.get(ElementType.LIGHT)).intValue() == 2 && elementList.get(elementList.get(ElementType.DARK)).intValue() == 2){
+            if ((elementList.containsKey(ElementType.LIGHT) && elementList.containsKey(ElementType.DARK)) && (elementList.get(ElementType.LIGHT).intValue() == 2 && elementList.get(ElementType.DARK).intValue() == 2)){
                 removeElement(ElementType.LIGHT);removeElement(ElementType.LIGHT);
                 removeElement(ElementType.DARK);removeElement(ElementType.DARK);
                 if (elementList.containsKey(ElementType.FIRE)) return new MagicLaser(ElementType.FIRE);
                 else if (elementList.containsKey(ElementType.WATER)) return new MagicLaser(ElementType.WATER);
                 else if (elementList.containsKey(ElementType.WIND)) return new MagicLaser(ElementType.WIND);
             }else
-            if (elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.WIND)){
+            if ((elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WATER)) && (elementList.containsKey(ElementType.WIND) && elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.WIND))){
                 if (size == 3) return new ElementalShield(ElementType.NEUTRAL);
                 removeElement(ElementType.FIRE);removeElement(ElementType.WATER);removeElement(ElementType.WIND);
                 if (size == 4){
@@ -163,7 +163,7 @@ public class MagicSequence {
                     else if (elementList.containsKey(ElementType.DARK)) return new ElementalShield(ElementType.DARK);
                 }
             }else
-            if (elementList.get(elementList.get(ElementType.DARK)).intValue() == 1 && elementList.get(elementList.get(ElementType.LIGHT)).intValue() ==1){
+            if ((elementList.containsKey(ElementType.LIGHT) && elementList.containsKey(ElementType.DARK)) && (elementList.get(ElementType.DARK).intValue() == 1 && elementList.get(ElementType.LIGHT).intValue() ==1)){
                 removeElement(ElementType.DARK);removeElement(ElementType.LIGHT);
                 if (elementList.size() == 1){
                     if (elementList.containsKey(ElementType.FIRE)) return new Blink();

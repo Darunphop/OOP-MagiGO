@@ -121,6 +121,8 @@ public class PlayScreen implements Screen {
                 if (Gdx.input.isKeyJustPressed(Input.Keys.X))
                     player.casting(new Element(ElementType.DARK));
                 if (Gdx.input.isKeyJustPressed(Input.Keys.C))
+                    player.cancelCasting();
+                if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
                     player.casting();
             }
 
