@@ -21,20 +21,20 @@ public class Hud implements Disposable{
 
     private Integer worldTimer;
     private float timeCount;
-    private Integer Scores;
+    private static Integer score;
 
-    Label countdownLabel;
-    Label scoreLabel;
-    Label timeLabel;
-    Label levelLabel;
-    Label worldLabel;
-    Label MagiGOLabel;
+    private Label countdownLabel;
+    private static Label scoreLabel;
+    private Label timeLabel;
+    private Label levelLabel;
+    private Label worldLabel;
+    private Label MagiGOLabel;
 
     public Hud (SpriteBatch sb)
     {
-        worldTimer = 300;
+        worldTimer = 60;
         timeCount = 0;
-        Scores = 0;
+        score = 0;
 
         viewport = new FitViewport(MagiGO.V_WIDTH ,MagiGO.V_HEIGHT ,new OrthographicCamera());
         stage = new Stage(viewport,sb);
@@ -44,10 +44,10 @@ public class Hud implements Disposable{
         table.setFillParent(true);
 
         countdownLabel = new Label(String.format("%03d",worldTimer),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        scoreLabel = new Label(String.format("%06d",Scores),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        scoreLabel = new Label(String.format("%06d",score),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        levelLabel = new Label("1-1",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        worldLabel = new Label("WORLD",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        levelLabel = new Label("stage01",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        worldLabel = new Label("DAYTIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         MagiGOLabel = new Label("Magicians",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         table.add(MagiGOLabel).expandX().padTop(10);
@@ -60,6 +60,21 @@ public class Hud implements Disposable{
 
         stage.addActor(table);
 
+    }
+
+
+    public void update(float dt){
+        timeCount += dt;
+        if(timeCount >= 1){
+            worldTimer--;
+            countdownLabel.setText(String.format("%03d",worldTimer));
+            timeCount = 0;
+        }
+    }
+
+    public static void addScore(int value){
+        score += value;
+        scoreLabel.setText((String.format("%06d",score)));
     }
 
     @Override
