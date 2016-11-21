@@ -121,7 +121,7 @@ public class Magician extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(17 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
-        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT ;
 
 
         fdef.shape = shape;
