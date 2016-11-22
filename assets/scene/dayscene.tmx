@@ -18,6 +18,21 @@
  <tileset firstgid="1100" name="2-2" tilewidth="16" tileheight="16" tilecount="24" columns="4">
   <image source="source/2-2.png" width="64" height="96"/>
  </tileset>
+ <tileset firstgid="1124" name="fire3" tilewidth="16" tileheight="16" tilecount="18" columns="3">
+  <image source="source/fire3.png" width="48" height="96"/>
+ </tileset>
+ <tileset firstgid="1142" name="light3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/light3.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="1151" name="night3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/night3.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="1160" name="water3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/water3.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="1169" name="wind3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/wind3.png" width="48" height="48"/>
+ </tileset>
  <layer name="Background" width="80" height="48">
   <data encoding="base64" compression="zlib">
    eJzt0LkNwlAUAMEf0Im5r6IowNgtIBGQQQtQANAhrwaepS/LE0y80jazUhr+NidlQcqSlBUpa1I2pGxJ2ZGyJ+VAyhEAAAAAAAAAgKpOpZQ2nCuo1R1CF/pwCdcJuiXdw8M///zzb4T888+/8Rrq3zO8Juid9Anf8AMyuuLc
@@ -25,7 +40,7 @@
  </layer>
  <layer name="Graphic" width="80" height="48">
   <data encoding="base64" compression="zlib">
-   eJztlkcOwzAMBBXA/0nvvbcvBEiA/P8P2Vt8yMFyVCx7BpgrSYmgRGMAftPOjOnIruzJvhzIYVaPnL5zjRRnLCdyKmdyLheW8W3qdJWzCL5zLRVnJddyI7dyJ/eW8W3qdJWzCL5zHRTnKE/yLC/yKm+W8W3qLJOz7By6Op9vfNcZcuZj/Am+CTnzrntVhX6EnEPXvQo5O1XAda9Czk4dSeUPAwAAAIBm88jtp092VWteuTt7J3x/9wz/sWUQsS42bf6bdl5E/Bp7f0rd2P1DxOoY+v3gvULEssben1IXAAAAAAAgFB8jkJAB
+   eJztlsdqxDAURR3w/6T33tsvBBJIL4uEhPTee69/m7MQZBZmGE0kt7kHDg9tJPnKz1YQCBFNdRgENViLdViPDdgY5mNN32s1MU8ztmArtmE7dljOb7NPV2uWgu+1OpmnC7uxB3uxD/st57fZp6s1S8H3WgPMM4hDOIwjOIpjlvPb7LOcNcvtQ1fP5xvf+4yz55P4J/gmzp53fVZpOI84+9D1WcXZO2nA9VnF2Tt5JCv/MCGEEEIIUdlMFNxPJ3VXtWaqILPpDOc3Hsr/WBVIKfNipfV/pT2vlPLPpO9PWTfp85NSpse4vx/6XkkpyzXp+1PWFW6YIctZnDOZXlNv8NaMX6iv+KbMI5knlwVcNPncUe/xwYzfqR/4qfwiWSKXZVwx+TxSn/DZjL+o3/ij/IRHNnm/tnDbvGdH1GM80XtXlFXyWcMd3MU9k9cp9QzPlV9R1slnA/fxAA9NXhfUS7xSfkKkjl9Pf6lD
   </data>
  </layer>
  <layer name="Crystal" width="80" height="48">

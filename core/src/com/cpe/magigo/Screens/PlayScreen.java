@@ -1,22 +1,33 @@
 package com.cpe.magigo.Screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Scenes.MagicCombineInterface;
 import com.cpe.magigo.Sprites.EnemyM;
+import com.cpe.magigo.Sprites.HPGauge;
+import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
@@ -41,6 +52,7 @@ public class PlayScreen implements Screen {
     //Character variable
     private Magician player;
     private EnemyM malee;
+    private HPGauge hp;
 
     //Tilemap variable
     private TmxMapLoader mapLoader;
@@ -77,6 +89,7 @@ public class PlayScreen implements Screen {
         //create mario in our game world
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
+        hp = new HPGauge();
 
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
