@@ -130,16 +130,26 @@ public class PlayScreen implements Screen {
                     }
                 }
             }else { // is casting
-                if (Gdx.input.isKeyJustPressed(Input.Keys.A))
+                if (Gdx.input.isKeyJustPressed(Input.Keys.A)){
                     player.casting(new Element(ElementType.FIRE));
-                if (Gdx.input.isKeyJustPressed(Input.Keys.S))
+                    MCI.update();
+                }
+                if (Gdx.input.isKeyJustPressed(Input.Keys.S)) {
                     player.casting(new Element(ElementType.WATER));
-                if (Gdx.input.isKeyJustPressed(Input.Keys.D))
+                    MCI.update();
+                }
+                if (Gdx.input.isKeyJustPressed(Input.Keys.D)) {
                     player.casting(new Element(ElementType.WIND));
-                if (Gdx.input.isKeyJustPressed(Input.Keys.Z))
+                    MCI.update();
+                }
+                if (Gdx.input.isKeyJustPressed(Input.Keys.Z)){
                     player.casting(new Element(ElementType.LIGHT));
-                if (Gdx.input.isKeyJustPressed(Input.Keys.X))
+                    MCI.update();
+                }
+                if (Gdx.input.isKeyJustPressed(Input.Keys.X)){
                     player.casting(new Element(ElementType.DARK));
+                    MCI.update();
+                }
                 if (Gdx.input.isKeyJustPressed(Input.Keys.C)) {
                     MCI.sleep();
                     player.cancelCasting();
@@ -167,7 +177,7 @@ public class PlayScreen implements Screen {
         gamecam.position.x = 640/MagiGO.PPM;
         gamecam.position.y = 384/MagiGO.PPM;
         hud.update(dt);
-        MCI.update(dt);
+        //MCI.update(dt);
 
         gamecam.update();
         renderer.setView(gamecam);

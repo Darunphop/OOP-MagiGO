@@ -182,7 +182,7 @@ public class MagicSequence {
                         return new Flying();
                 }
             }
-            return new Magic();
+            return new Failure();
         }else return new Failure();
     }
 
@@ -216,4 +216,7 @@ public class MagicSequence {
         return this.sequence;
     }
 
+    public int getSize() {
+        return size;
+    }
 }
