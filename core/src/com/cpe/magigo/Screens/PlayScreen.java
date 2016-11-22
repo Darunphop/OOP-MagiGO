@@ -26,6 +26,7 @@ import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Scenes.MagicCombine;
 import com.cpe.magigo.Sprites.EnemyM;
+import com.cpe.magigo.Sprites.HPGauge;
 import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
@@ -52,6 +53,7 @@ public class PlayScreen implements Screen {
     //Character variable
     private Magician player;
     private EnemyM malee;
+    private HPGauge hp;
 
     //Tilemap variable
     private TmxMapLoader mapLoader;
@@ -88,6 +90,7 @@ public class PlayScreen implements Screen {
         //create mario in our game world
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
+        hp = new HPGauge();
 
         world.setContactListener(new WorldContactListener());
 

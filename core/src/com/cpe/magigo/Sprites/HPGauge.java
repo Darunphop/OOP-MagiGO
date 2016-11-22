@@ -1,11 +1,10 @@
 package com.cpe.magigo.Sprites;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
 
-/**
- * Created by MSI GP72 on 22/11/2559.
- */
-public class HPGauge extends Actor {
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+public class HPGauge {
 
 }
