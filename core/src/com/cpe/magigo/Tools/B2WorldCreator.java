@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
-import com.cpe.magigo.Sprites.InteractiveTileObject;
+import com.cpe.magigo.Sprites.Crystal;
 import com.cpe.magigo.Sprites.Platform;
 
 /**
@@ -23,7 +23,7 @@ public class B2WorldCreator {
         Body body;
 
         //create Ground object
-        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
@@ -37,14 +37,14 @@ public class B2WorldCreator {
             body.createFixture(fdef);
         }
         //create Platform object
-        for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             new Platform(screen, rect);
         }
         //create frame object
-        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
@@ -57,6 +57,12 @@ public class B2WorldCreator {
             fdef.shape = shape;
             fdef.filter.categoryBits = MagiGO.OBJECT_BIT;
             body.createFixture(fdef);
+        }
+        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class))
+        {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            new Crystal(screen, rect);
         }
     }
 }

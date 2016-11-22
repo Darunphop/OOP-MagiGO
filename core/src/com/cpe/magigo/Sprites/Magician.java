@@ -17,10 +17,11 @@ import com.cpe.magigo.System.MagicSequence;
  * Created by Asuka on 13/11/2559.
  */
 public class Magician extends Sprite {
-    public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING};
+    public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING}
+
     public State currentState;
     public State previousState;
-    MagicSequence attack;
+    private MagicSequence attack;
 
     public World world;
     public Body b2body;
@@ -113,7 +114,7 @@ public class Magician extends Sprite {
     public void defineMagician()
     {
         BodyDef bodydef = new BodyDef();
-        bodydef.position.set(512/ MagiGO.PPM,384/ MagiGO.PPM);
+        bodydef.position.set(640/ MagiGO.PPM,384/ MagiGO.PPM);
         bodydef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bodydef);
 
@@ -121,7 +122,7 @@ public class Magician extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(17 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
-        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.OBJECT_BIT;
 
 
         fdef.shape = shape;
@@ -202,6 +203,8 @@ public class Magician extends Sprite {
             currentState = State.JUMPING;
         }
     }
-
+    public MagicSequence getAttack(){
+        return this.attack;
+    }
 
 }

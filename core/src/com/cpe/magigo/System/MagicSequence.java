@@ -209,9 +209,11 @@ public class MagicSequence {
     public boolean isFull(){
         return size==CAPACITY;
     }
-
     public boolean isEmpty(){
         return size==0;
+    }
+    public Element[] getCombine(){
+        return this.sequence;
     }
 
 }

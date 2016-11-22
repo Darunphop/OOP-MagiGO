@@ -3,7 +3,7 @@ package com.cpe.magigo.Sprites.Magic;
 /**
  * Created by darunphop on 14-Nov-16.
  */
-public class Translocation extends Magic{
+public abstract class Translocation extends Magic{
     public Translocation() {
     }
 }

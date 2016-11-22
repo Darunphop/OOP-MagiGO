@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="16" tileheight="16" nextobjectid="40">
- <tileset firstgid="1" name="DS DSi - Pokemon HeartGold SoulSilver - Text Boxes" tilewidth="16" tileheight="16" tilecount="1056" columns="32">
-  <image source="source/DS DSi - Pokemon HeartGold SoulSilver - Text Boxes.png" width="515" height="540"/>
- </tileset>
- <tileset firstgid="1057" name="ground2" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="48" tilewidth="16" tileheight="16" nextobjectid="70">
+ <tileset firstgid="1" name="ground2" tilewidth="16" tileheight="16" tilecount="1" columns="1">
   <image source="source/ground2.png" width="16" height="16"/>
+ </tileset>
+ <tileset firstgid="2" name="DS DSi - Pokemon HeartGold SoulSilver - Text Boxes" tilewidth="16" tileheight="16" tilecount="1056" columns="32">
+  <image source="source/DS DSi - Pokemon HeartGold SoulSilver - Text Boxes.png" width="515" height="540"/>
  </tileset>
  <tileset firstgid="1058" name="sky" tilewidth="16" tileheight="16" tilecount="13" columns="1">
   <image source="source/sky.png" width="16" height="222"/>
@@ -15,30 +15,59 @@
  <tileset firstgid="1099" name="tile" tilewidth="16" tileheight="16" tilecount="1" columns="1">
   <image source="source/tile.png" width="16" height="16"/>
  </tileset>
- <layer name="Background" width="64" height="48">
+ <tileset firstgid="1100" name="2-2" tilewidth="16" tileheight="16" tilecount="24" columns="4">
+  <image source="source/2-2.png" width="64" height="96"/>
+ </tileset>
+ <tileset firstgid="1124" name="fire3" tilewidth="16" tileheight="16" tilecount="18" columns="3">
+  <image source="source/fire3.png" width="48" height="96"/>
+ </tileset>
+ <tileset firstgid="1142" name="light3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/light3.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="1151" name="night3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/night3.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="1160" name="water3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/water3.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="1169" name="wind3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
+  <image source="source/wind3.png" width="48" height="48"/>
+ </tileset>
+ <layer name="Background" width="80" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt0ccNwkAUBNA9UIkBB3LOOUMXFEBoAYk7tAANQIkMkk8c1mtpLVvsHN7tp9G3UkJYBksbLmO4rCZlqEAValCHBjQ17ojiLtsnq7MVtKANHehCD/owUOyPStBdjk9W5ygYwgjGMIEpzGCu2P9L9o8wc4Lucn2yOlfBApawgjVsYAs7xf5fsn+EmRN0l+eT1XkxkP1D555cQsn+oXNP3nAFwxUNVyIiIiIiIiIiIiIiIqK/shdCHOAYg7j2fp3gDBe4GugGd+Zn/gTcwvzMz/zMH0f+BzwN9II3fAB1JR2o
+   eJzt0LkNwlAUAMEf0Im5r6IowNgtIBGQQQtQANAhrwaepS/LE0y80jazUhr+NidlQcqSlBUpa1I2pGxJ2ZGyJ+VAyhEAAAAAAAAAgKpOpZQ2nCuo1R1CF/pwCdcJuiXdw8M///zzb4T888+/8Rrq3zO8Juid9Anf8AMyuuLc
   </data>
  </layer>
- <layer name="Graphic" width="64" height="48">
+ <layer name="Graphic" width="80" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt1cEJADAIBEEfaST1pP9+UsZpMgP7F0GsAgAAAAB401l/tyWNu6Np80odS//fdOn9Sy/mTqX+pf9vOgAA/nIBFATFSQ==
+   eJztlsdqxDAURR3w/6T33tsvBBJIL4uEhPTee69/m7MQZBZmGE0kt7kHDg9tJPnKz1YQCBFNdRgENViLdViPDdgY5mNN32s1MU8ztmArtmE7dljOb7NPV2uWgu+1OpmnC7uxB3uxD/st57fZp6s1S8H3WgPMM4hDOIwjOIpjlvPb7LOcNcvtQ1fP5xvf+4yz55P4J/gmzp53fVZpOI84+9D1WcXZO2nA9VnF2Tt5JCv/MCGEEEIIUdlMFNxPJ3VXtWaqILPpDOc3Hsr/WBVIKfNipfV/pT2vlPLPpO9PWTfp85NSpse4vx/6XkkpyzXp+1PWFW6YIctZnDOZXlNv8NaMX6iv+KbMI5knlwVcNPncUe/xwYzfqR/4qfwiWSKXZVwx+TxSn/DZjL+o3/ij/IRHNnm/tnDbvGdH1GM80XtXlFXyWcMd3MU9k9cp9QzPlV9R1slnA/fxAA9NXhfUS7xSfkKkjl9Pf6lD
+  </data>
+ </layer>
+ <layer name="Crystal" width="80" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt1scJA1EQRMF/2PDk/cqb/HNQp/AZgViogr4Pc3qtAQAAAAC9ZkNr82yRLYd/XzM9q/xsnW2yrf912+Vn++yQHf2v2yk/G7NzdvG/btf87Jbds4f/dXvmZ6/snX38DyZF/9Xovxr9V6P/avRfjf6D6dJ/NfqvRv/V6L8a/Vej/wAAAPilLy4wGb0=
   </data>
  </layer>
  <objectgroup name="floor1">
-  <object id="20" x="0" y="592" width="1024" height="176"/>
+  <object id="20" x="1" y="591" width="1278.67" height="176"/>
  </objectgroup>
  <objectgroup name="platform">
   <object id="32" x="16" y="336" width="240"/>
-  <object id="35" x="0" y="336" width="1024" height="16"/>
-  <object id="36" x="32" y="400" width="256" height="16"/>
-  <object id="37" x="736" y="400" width="256" height="16"/>
-  <object id="38" x="0" y="464" width="1024" height="16"/>
-  <object id="39" x="352" y="528" width="320" height="16"/>
+  <object id="35" x="0" y="336" width="1278.67" height="16"/>
+  <object id="36" x="62.6667" y="400" width="192" height="16"/>
+  <object id="37" x="1024" y="400" width="193.333" height="16"/>
+  <object id="38" x="0" y="464" width="1278.67" height="16"/>
+  <object id="39" x="320" y="528" width="192" height="12.8"/>
+  <object id="43" x="768" y="528" width="192" height="12.8"/>
  </objectgroup>
  <objectgroup name="frame">
   <object id="26" x="-16" y="0" width="16" height="768"/>
-  <object id="27" x="-16" y="-16" width="1040" height="16"/>
-  <object id="28" x="1024" y="-16" width="16" height="784"/>
+  <object id="27" x="-16" y="-17.959" width="1294.67" height="19.9179"/>
+  <object id="28" x="1280" y="-16" width="16" height="784"/>
+ </objectgroup>
+ <objectgroup name="crystaloj">
+  <object id="52" x="608" y="240" width="64" height="96"/>
+  <object id="53" x="608" y="368" width="64" height="96"/>
+  <object id="54" x="608" y="496" width="64" height="96"/>
  </objectgroup>
 </map>

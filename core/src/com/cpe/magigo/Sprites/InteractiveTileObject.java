@@ -38,8 +38,8 @@ public abstract class InteractiveTileObject {
         fixture = body.createFixture(fdef);
 
     }
-    public abstract void onHeadHit();
-    public abstract void onLegHit();
+    //public abstract void onHeadHit();
+    //public abstract void onLegHit();
 
 
     public void setCategoryFilter(short fileterbit){
