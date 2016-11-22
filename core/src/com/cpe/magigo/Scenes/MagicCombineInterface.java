@@ -20,7 +20,7 @@ public class MagicCombineInterface implements Disposable {
     public Stage stage;
     private boolean flag;
     private SpriteBatch batch;
-    private Image element;
+    private Image elementSet[];
     private Magician player;
     private Viewport viewport;
 
@@ -30,10 +30,14 @@ public class MagicCombineInterface implements Disposable {
         stage = new Stage(viewport,sb);
         this.player = player;
         flag = false;
-        element = new Image(new com.badlogic.gdx.graphics.Texture("element/fire.png"));
-        element.setPosition(MagiGO.V_WIDTH/2.12f,MagiGO.V_HEIGHT/1.3f);
-        element.setSize(77,77);
-        stage.addActor(element);
+        elementSet = new Image[5];
+        for (int i = -2; i < 3; i++) {
+            Image tmp = new Image(new com.badlogic.gdx.graphics.Texture("element/fire.png"));
+            tmp.setPosition((MagiGO.V_WIDTH/2.08f) + (i * 100),(MagiGO.V_HEIGHT/1.3f));
+            tmp.setSize(77,77);
+            elementSet[i + 2] = tmp;
+            stage.addActor(elementSet[i + 2]);
+        }
     }
     public void standby(){
         flag = true;
@@ -52,7 +56,7 @@ public class MagicCombineInterface implements Disposable {
         stage.dispose();
     }
 
-    public Image getElement() {
-        return element;
+    public boolean isReady(){
+        return flag;
     }
 }

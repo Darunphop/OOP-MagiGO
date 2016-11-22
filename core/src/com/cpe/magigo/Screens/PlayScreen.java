@@ -184,7 +184,8 @@ public class PlayScreen implements Screen {
         //Set our batch to now draw what the Hud camera sees.
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
-        MCI.stage.draw();
+        if (MCI.isReady())
+            MCI.stage.draw();
 
 
         //gamecam.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight()/2,0);
