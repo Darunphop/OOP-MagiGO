@@ -62,7 +62,6 @@ public class Hud implements Disposable{
 
     }
 
-
     public void update(float dt){
         timeCount += dt;
         if(timeCount >= 1 ){

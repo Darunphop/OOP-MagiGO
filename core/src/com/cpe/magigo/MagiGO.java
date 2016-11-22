@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cpe.magigo.Screens.PlayScreen;
 
 public class MagiGO extends Game {
-	public static final int V_WIDTH = 1024;
+	public static final int V_WIDTH = 1280;
 	public static final int V_HEIGHT = 768;
 	public static final float PPM = 100;
 
@@ -21,8 +21,8 @@ public class MagiGO extends Game {
 	public static final short MAGIGO_LEG_BIT = 32;
 	public static final short MAGIGO_JUMP_BIT = 64;
 	public static final short OBJECT_BIT = 128;
-	public static final short ENEMY_BIT = 128;
-	public static final short CRYSTAL_BIT = 256;
+	public static final short ENEMY_BIT = 256;
+	public static final short CRYSTAL_BIT = 512;
 
 	public SpriteBatch batch;
 

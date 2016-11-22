@@ -113,7 +113,7 @@ public class Magician extends Sprite {
     public void defineMagician()
     {
         BodyDef bodydef = new BodyDef();
-        bodydef.position.set(512/ MagiGO.PPM,384/ MagiGO.PPM);
+        bodydef.position.set(640/ MagiGO.PPM,384/ MagiGO.PPM);
         bodydef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bodydef);
 
@@ -121,7 +121,7 @@ public class Magician extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(17 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
-        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT ;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.OBJECT_BIT;
 
 
         fdef.shape = shape;

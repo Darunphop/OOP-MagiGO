@@ -149,8 +149,8 @@ public class PlayScreen implements Screen {
         malee.update(dt);
 
         //camera on your character
-        gamecam.position.x = player.b2body.getPosition().x;
-        gamecam.position.y = player.b2body.getPosition().y;
+        gamecam.position.x = 640/MagiGO.PPM;
+        gamecam.position.y = 384/MagiGO.PPM;
 
         gamecam.update();
         renderer.setView(gamecam);
