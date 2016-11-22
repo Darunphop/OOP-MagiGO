@@ -24,7 +24,9 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
+import com.cpe.magigo.Scenes.MagicCombine;
 import com.cpe.magigo.Sprites.EnemyM;
+import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
@@ -45,6 +47,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Hud hud;
+    private MagicCombine magCombine;
 
     //Character variable
     private Magician player;
@@ -147,6 +150,7 @@ public class PlayScreen implements Screen {
         //player Texture
         player.update(dt);
         malee.update(dt);
+        hud.update(dt);
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
