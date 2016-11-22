@@ -17,10 +17,11 @@ import com.cpe.magigo.System.MagicSequence;
  * Created by Asuka on 13/11/2559.
  */
 public class Magician extends Sprite {
-    public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING};
+    public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING}
+
     public State currentState;
     public State previousState;
-    MagicSequence attack;
+    private MagicSequence attack;
 
     public World world;
     public Body b2body;
@@ -202,6 +203,8 @@ public class Magician extends Sprite {
             currentState = State.JUMPING;
         }
     }
-
+    public MagicSequence getAttack(){
+        return this.attack;
+    }
 
 }

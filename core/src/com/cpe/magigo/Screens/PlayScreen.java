@@ -1,38 +1,27 @@
 package com.cpe.magigo.Screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
-import com.cpe.magigo.Scenes.MagicCombine;
+import com.cpe.magigo.Scenes.MagicCombineInterface;
 import com.cpe.magigo.Sprites.EnemyM;
-import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.Tools.B2WorldCreator;
 import com.cpe.magigo.Tools.WorldContactListener;
-import com.sun.corba.se.impl.oa.poa.ActiveObjectMap;
 
 /**
  * Created by darunphop on 02-Nov-16.
@@ -47,7 +36,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     private Viewport gamePort;
     private Hud hud;
-    private MagicCombine magCombine;
+    private MagicCombineInterface MCI;
 
     //Character variable
     private Magician player;
@@ -80,7 +69,7 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1/ MagiGO.PPM);
 
         //create our Box2D world, setting no gravity in X, -10 gravity in Y, and allow bodies to sleep
-        world = new World(new Vector2(0,-10),true);
+        world = new World(new Vector2(0,-10f),true);
         b2dr = new Box2DDebugRenderer();
 
         creator = new B2WorldCreator(this);
@@ -88,6 +77,9 @@ public class PlayScreen implements Screen {
         //create mario in our game world
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
+
+        //create MCI
+        MCI = new MagicCombineInterface(game.batch, player);
 
         world.setContactListener(new WorldContactListener());
 
@@ -120,6 +112,7 @@ public class PlayScreen implements Screen {
                 if (player.getState() == Magician.State.STANDING || player.getState() == Magician.State.RUNNING){
                     if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
                         player.casting(); //Enter casting state
+                        MCI.standby();
                         Gdx.app.log("State", player.getState().toString());
                     }
                 }
@@ -134,8 +127,14 @@ public class PlayScreen implements Screen {
                     player.casting(new Element(ElementType.LIGHT));
                 if (Gdx.input.isKeyJustPressed(Input.Keys.X))
                     player.casting(new Element(ElementType.DARK));
-                if (Gdx.input.isKeyJustPressed(Input.Keys.C))
+                if (Gdx.input.isKeyJustPressed(Input.Keys.C)) {
+                    MCI.sleep();
+                    player.cancelCasting();
+                }
+                if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+                    MCI.sleep();
                     player.casting();
+                }
             }
 
         }
@@ -150,11 +149,12 @@ public class PlayScreen implements Screen {
         //player Texture
         player.update(dt);
         malee.update(dt);
-        hud.update(dt);
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
         gamecam.position.y = 384/MagiGO.PPM;
+        hud.update(dt);
+        MCI.update(dt);
 
         gamecam.update();
         renderer.setView(gamecam);
@@ -178,11 +178,13 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         malee.draw(game.batch);
+
         game.batch.end();
 
         //Set our batch to now draw what the Hud camera sees.
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
+        MCI.stage.draw();
 
 
         //gamecam.position.set(gamePort.getWorldWidth()/2,gamePort.getWorldHeight()/2,0);
