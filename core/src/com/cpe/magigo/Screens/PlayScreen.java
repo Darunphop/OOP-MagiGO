@@ -26,6 +26,7 @@ import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Scenes.MagicCombineInterface;
 import com.cpe.magigo.Sprites.EnemyM;
+import com.cpe.magigo.Sprites.EnemyR;
 import com.cpe.magigo.Sprites.HPGauge;
 import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
@@ -52,6 +53,7 @@ public class PlayScreen implements Screen {
     //Character variable
     private Magician player;
     private EnemyM malee;
+    private EnemyR range;
     private HPGauge hp;
 
     //Tilemap variable
@@ -89,6 +91,7 @@ public class PlayScreen implements Screen {
         //create mario in our game world
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
+        range = new EnemyR(this , 0.32f , 0.32f);
         hp = new HPGauge();
 
         //create MCI
@@ -172,6 +175,7 @@ public class PlayScreen implements Screen {
         //player Texture
         player.update(dt);
         malee.update(dt);
+        range.update(dt);
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -201,6 +205,7 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         malee.draw(game.batch);
+        range.draw(game.batch);
 
         game.batch.end();
 
