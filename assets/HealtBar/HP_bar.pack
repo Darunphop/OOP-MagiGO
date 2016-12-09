@@ -1,0 +1,19 @@
+
+HP_bar.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+fullhealth_bar
+  rotate: false
+  xy: 1, 86
+  size: 826, 83
+  orig: 826, 83
+  offset: 0, 0
+  index: -1
+health_bar
+  rotate: false
+  xy: 1, 1
+  size: 826, 83
+  orig: 826, 83
+  offset: 0, 0
+  index: -1

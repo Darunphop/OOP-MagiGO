@@ -1,7 +1,9 @@
 package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -17,6 +19,8 @@ import com.cpe.magigo.System.MagicSequence;
  * Created by Asuka on 13/11/2559.
  */
 public class Magician extends Sprite {
+    public int Health = 100;
+    public static int MaxHealth = 100;
     public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING}
 
     public State currentState;
@@ -71,7 +75,11 @@ public class Magician extends Sprite {
         setPosition(b2body.getPosition().x - getWidth() /2 ,b2body.getPosition().y - getHeight() / 2);
         setRegion(getFrame(dt));
 
+
     }
+
+
+
 
     public TextureRegion getFrame (float dt)
     {
@@ -205,6 +213,11 @@ public class Magician extends Sprite {
     }
     public MagicSequence getAttack(){
         return this.attack;
+    }
+
+    public void hit(Enemy enemy , PlayScreen screen)
+    {
+        screen.Hp -= 10;
     }
 
 }

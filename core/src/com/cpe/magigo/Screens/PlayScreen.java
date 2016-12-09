@@ -43,6 +43,7 @@ public class PlayScreen implements Screen {
     private MagiGO game;
     private TextureAtlas atlas;
     private TextureAtlas atlastMon;
+    private TextureAtlas atlastHP;
 
     //basic screen variable
     private OrthographicCamera gamecam;
@@ -50,11 +51,17 @@ public class PlayScreen implements Screen {
     private Hud hud;
     private MagicCombineInterface MCI;
 
+    //Tower variable
+    public int Hp=80;
+    private HPGauge hp;
+    private float health=1;
+    Texture blank;
+
     //Character variable
     private Magician player;
     private EnemyM malee;
     private EnemyR range;
-    private HPGauge hp;
+
 
     //Tilemap variable
     private TmxMapLoader mapLoader;
@@ -67,9 +74,11 @@ public class PlayScreen implements Screen {
     private B2WorldCreator creator;
 
 
+
     public PlayScreen(MagiGO game){
         atlas = new TextureAtlas("character/MagicianFix.pack");
         atlastMon = new TextureAtlas("enemy/EnemyM/enemyM.pack");
+        atlastHP = new TextureAtlas("HealtBar/HP_bar.pack");
         this.game = game;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT / MagiGO.PPM,gamecam);
@@ -92,7 +101,7 @@ public class PlayScreen implements Screen {
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);
-        hp = new HPGauge();
+        hp = new HPGauge(this , 0.32f , 0.32f ,Hp);
 
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
@@ -108,6 +117,11 @@ public class PlayScreen implements Screen {
     public TextureAtlas getAtlastMon()
     {
         return atlastMon;
+    }
+
+    public TextureAtlas getAtlastHP()
+    {
+        return atlastHP;
     }
 
     @Override
@@ -166,7 +180,7 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public void update(float dt)
+    public void update(float dt ,int Hp)
     {
         handleInput(dt);
 
@@ -176,6 +190,7 @@ public class PlayScreen implements Screen {
         player.update(dt);
         malee.update(dt);
         range.update(dt);
+        hp.update(Hp);
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -189,7 +204,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        update(delta);
+        update(delta,Hp);
 
         //Clear the game screen with Green
         Gdx.gl.glClearColor(0f, 0.7f, 0.4f, 1);
@@ -202,10 +217,13 @@ public class PlayScreen implements Screen {
         b2dr.render(world, gamecam.combined);
 
         game.batch.setProjectionMatrix(gamecam.combined);
+        //game.batch.draw(Hp,0,0,10,5);
         game.batch.begin();
         player.draw(game.batch);
         malee.draw(game.batch);
+        hp.draw(game.batch);
         range.draw(game.batch);
+        //hp.draw(game.batch);
 
         game.batch.end();
 
