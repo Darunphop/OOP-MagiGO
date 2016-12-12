@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.System.Status;
 
 /**
  * Created by Asuka on 26/11/2559.
@@ -24,6 +25,8 @@ public class EnemyR extends Enemy {
         walkAnimation = new Animation(0.1f , frames);
         statetime = 0;
         setBounds(getX(),getY() ,60/ MagiGO.PPM , 45/MagiGO.PPM);
+
+        this.status = new Status();
     }
 
     public void update(float dt)

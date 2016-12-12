@@ -32,6 +32,7 @@ import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
+import com.cpe.magigo.System.Status;
 import com.cpe.magigo.Tools.B2WorldCreator;
 import com.cpe.magigo.Tools.WorldContactListener;
 
@@ -52,9 +53,10 @@ public class PlayScreen implements Screen {
     private MagicCombineInterface MCI;
 
     //Tower variable
-    public int Hp=60;
+    public int Hp=100;
     private HPGauge hp;
-    private float health=1;
+    private float health=10;
+    private Status towerStatus;
 
     //Character variable
     private Magician player;

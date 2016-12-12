@@ -14,6 +14,7 @@ import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.MagicSequence;
+import com.cpe.magigo.System.Status;
 
 /**
  * Created by Asuka on 13/11/2559.
@@ -26,6 +27,7 @@ public class Magician extends Sprite {
     public State currentState;
     public State previousState;
     private MagicSequence attack;
+    private Status status;
 
     public World world;
     public Body b2body;
@@ -48,6 +50,7 @@ public class Magician extends Sprite {
         previousState = State.STANDING;
         stateTimer = 0;
         runningRight = true;
+        status = new Status();
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
