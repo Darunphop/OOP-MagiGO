@@ -20,10 +20,10 @@ public class EnemyR extends Enemy {
         super(screen, x, y);
         frames = new Array<TextureRegion>();
         for ( int i = 0 ; i < 3 ; i++)
-            frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_R"), i * 45 , 0 , 45 , 65  ));
+            frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_R"), i * 45 , 0 , 45 , 70  ));
         walkAnimation = new Animation(0.1f , frames);
         statetime = 0;
-        setBounds(getX(),getY() ,60/ MagiGO.PPM , 60/MagiGO.PPM);
+        setBounds(getX(),getY() ,60/ MagiGO.PPM , 70/MagiGO.PPM);
     }
 
     public void update(float dt)
