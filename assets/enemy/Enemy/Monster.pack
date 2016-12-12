@@ -1,0 +1,19 @@
+
+Monster.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+monster_R
+  rotate: false
+  xy: 1, 1
+  size: 231, 58
+  orig: 231, 58
+  offset: 0, 0
+  index: -1
+monster
+  rotate: false
+  xy: 234, 2
+  size: 229, 57
+  orig: 229, 57
+  offset: 0, 0
+  index: -1
