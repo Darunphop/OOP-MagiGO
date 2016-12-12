@@ -218,6 +218,8 @@ public class Magician extends Sprite {
     public void hit(Enemy enemy , PlayScreen screen)
     {
         screen.Hp -= 10;
+        if(screen.Hp <= 0)
+            magicianIsDead = true;
     }
 
 }

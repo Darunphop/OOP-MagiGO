@@ -52,10 +52,9 @@ public class PlayScreen implements Screen {
     private MagicCombineInterface MCI;
 
     //Tower variable
-    public int Hp=80;
+    public int Hp=60;
     private HPGauge hp;
     private float health=1;
-    Texture blank;
 
     //Character variable
     private Magician player;
@@ -101,7 +100,8 @@ public class PlayScreen implements Screen {
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);
-        hp = new HPGauge(this , 0.32f , 0.32f ,Hp);
+        hp = new HPGauge(this ,Hp);
+        hp.setOrigin(0,0);
 
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
@@ -223,7 +223,6 @@ public class PlayScreen implements Screen {
         malee.draw(game.batch);
         hp.draw(game.batch);
         range.draw(game.batch);
-        //hp.draw(game.batch);
 
         game.batch.end();
 

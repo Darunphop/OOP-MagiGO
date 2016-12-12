@@ -17,26 +17,25 @@ public class HPGauge extends Sprite
     private Animation walkAnimation;
     private Array<TextureRegion> frames;//full gauge
     private Array<TextureRegion> frame;//empty gauge
-    public HPGauge(PlayScreen screen ,float x , float y ,int HP)
+    public HPGauge(PlayScreen screen ,int HP)
     {
         this.world = screen.getWorld();
         this.screen = screen;
-        setPosition(x,y);
         frame = new Array<TextureRegion>();
         frames = new Array<TextureRegion>();
         frames.add(new TextureRegion(screen.getAtlastHP().findRegion("fullhealth_bar"),0 , 0 , HP*(826/100) , 83));
         frame.add(new TextureRegion(screen.getAtlastHP().findRegion("health_bar"),0 , 0 , (100-HP)*(826/100) , 83));
         walkAnimation = new Animation(0.1f , frames);
         statetime = 0;
-        setBounds(getX(),getY() ,760/MagiGO.PPM , 40/MagiGO.PPM);
+        setBounds(getX(),getY() ,HP*6/MagiGO.PPM , 40/MagiGO.PPM);
         defineHP();
     }
 
     protected void defineHP()
     {
         BodyDef bodydef = new BodyDef();
-        bodydef.position.set(300/ MagiGO.PPM,500/ MagiGO.PPM);
-        bodydef.type = BodyDef.BodyType.DynamicBody;
+        bodydef.position.set((MagiGO.V_WIDTH/2)/ MagiGO.PPM,130/ MagiGO.PPM);
+        bodydef.type = BodyDef.BodyType.StaticBody;
         b2body = world.createBody(bodydef);
 
         FixtureDef fdef = new FixtureDef();
