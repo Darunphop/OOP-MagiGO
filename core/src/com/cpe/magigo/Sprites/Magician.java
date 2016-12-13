@@ -42,7 +42,7 @@ public class Magician extends Sprite {
 
     public Magician ( PlayScreen screen)
     {
-        super(screen.getAtlas().findRegion("MagicianNew"));
+        super(screen.getAtlas().findRegion("character"));
         this.world = screen.getWorld();
         currentState = State.STANDING;
         previousState = State.STANDING;
@@ -52,20 +52,20 @@ public class Magician extends Sprite {
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
         //Animation Magician walk
-        for(int i = 1 ; i < 5 ; i++)
+        for(int i = 3 ; i < 7 ; i++)
         {
-            frame.add(new TextureRegion(getTexture(),i*39 , 0 , 38 , 60));
+            frame.add(new TextureRegion(getTexture(),i*62 , 10 , 62 , 60));
         }
         magicianRun = new Animation(0.1f , frame);
         //Animation Magician jump
         for(int i = 0 ; i < 2 ; i++)
         {
-            frame.add(new TextureRegion(getTexture(),i*40 + 236  , 0 , 38 , 60 ));
+            frame.add(new TextureRegion(getTexture(),i*62  , 76 , 62 , 60 ));
         }
         magicianJump = new Animation(0.1f , frame);
         defineMagician();
-        MagicianStand = new TextureRegion(getTexture(),0,0,39,60);
-        setBounds(0 / MagiGO.PPM,0 / MagiGO.PPM,38 / MagiGO.PPM , 60 / MagiGO.PPM);
+        MagicianStand = new TextureRegion(getTexture(),0,10,60,60);
+        setBounds(0 / MagiGO.PPM,0 / MagiGO.PPM,60 / MagiGO.PPM , 60 / MagiGO.PPM);
         setRegion(MagicianStand);
     }
 

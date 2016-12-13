@@ -75,7 +75,7 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(MagiGO game){
-        atlas = new TextureAtlas("character/MagicianFix.pack");
+        atlas = new TextureAtlas("character/character.pack");
         atlastMon = new TextureAtlas("enemy/Enemy/Monster.pack");
         atlastHP = new TextureAtlas("HealtBar/HP_bar.pack");
         this.game = game;
