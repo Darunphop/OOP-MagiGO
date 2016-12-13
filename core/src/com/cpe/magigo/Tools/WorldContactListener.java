@@ -50,6 +50,7 @@ public class WorldContactListener implements ContactListener {
         float platform_y;
         float player_y;
 
+
         platform_y = fixtureA.getBody().getPosition().y;
         player_y = fixtureB.getBody().getPosition().y;
 
@@ -63,20 +64,21 @@ public class WorldContactListener implements ContactListener {
             if (fixtureA.getBody().getUserData() == "platform") {
                 platform_y = fixtureA.getBody().getPosition().y;
                 player_y = fixtureB.getBody().getPosition().y;
-            } else if(fixtureA.getBody().getUserData() == "player") {
+            } else if (fixtureA.getBody().getUserData() == "player") {
                 player_y = fixtureA.getBody().getPosition().y;
                 platform_y = fixtureB.getBody().getPosition().y;
             }
 
-            if(player_y < platform_y + 0.22f) {  //the player is below platform
+            if (player_y < platform_y + 0.22f) {  //the player is below platform
                 contact.setEnabled(false);
             } else {
                 contact.setEnabled(true);
             }
-            if(player_y > platform_y + 0.22f && Gdx.input.isKeyPressed(Input.Keys.DOWN)) {  //the player is above platform
+            if (player_y > platform_y + 0.22f && Gdx.input.isKeyPressed(Input.Keys.DOWN)) {  //the player is above platform
                 contact.setEnabled(false);
             }
         }
+
     }
 
     @Override

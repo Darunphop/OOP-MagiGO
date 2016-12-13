@@ -47,7 +47,7 @@ public class EnemyM extends Enemy {
     protected void defineEnemy()
     {
         BodyDef bodydef = new BodyDef();
-        bodydef.position.set(512/ MagiGO.PPM,384/ MagiGO.PPM);
+        bodydef.position.set(getX(),getY());
         bodydef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bodydef);
 

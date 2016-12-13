@@ -70,7 +70,7 @@ public class B2WorldCreator {
 
         //create all malee Enemy
         EnemyMs = new Array<EnemyM>();
-        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
