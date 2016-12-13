@@ -27,11 +27,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Scenes.MagicCombineInterface;
-import com.cpe.magigo.Sprites.EnemyM;
-import com.cpe.magigo.Sprites.EnemyR;
-import com.cpe.magigo.Sprites.HPGauge;
+import com.cpe.magigo.Sprites.*;
 import com.cpe.magigo.Sprites.Magic.Magic;
-import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.Tools.B2WorldCreator;
@@ -45,7 +42,6 @@ public class PlayScreen implements Screen {
     private MagiGO game;
     private TextureAtlas atlas;
     private TextureAtlas atlastMon;
-    private TextureAtlas atlastHP;
 
     //basic screen variable
     private OrthographicCamera gamecam;
@@ -79,7 +75,6 @@ public class PlayScreen implements Screen {
     public PlayScreen(MagiGO game){
         atlas = new TextureAtlas("character/character.pack");
         atlastMon = new TextureAtlas("enemy/Enemy/Monster.pack");
-        atlastHP = new TextureAtlas("HealtBar/HP_bar.pack");
         this.game = game;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT / MagiGO.PPM,gamecam);
@@ -118,11 +113,6 @@ public class PlayScreen implements Screen {
     public TextureAtlas getAtlastMon()
     {
         return atlastMon;
-    }
-
-    public TextureAtlas getAtlastHP()
-    {
-        return atlastHP;
     }
 
     @Override
@@ -192,6 +182,10 @@ public class PlayScreen implements Screen {
         malee.update(dt);
         range.update(dt);
         hp.update();
+        for (Enemy enemy:creator.getEnemyMs() )
+        {
+            enemy.update(dt);
+        }
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -222,6 +216,10 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         malee.draw(game.batch);
+        /*for (Enemy enemy:creator.getEnemyMs() )
+        {
+            enemy.draw(game.batch);
+        }*/
         range.draw(game.batch);
         hp.draw(game.batch);
 

@@ -1,6 +1,7 @@
 package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
@@ -26,9 +27,15 @@ public class EnemyM extends Enemy {
         setBounds(getX(),getY() ,60/MagiGO.PPM , 60/MagiGO.PPM);
     }
 
+    public void draw(Batch batch)
+    {
+        super.draw(batch);
+    }
+
     public void update(float dt)
     {
         statetime += dt;
+        b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2);
         setRegion(walkAnimation.getKeyFrame(statetime , true));
     }
@@ -49,6 +56,6 @@ public class EnemyM extends Enemy {
 
 
         fdef.shape = shape;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
     }
 }
