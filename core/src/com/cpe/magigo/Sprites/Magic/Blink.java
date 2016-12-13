@@ -11,15 +11,20 @@ import com.cpe.magigo.Screens.PlayScreen;
 public class Blink extends Translocation{
     private float distance;
     public Blink() {
-        distance = 1.75f;
+        distance = 1.95f;
     }
 
     @Override
     public void excecute(PlayScreen screen) {
         if (!screen.getPlayer().isRunningRight())
             distance *= -1;
-        screen.getPlayer().b2body.setTransform(new Vector2(screen.getPlayer().b2body.getPosition().x+distance,screen.getPlayer().b2body.getPosition().y),screen.getPlayer().b2body.getAngle());
-        Gdx.app.log("Blonk", "blinking");
+        float target = screen.getPlayer().b2body.getPosition().x+distance;
+        if (target < 0.2f){
+            target = 0.3f;
+        }else if (target >12.6f){
+            target = 12.5f;
+        }
+        screen.getPlayer().b2body.setTransform(new Vector2(target,screen.getPlayer().b2body.getPosition().y),screen.getPlayer().b2body.getAngle());
     }
 
 
