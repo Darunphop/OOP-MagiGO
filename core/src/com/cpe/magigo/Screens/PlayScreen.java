@@ -97,8 +97,9 @@ public class PlayScreen implements Screen {
 
         //create mario in our game world
         player = new Magician(this);
-        malee = new EnemyM(this , 0.32f , 0.32f);
-        range = new EnemyR(this , 0.32f , 0.32f);
+
+        /* malee = new EnemyM(this , 0.32f , 0.32f);
+        range = new EnemyR(this , 0.32f , 0.32f);*/
         hp = new HPGauge(Hp);
 
         //create MCI
@@ -181,8 +182,8 @@ public class PlayScreen implements Screen {
 
         //player Texture
         player.update(dt);
-        malee.update(dt);
-        range.update(dt);
+        /*malee.update(dt);
+        range.update(dt);*/
         hp.update();
         for (Enemy enemy:creator.getEnemyMs() )
         {
@@ -217,12 +218,12 @@ public class PlayScreen implements Screen {
         //game.batch.draw(Hp,0,0,10,5);
         game.batch.begin();
         player.draw(game.batch);
-        malee.draw(game.batch);
-        /*for (Enemy enemy:creator.getEnemyMs() )
+       // malee.draw(game.batch);
+        for (Enemy enemy:creator.getEnemyMs() )
         {
             enemy.draw(game.batch);
-        }*/
-        range.draw(game.batch);
+        }
+        //range.draw(game.batch);
         hp.draw(game.batch);
 
         game.batch.end();
