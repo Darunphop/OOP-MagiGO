@@ -8,6 +8,8 @@ import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObject;
@@ -25,11 +27,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Scenes.MagicCombineInterface;
-import com.cpe.magigo.Sprites.EnemyM;
-import com.cpe.magigo.Sprites.EnemyR;
-import com.cpe.magigo.Sprites.HPGauge;
+import com.cpe.magigo.Sprites.*;
 import com.cpe.magigo.Sprites.Magic.Magic;
-import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.Status;
@@ -44,7 +43,6 @@ public class PlayScreen implements Screen {
     private MagiGO game;
     private TextureAtlas atlas;
     private TextureAtlas atlastMon;
-    private TextureAtlas atlastHP;
 
     //basic screen variable
     private OrthographicCamera gamecam;
@@ -77,9 +75,8 @@ public class PlayScreen implements Screen {
 
 
     public PlayScreen(MagiGO game){
-        atlas = new TextureAtlas("character/MagicianFix.pack");
+        atlas = new TextureAtlas("character/character.pack");
         atlastMon = new TextureAtlas("enemy/Enemy/Monster.pack");
-        atlastHP = new TextureAtlas("HealtBar/HP_bar.pack");
         this.game = game;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(MagiGO.V_WIDTH / MagiGO.PPM, MagiGO.V_HEIGHT / MagiGO.PPM,gamecam);
@@ -102,8 +99,7 @@ public class PlayScreen implements Screen {
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);
-        hp = new HPGauge(this ,Hp);
-        hp.setOrigin(0,0);
+        hp = new HPGauge(Hp);
 
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
@@ -119,11 +115,6 @@ public class PlayScreen implements Screen {
     public TextureAtlas getAtlastMon()
     {
         return atlastMon;
-    }
-
-    public TextureAtlas getAtlastHP()
-    {
-        return atlastHP;
     }
 
     @Override
@@ -182,7 +173,7 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public void update(float dt ,int Hp)
+    public void update(float dt)
     {
         handleInput(dt);
 
@@ -192,7 +183,11 @@ public class PlayScreen implements Screen {
         player.update(dt);
         malee.update(dt);
         range.update(dt);
-        hp.update(Hp);
+        hp.update();
+        for (Enemy enemy:creator.getEnemyMs() )
+        {
+            enemy.update(dt);
+        }
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -206,7 +201,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        update(delta,Hp);
+        update(delta);
 
         //Clear the game screen with Green
         Gdx.gl.glClearColor(0f, 0.7f, 0.4f, 1);
@@ -223,8 +218,12 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         malee.draw(game.batch);
-        hp.draw(game.batch);
+        /*for (Enemy enemy:creator.getEnemyMs() )
+        {
+            enemy.draw(game.batch);
+        }*/
         range.draw(game.batch);
+        hp.draw(game.batch);
 
         game.batch.end();
 

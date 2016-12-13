@@ -5,15 +5,18 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.Sprites.Crystal;
+import com.cpe.magigo.Sprites.EnemyM;
 import com.cpe.magigo.Sprites.Platform;
 
 /**
  * Created by MSI GP72 on 13/11/2559.
  */
 public class B2WorldCreator {
+    private Array<EnemyM> EnemyMs;
     public B2WorldCreator(PlayScreen screen){
         World world = screen.getWorld();
         TiledMap map = screen.getMap();
@@ -64,5 +67,18 @@ public class B2WorldCreator {
 
             new Crystal(screen, rect);
         }
+
+        //create all malee Enemy
+        EnemyMs = new Array<EnemyM>();
+        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class))
+        {
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            EnemyMs.add(new EnemyM(screen,rect.getX() / MagiGO.PPM , rect.getY() / MagiGO.PPM));
+        }
+    }
+
+    public Array<EnemyM> getEnemyMs() {
+        return EnemyMs;
     }
 }

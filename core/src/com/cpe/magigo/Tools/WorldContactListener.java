@@ -5,7 +5,9 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.Sprites.Enemy;
 import com.cpe.magigo.Sprites.InteractiveTileObject;
+import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.Sprites.Platform;
 
@@ -17,26 +19,18 @@ public class WorldContactListener implements ContactListener {
 
     @Override
     public void beginContact(Contact contact) {
-       /* Fixture fixA = contact.getFixtureA();
+        Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
 
-        if(fixA.getUserData() == "head" || fixB.getUserData() == "head" ){
-            Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
-            Fixture object = head == fixA ? fixB : fixA;
-
-            if(object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())){
-                ((InteractiveTileObject) object.getUserData()).onHeadHit();
-            }
+        int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
+        switch (cDef){
+            case MagiGO.ENEMY_BIT | MagiGO.CRYSTAL_BIT:
+                if(fixA.getFilterData().categoryBits == MagiGO.ENEMY_BIT)
+                    ((Enemy)fixA.getUserData()).reversVelocity(true, false);
+                else
+                    ((Enemy)fixB.getUserData()).reversVelocity(true, false);
+                break;
         }
-        if(fixA.getUserData() == "leg" || fixB.getUserData() == "leg"){
-            Fixture head = fixA.getUserData() == "leg" ? fixA : fixB;
-            Fixture object = head == fixA ? fixB : fixA;
-
-            if(object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())){
-                ((InteractiveTileObject) object.getUserData()).onLegHit();
-            }
-        }*/
-
     }
 
     @Override
