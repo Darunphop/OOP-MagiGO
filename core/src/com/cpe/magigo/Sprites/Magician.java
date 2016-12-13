@@ -32,6 +32,7 @@ public class Magician extends Sprite {
     private TextureRegion MagicianStand;
     private Animation magicianRun;
     private Animation magicianJump;
+    private Animation magicianDead;
 
     private float stateTimer;
     private boolean runningRight;
@@ -54,7 +55,7 @@ public class Magician extends Sprite {
         //Animation Magician walk
         for(int i = 3 ; i < 7 ; i++)
         {
-            frame.add(new TextureRegion(getTexture(),i*62 , 10 , 62 , 60));
+            frame.add(new TextureRegion(getTexture(),i*62 , 5 , 62 , 60));
         }
         magicianRun = new Animation(0.1f , frame);
         //Animation Magician jump
@@ -63,8 +64,13 @@ public class Magician extends Sprite {
             frame.add(new TextureRegion(getTexture(),i*62  , 76 , 62 , 60 ));
         }
         magicianJump = new Animation(0.1f , frame);
+        for(int i = 0 ; i < 9 ;i++)
+        {
+            frame.add(new TextureRegion(getTexture(),((i*62) + 124),74,62,60));
+        }
+        magicianDead = new Animation(0.1f , frame);
         defineMagician();
-        MagicianStand = new TextureRegion(getTexture(),0,10,60,60);
+        MagicianStand = new TextureRegion(getTexture(),0,5,60,60);
         setBounds(0 / MagiGO.PPM,0 / MagiGO.PPM,60 / MagiGO.PPM , 60 / MagiGO.PPM);
         setRegion(MagicianStand);
     }
@@ -97,6 +103,9 @@ public class Magician extends Sprite {
                 break;
             case FALLING:
             case STANDING:
+            case DEAD:
+                region = magicianDead.getKeyFrame(stateTimer);
+                break;
             default:
                 region = MagicianStand;
                 break;
@@ -128,7 +137,7 @@ public class Magician extends Sprite {
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(17 / MagiGO.PPM);
+        shape.setRadius(20 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.MAGIGO_BIT;
         fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.OBJECT_BIT;
 

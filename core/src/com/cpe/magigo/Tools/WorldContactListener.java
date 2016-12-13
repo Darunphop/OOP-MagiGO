@@ -5,11 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.physics.box2d.*;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
-import com.cpe.magigo.Sprites.Enemy;
-import com.cpe.magigo.Sprites.InteractiveTileObject;
+import com.cpe.magigo.Sprites.*;
 import com.cpe.magigo.Sprites.Magic.Magic;
-import com.cpe.magigo.Sprites.Magician;
-import com.cpe.magigo.Sprites.Platform;
 
 /**
  * Created by MSI GP72 on 14/11/2559.
@@ -30,6 +27,12 @@ public class WorldContactListener implements ContactListener {
                 else
                     ((Enemy)fixB.getUserData()).reversVelocity(true, false);
                 break;
+            /*case MagiGO.MAGIGO_LEG_BIT | MagiGO.ENEMY_BIT:
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIGO_LEG_BIT)
+                    ((Magician)fixA.getUserData()).Died();
+                else
+                    ((Magician)fixB.getUserData()).Died();
+                break;*/
         }
     }
 
