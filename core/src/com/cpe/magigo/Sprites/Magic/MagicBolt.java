@@ -16,10 +16,11 @@ public class MagicBolt extends Magic{
     public MagicBolt(ElementType e,PlayScreen screen) {
         super(e,screen);
         texture = new Texture(("magic/bolt/1.png"));
+        createMagic();
     }
 
     @Override
     public void excecute(PlayScreen screen) {
-
+        MagicBolt attack = new MagicBolt(element,screen);
     }
 }
