@@ -281,5 +281,9 @@ public class PlayScreen implements Screen {
         hud.dispose();
     }
 
+    public Magician getPlayer() {
+        return player;
+    }
+
     public Hud getHud(){ return hud; }
 }

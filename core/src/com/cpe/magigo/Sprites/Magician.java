@@ -11,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.Sprites.Magic.Magic;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.MagicSequence;
@@ -52,6 +53,7 @@ public class Magician extends Sprite {
         stateTimer = 0;
         runningRight = true;
         status = new Status();
+        this.screen = screen;
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
@@ -192,8 +194,10 @@ public class Magician extends Sprite {
             attack = new MagicSequence();
             currentState = State.CASTING;
             Gdx.app.log("State", "CASTING");
-        }else {
-            Gdx.app.log("State", attack.sequenceAnalyse().getClass().getName());
+        }else {//excecute spell
+            //Gdx.app.log("State", attack.sequenceAnalyse().getClass().getName());
+            attack.sequenceAnalyse().excecute(screen);
+
             cancelCasting();
         }
     }
@@ -234,4 +238,7 @@ public class Magician extends Sprite {
             magicianIsDead = true;
     }
 
+    public boolean isRunningRight() {
+        return runningRight;
+    }
 }

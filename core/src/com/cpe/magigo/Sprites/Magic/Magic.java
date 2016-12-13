@@ -1,5 +1,9 @@
 package com.cpe.magigo.Sprites.Magic;
 
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.ElementType;
 
 /**
@@ -13,5 +17,7 @@ public abstract class Magic {
 
     public Magic() {
     }
+
+    public abstract void excecute(PlayScreen screen);
 
 }

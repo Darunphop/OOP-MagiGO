@@ -1,5 +1,6 @@
 package com.cpe.magigo.Sprites.Magic;
 
+import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.System.ElementType;
 
 /**
@@ -8,5 +9,10 @@ import com.cpe.magigo.System.ElementType;
 public class PiercingArrow extends Magic{
     public PiercingArrow(ElementType e) {
         super(e);
+    }
+
+    @Override
+    public void excecute(PlayScreen screen) {
+
     }
 }
