@@ -8,6 +8,8 @@ import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObject;
@@ -100,8 +102,7 @@ public class PlayScreen implements Screen {
         player = new Magician(this);
         malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);
-        hp = new HPGauge(this ,Hp);
-        hp.setOrigin(0,0);
+        hp = new HPGauge(Hp);
 
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
@@ -180,7 +181,7 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public void update(float dt ,int Hp)
+    public void update(float dt)
     {
         handleInput(dt);
 
@@ -190,7 +191,7 @@ public class PlayScreen implements Screen {
         player.update(dt);
         malee.update(dt);
         range.update(dt);
-        hp.update(Hp);
+        hp.update();
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -204,7 +205,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        update(delta,Hp);
+        update(delta);
 
         //Clear the game screen with Green
         Gdx.gl.glClearColor(0f, 0.7f, 0.4f, 1);
@@ -221,8 +222,8 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         malee.draw(game.batch);
-        hp.draw(game.batch);
         range.draw(game.batch);
+        hp.draw(game.batch);
 
         game.batch.end();
 

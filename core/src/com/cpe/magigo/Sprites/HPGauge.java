@@ -5,51 +5,46 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Disposable;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
 
-public class HPGauge extends Sprite
-{
-    protected World world;
-    protected PlayScreen screen;
-    public Body b2body;
-    private float statetime;
-    private Animation walkAnimation;
-    private Array<TextureRegion> frames;//full gauge
-    private Array<TextureRegion> frame;//empty gauge
-    public HPGauge(PlayScreen screen ,int HP)
+public class HPGauge extends Sprite {
+    private Sprite HP_FG ;
+    private Texture FG = new Texture("HealtBar/source/fullhealth_bar.png");
+    private TextureRegion FG_R;
+    private Sprite HP_BG;
+    private Texture BG = new Texture("HealtBar/source/health_bar.png");
+    private TextureRegion BG_R;
+    private int Hp;
+    public HPGauge(int hp)
     {
-        this.world = screen.getWorld();
-        this.screen = screen;
-        frame = new Array<TextureRegion>();
-        frames = new Array<TextureRegion>();
-        frames.add(new TextureRegion(screen.getAtlastHP().findRegion("fullhealth_bar"),0 , 0 , HP*(826/100) , 83));
-        frame.add(new TextureRegion(screen.getAtlastHP().findRegion("health_bar"),0 , 0 , (100-HP)*(826/100) , 83));
-        walkAnimation = new Animation(0.1f , frames);
-        statetime = 0;
-        setBounds(getX(),getY() ,HP*6/MagiGO.PPM , 40/MagiGO.PPM);
-        defineHP();
+        this.Hp = hp;
+        BG_R = new TextureRegion(BG);
+        FG_R = new TextureRegion(FG);
+        HP_FG = new Sprite(FG_R,0,0,500,83);
+        HP_BG = new Sprite(BG_R);
+        HP_BG.setOrigin(0,0);
+        HP_FG.setOrigin(0,0);
     }
 
-    protected void defineHP()
+    public void update()
     {
-        BodyDef bodydef = new BodyDef();
-        bodydef.position.set((MagiGO.V_WIDTH/2)/ MagiGO.PPM,130/ MagiGO.PPM);
-        bodydef.type = BodyDef.BodyType.StaticBody;
-        b2body = world.createBody(bodydef);
-
-        FixtureDef fdef = new FixtureDef();
-        CircleShape shape = new CircleShape();
-        shape.setRadius(15 / MagiGO.PPM);
-
-        fdef.shape = shape;
-        b2body.createFixture(fdef);
+        HP_BG.setPosition((MagiGO.V_WIDTH/2-270)/MagiGO.PPM, 100 / MagiGO.PPM);
+        HP_FG.setPosition((MagiGO.V_WIDTH/2-270)/MagiGO.PPM, 100 / MagiGO.PPM);
+        HP_BG.setScale(0.65f/MagiGO.PPM,0.5f/MagiGO.PPM);
+        HP_FG.setScale(0.65f/MagiGO.PPM,0.5f/MagiGO.PPM);
     }
 
-    public void update(int dt)
+    public void draw(Batch batch)
     {
-        statetime += dt;
-        setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2);
-        setRegion(walkAnimation.getKeyFrame(statetime , true));
+        HP_BG.draw(batch);
+        HP_FG.draw(batch);
+    }
+
+    public void render(Batch batch)
+    {
+        HP_BG.draw(batch);
+        //HP_FG.draw(batch);
     }
 }
