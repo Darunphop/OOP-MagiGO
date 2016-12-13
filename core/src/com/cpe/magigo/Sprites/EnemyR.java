@@ -29,8 +29,10 @@ public class EnemyR extends Enemy {
     public void update(float dt)
     {
         statetime += dt;
+        b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2);
         setRegion(walkAnimation.getKeyFrame(statetime , true));
+
     }
 
     @Override
@@ -45,10 +47,10 @@ public class EnemyR extends Enemy {
         CircleShape shape = new CircleShape();
         shape.setRadius(15 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.ENEMY_BIT;
-        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.MAGIGO_BIT | MagiGO.CRYSTAL_BIT;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.MAGIGO_BIT | MagiGO.CRYSTAL_BIT | MagiGO.OBJECT_BIT;
 
 
         fdef.shape = shape;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
     }
 }

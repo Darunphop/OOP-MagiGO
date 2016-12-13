@@ -52,7 +52,7 @@ public class EnemyM extends Enemy {
         CircleShape shape = new CircleShape();
         shape.setRadius(15 / MagiGO.PPM);
         fdef.filter.categoryBits = MagiGO.ENEMY_BIT;
-        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.MAGIGO_BIT | MagiGO.CRYSTAL_BIT;
+        fdef.filter.maskBits = MagiGO.DEFAULT_BIT | MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.MAGIGO_BIT | MagiGO.CRYSTAL_BIT | MagiGO.OBJECT_BIT;
 
 
         fdef.shape = shape;
