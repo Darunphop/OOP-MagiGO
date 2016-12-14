@@ -18,7 +18,7 @@ public class MagicBomb extends Magic{
     private Texture texture;
     private Body body;
     private float speed = 4f;
-    private float damage = 10f;
+    private float damage = 20f;
     public MagicBomb(ElementType e) {
         super(e);
     }
@@ -34,7 +34,7 @@ public class MagicBomb extends Magic{
         body.setUserData(x);
         if (!screen.getPlayer().isRunningRight())
             speed *= -1;
-        body.setLinearVelocity(speed,5);
+        body.setLinearVelocity(speed,9);
         bullets.add(body);
 
     }
