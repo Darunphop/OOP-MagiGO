@@ -35,10 +35,14 @@ import com.cpe.magigo.System.Status;
 import com.cpe.magigo.Tools.B2WorldCreator;
 import com.cpe.magigo.Tools.WorldContactListener;
 
+import java.util.ArrayList;
+
 /**
  * Created by darunphop on 02-Nov-16.
  */
 public class PlayScreen implements Screen {
+    public static final float GRAVITY = -10f;
+
     //Reference to our game
     private MagiGO game;
     private TextureAtlas atlas;
@@ -73,6 +77,8 @@ public class PlayScreen implements Screen {
     private Box2DDebugRenderer b2dr;
     private B2WorldCreator creator;
 
+    //Magic Objects
+    public ArrayList<Magic> magics;
 
 
     public PlayScreen(MagiGO game){
@@ -91,7 +97,7 @@ public class PlayScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map, 1/ MagiGO.PPM);
 
         //create our Box2D world, setting no gravity in X, -10 gravity in Y, and allow bodies to sleep
-        world = new World(new Vector2(0,-10f),true);
+        world = new World(new Vector2(0,GRAVITY),true);
         b2dr = new Box2DDebugRenderer();
 
         creator = new B2WorldCreator(this);
@@ -108,7 +114,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContactListener());
 
-        //test
+        magics = new ArrayList<Magic>();
 
     }
     public TextureAtlas getAtlas()
@@ -228,6 +234,11 @@ public class PlayScreen implements Screen {
         }
         //range.draw(game.batch);
         hp.draw(game.batch);
+        //magic objects render
+        for (Magic magic:magics){
+            magic.draw(game.batch);
+            Gdx.app.log("Render", ""+magic.getClass());
+        }
 
         game.batch.end();
 
