@@ -85,6 +85,7 @@ public class Magician extends Sprite {
 
         setPosition(b2body.getPosition().x - getWidth() /2 ,b2body.getPosition().y - getHeight() / 2);
         setRegion(getFrame(dt));
+//        Gdx.app.log("POS", ""+( b2body.getPosition().x +" , "+ b2body.getPosition().y)) ;
 
 
     }
