@@ -16,35 +16,35 @@ public class StreamGayser extends Magic{
     private Texture texture;
     private Body body[];
     private float speed = 1f;
-    private float damage = 10f;
+    private float damage = 5f;
     public StreamGayser(ElementType e) {super(e);
     }
     public StreamGayser(ElementType e,PlayScreen screen) throws InterruptedException {
         super(e,screen);
-        body = new Body[4];
+//        body = new Body[4];
         setDmg(damage);
         texture = new Texture(("magic/bolt/1.png"));
         for (int i = 0; i < 4; i++) {
+            Body body;
             if (!screen.getPlayer().isRunningRight())
                 speed = -1;
-            this.body[i] = createMagic(10 + (14f * i), (0.2f + 0.4f * i) * speed, 0f);
-            body[i].setGravityScale(0);
+            body = createMagic(10 + (14f * i), (0.2f + 0.4f * i) * speed, 0f);
+            body.setGravityScale(0);
             Sprite x = new Sprite(texture);
             x.setSize((10 + (7 * i)) * 4 / MagiGO.PPM, (10 + (7 * i)) * 4 / MagiGO.PPM);
-            //x.setPosition(screen.getPlayer().b2body.getPosition().x+((0.2f + 0.4f * i) * speed),screen.getPlayer().b2body.getPosition().y-(20 + (14f * i))/0.2f);
             x.setPosition(0,0);
             x.setColor(Element.getColor(element));
             x.setAlpha(0.8f);
-            body[i].setUserData(x);
+            body.setUserData(x);
 
-            bullets.add(body[i]);
+            bullets.add(body);
         }
         Timer.schedule(new Timer.Task(){
             @Override
             public void run() {
                 deconstruct();
             }
-        }, 0.75f);
+        }, 0.35f);
 
     }
 
@@ -53,7 +53,7 @@ public class StreamGayser extends Magic{
         try {
             StreamGayser attack = new StreamGayser(element,screen);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+
         }
 
     }

@@ -347,6 +347,9 @@ public class PlayScreen implements Screen {
         hud.dispose();
     }
 
+    public void clearMagic(Magic magic){
+        magics.remove(magic);
+    }
     public Magician getPlayer() {
         return player;
     }

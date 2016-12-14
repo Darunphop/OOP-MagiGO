@@ -95,6 +95,7 @@ public abstract class Magic  {
             screen.deleteList.add(body);
         }
         bullets.clear();
+        screen.clearMagic(this);
     }
     public abstract void excecute(PlayScreen screen);
 
