@@ -21,6 +21,7 @@ public class WorldContactListener implements ContactListener {
         Crystal fixC;
         Enemy fixE;
         Magic fixM;
+        Magician fixMC;
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
         switch (cDef){
@@ -56,7 +57,20 @@ public class WorldContactListener implements ContactListener {
                 fixM.hit();
                 fixE.hit(fixM.getDmg(), fixM.getElement());
                 if (fixE.isDead())
-                    fixE.deconstruct();
+                    fixE.deconstruct2();
+                break;
+            case MagiGO.MAGIGO_BIT | MagiGO.ENEMY_BIT:
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIGO_BIT)
+                {
+                    fixMC = (Magician) fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
+                }
+                else
+                {
+                    fixMC = (Magician) fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
+                }
+                fixMC.hit(fixE.getStatus().getAtk(), fixE.getStatus().getElement().getElement());
                 break;
         }
     }

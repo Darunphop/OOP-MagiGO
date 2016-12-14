@@ -57,10 +57,15 @@ public abstract class Enemy extends Sprite{
     public void deconstruct(){
         sceen.deleteList.add(b2body);
     }
+    public void deconstruct2(){
+        sceen.getHud().addScore(100);
+        sceen.deleteList.add(b2body);
+    }
 
     @Override
     public void draw(Batch batch) {
         if (!isDead())
          super.draw(batch);
     }
+    public Status getStatus(){return status;}
 }

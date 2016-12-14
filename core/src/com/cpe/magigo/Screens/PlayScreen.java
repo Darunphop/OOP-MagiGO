@@ -56,13 +56,9 @@ public class PlayScreen implements Screen {
     private Hud hud;
     private MagicCombineInterface MCI;
 
-    //Tower variable
-    public int hp_crystal=80;
-    public int hp_magician = 80;
+    //HP variable
     private HPGauge hp;
     private HP_Char hp_char;
-    private float health=10;
-    private Status towerStatus;
 
     //Character variable
     private Magician player;
@@ -207,7 +203,7 @@ public class PlayScreen implements Screen {
         /*malee.update(dt);
         range.update(dt);*/
         hp.update(status_Crystal.getCurrentHP());
-        hp_char.update(hp_magician);
+        hp_char.update(player.getStatus().getCurrentHP());
         creator.update(dt);
         for (Enemy enemy:creator.getEnemyMs() )
         {

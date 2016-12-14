@@ -23,6 +23,7 @@ import com.cpe.magigo.System.Status;
 public class Magician extends Sprite {
     public int Health = 100;
     public static int MaxHealth = 100;
+    public ElementType e = ElementType.NEUTRAL;
     public enum State { FALLING, JUMPING, STANDING, RUNNING, DEAD, CASTING}
 
     public State currentState;
@@ -54,8 +55,7 @@ public class Magician extends Sprite {
         runningRight = true;
         status = new Status();
         this.screen = screen;
-        status.setMaxHP(100);
-        status.setCurrentHP(100);
+        status = new Status(100,0,0,ElementType.NEUTRAL);
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
@@ -249,5 +249,8 @@ public class Magician extends Sprite {
     public boolean isRunningRight() {
         return runningRight;
     }
-
+    public void hit(float dmg, ElementType eatk){
+        this.status.damageCal(dmg,status.getElement().getElement(),eatk);
+        Gdx.app.log("Magician ", "Hp = " + status.getCurrentHP());
+    }
 }
