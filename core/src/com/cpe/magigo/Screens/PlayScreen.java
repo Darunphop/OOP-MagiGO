@@ -83,6 +83,7 @@ public class PlayScreen implements Screen {
     public ArrayList<Magic> magics;
 
 
+
     public PlayScreen(MagiGO game){
         atlas = new TextureAtlas("character/character.pack");
         atlastMon = new TextureAtlas("enemy/Enemy/Monster.pack");
