@@ -139,7 +139,7 @@ public class Magician extends Sprite {
 
     public void defineMagician()
     {
-        status = new Status(100f,100f,1,1,new Element(ElementType.NEUTRAL));
+        status = new Status(100f,1,1,ElementType.NEUTRAL);
         BodyDef bodydef = new BodyDef();
         bodydef.position.set(640/ MagiGO.PPM,384/ MagiGO.PPM);
         bodydef.type = BodyDef.BodyType.DynamicBody;

@@ -19,12 +19,14 @@ public class MagicBolt extends Magic{
     private Texture texture;
     private Body body;
     private float speed = 5f;
+    private float damage = 10f;
 
     public MagicBolt(ElementType e) {
         super(e);
     }
     public MagicBolt(ElementType e,PlayScreen screen) {
         super(e,screen);
+        setDmg(damage);
         texture = new Texture(("magic/bolt/1.png"));
         this.body = createMagic();
         body.setGravityScale(0);
@@ -42,14 +44,12 @@ public class MagicBolt extends Magic{
     }
 
     @Override
-    public void update() {
-        for (Fixture fix:body.getFixtureList()){
-
-        }
+    public void excecute(PlayScreen screen) {
+        MagicBolt attack = new MagicBolt(element,screen);
     }
 
     @Override
-    public void excecute(PlayScreen screen) {
-        MagicBolt attack = new MagicBolt(element,screen);
+    public void hit() {
+        deconstruct();
     }
 }

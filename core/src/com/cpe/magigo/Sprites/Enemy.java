@@ -1,10 +1,14 @@
 package com.cpe.magigo.Sprites;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.System.Element;
+import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.Status;
 
 /**
@@ -14,6 +18,7 @@ public abstract class Enemy extends Sprite{
     protected World world;
     protected PlayScreen sceen;
     protected Status status;
+    protected ElementType element;
     public Body b2body;
     public Vector2 velocity;
     public Vector2 velocity2;
@@ -26,6 +31,7 @@ public abstract class Enemy extends Sprite{
         this.status = new Status();
         velocity = new Vector2(0.8f,-1);
         velocity2 = new Vector2(-0.8f,-1);
+        element = ElementType.NEUTRAL;
     }
 
     protected abstract void defineEnemy();
@@ -39,4 +45,20 @@ public abstract class Enemy extends Sprite{
             velocity.y = -velocity.y;
     }
 
+    public void hit(float dmg, ElementType eatk){
+        this.status.damageCal(dmg,this.element,eatk);
+        Gdx.app.log("Enemy ", "Hp = " + status.getCurrentHP());
+    }
+    public boolean isDead(){
+        return status.getCurrentHP() == 0f;
+    }
+    public void deconstruct(){
+        sceen.deleteList.add(b2body);
+    }
+
+    @Override
+    public void draw(Batch batch) {
+        if (!isDead())
+         super.draw(batch);
+    }
 }

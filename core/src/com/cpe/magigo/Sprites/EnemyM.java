@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.Status;
 
 /**
@@ -26,8 +27,7 @@ public class EnemyM extends Enemy {
         walkAnimation = new Animation(0.1f , frames);
         statetime = 0;
         setBounds(getX(),getY() ,60/MagiGO.PPM , 60/MagiGO.PPM);
-
-        this.status = new Status();
+        this.status = new Status(20f,1f,1f, ElementType.NEUTRAL);
     }
 
     public void draw(Batch batch)
@@ -52,16 +52,19 @@ public class EnemyM extends Enemy {
 
     public void update(float dt)
     {
-        statetime += dt;
-        setRegion(getFrame());
-        if(b2body.getPosition().x > 640/MagiGO.PPM){
-            b2body.setLinearVelocity(velocity2);
-        }
-        else
-            b2body.setLinearVelocity(velocity);
-        setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2);
-        setRegion(walkAnimation.getKeyFrame(statetime , true));
+        if (!isDead()){
+            statetime += dt;
+            setRegion(getFrame());
+            if(b2body.getPosition().x > 640/MagiGO.PPM){
+                b2body.setLinearVelocity(velocity2);
+            }
+            else
+                b2body.setLinearVelocity(velocity);
+            setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2);
+            setRegion(walkAnimation.getKeyFrame(statetime , true));
+        }else {
 
+        }
     }
 
     @Override

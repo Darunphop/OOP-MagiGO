@@ -32,14 +32,22 @@ public class WorldContactListener implements ContactListener {
                 }
                 break;
             case MagiGO.MAGIC_BIT | MagiGO.ENEMY_BIT:
-                if(fixA.getFilterData().categoryBits == MagiGO.CRYSTAL_BIT)
+                Magic fixM;
+                Enemy fixE;
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIC_BIT)
                 {
-                    ((Magic)fixA.getUserData()).hit();
+                    fixM = (Magic)fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
                 }
                 else
                 {
-                    ((Magic)fixB.getUserData()).hit();
+                    fixM = (Magic)fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
                 }
+                fixM.hit();
+                fixE.hit(fixM.getDmg(), fixM.getElement());
+                if (fixE.isDead())
+                    fixE.deconstruct();
                 break;
         }
     }

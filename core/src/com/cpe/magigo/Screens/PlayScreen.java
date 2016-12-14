@@ -37,6 +37,7 @@ import com.cpe.magigo.Tools.B2WorldCreator;
 import com.cpe.magigo.Tools.WorldContactListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by darunphop on 02-Nov-16.
@@ -86,6 +87,8 @@ public class PlayScreen implements Screen {
     //Magic Objects
     public ArrayList<Magic> magics;
 
+    public ArrayList<Body> deleteList;
+
 
 
     public PlayScreen(MagiGO game){
@@ -110,7 +113,7 @@ public class PlayScreen implements Screen {
         creator = new B2WorldCreator(this);
 
         //create mario in our game world
-        status_Crystal = new Status(100f,100f,1,1,new Element(ElementType.NEUTRAL));
+        status_Crystal = new Status(100f,1,1,ElementType.NEUTRAL);
         player = new Magician(this);
 
         /* malee = new EnemyM(this , 0.32f , 0.32f);
@@ -123,6 +126,7 @@ public class PlayScreen implements Screen {
         world.setContactListener(new WorldContactListener());
 
         magics = new ArrayList<Magic>();
+        deleteList = new ArrayList<Body>();
 
     }
     public TextureAtlas getAtlas()
@@ -223,6 +227,11 @@ public class PlayScreen implements Screen {
         gamecam.update();
         renderer.setView(gamecam);
 
+//        sweepDeadBodies();
+        for (Body body:deleteList){
+            world.destroyBody(body);
+        }
+        deleteList.clear();
 
     }
 
@@ -285,6 +294,21 @@ public class PlayScreen implements Screen {
 
 
     }
+
+//    public void sweepDeadBodies() {
+//        Array<Body> tmpBody = new Array<Body>();
+//        world.getBodies(tmpBody);
+//        for (Body body:tmpBody){
+//            if (body != null) {
+//                 EnemyM data = (EnemyM) body.getUserData();
+//                if (data.isDead()) {
+//                    world.destroyBody(body);
+//                    body.setUserData(null);
+//                    body = null;
+//                }
+//            }
+//        }
+//    }
 
     @Override
     public void resize(int width, int height) {

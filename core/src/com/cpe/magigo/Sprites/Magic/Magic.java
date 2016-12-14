@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public abstract class Magic  {
     protected ElementType element;
     protected PlayScreen screen;
+    private float dmg;
     protected ArrayList<Body> bullets;
     public Magic(ElementType e) {
         this.element = e;
@@ -74,6 +75,26 @@ public abstract class Magic  {
     }
     public void update(){
 
+    }
+
+    public float getDmg() {
+        return dmg;
+    }
+
+    public void setDmg(float dmg) {
+        this.dmg = dmg;
+    }
+
+    public ElementType getElement() {
+        return element;
+    }
+
+
+    public void deconstruct(){
+        for (Body body:bullets){
+            screen.deleteList.add(body);
+        }
+        bullets.clear();
     }
     public abstract void excecute(PlayScreen screen);
 

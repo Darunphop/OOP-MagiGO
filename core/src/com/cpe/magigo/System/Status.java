@@ -11,14 +11,14 @@ public class Status {
     private Element element;
 
     public Status(){
-        this(100,10,1,1,new Element(ElementType.NEUTRAL));
+        this(100,1,1,ElementType.NEUTRAL);
     }
-    public Status(float maxHP, float currentHP, float atk, float def, Element element) {
+    public Status(float maxHP, float atk, float def, ElementType element) {
         this.maxHP = maxHP;
-        this.currentHP = currentHP;
+        this.currentHP = maxHP;
         this.atk = atk;
         this.def = def;
-        this.element = element;
+        this.element = new Element(element);
     }
 
     public float getMaxHP() {
@@ -59,6 +59,15 @@ public class Status {
             this.def = def;
     }
 
+    public void damageCal(float dmg,ElementType receiver,ElementType attacker){
+        float factor = 1f;
+        if (new Element(receiver).isWeak(attacker))
+            factor = 2f;
+        else if (new Element(attacker).isWeak(receiver))
+            factor = 0.5f;
+        float fdamage = dmg / def * factor;
+        this.setCurrentHP(getCurrentHP()-(fdamage));
+    }
     public Element getElement() {
         return element;
     }
