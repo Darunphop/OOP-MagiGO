@@ -1,5 +1,6 @@
 package com.cpe.magigo.Sprites;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -18,16 +19,69 @@ import com.cpe.magigo.System.Status;
 public class EnemyM extends Enemy {
     private float statetime;
     private Animation walkAnimation;
+    private Animation DeadAnimation;
+    private TextureRegion dead = new TextureRegion(new Texture("enemy/Enemy/Monster_die.png"));
     private Array<TextureRegion> frames;
     public EnemyM(PlayScreen screen, float x, float y,ElementType e) {
         super(screen, x, y,e);
         this.status = new Status(20f,5f,1f, e);
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for ( int i = 0 ; i < 3 ; i++){
-            TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster"));
+        switch (e) {
+            case NEUTRAL:
+            for (int i = 0; i < 3; i++) {
+                TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster"));
 
-            frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster"),i * 60 , 0 , 50 , 65   ));}
-        walkAnimation = new Animation(0.1f , frames);
+                frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster"), i * 60, 0, 50, 60));
+            }
+            walkAnimation = new Animation(0.1f, frames);
+            break;
+            case FIRE:
+                for (int i = 0; i < 3; i++) {
+                    TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_fire"));
+
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_fire"), i * 60, 0, 50, 60));
+                }
+                walkAnimation = new Animation(0.1f, frames);
+                break;
+            case WATER:
+                for (int i = 0; i < 3; i++) {
+                    TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_water"));
+
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_water"), i * 60, 0, 50, 60));
+                }
+                walkAnimation = new Animation(0.1f, frames);
+                break;
+            case WIND:
+                for (int i = 0; i < 3; i++) {
+                    TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_wind"));
+
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_wind"), i * 60, 0, 50, 60));
+                }
+                walkAnimation = new Animation(0.1f, frames);
+                break;
+            case LIGHT:
+                for (int i = 0; i < 3; i++) {
+                    TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_light"));
+
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_light"), i * 60, 0, 50, 60));
+                }
+                walkAnimation = new Animation(0.1f, frames);
+                break;
+            case DARK:
+                for (int i = 0; i < 3; i++) {
+                    TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_dark"));
+
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_dark"), i * 60, 0, 50, 60));
+                }
+                walkAnimation = new Animation(0.1f, frames);
+                break;
+
+        }
+        for(int i = 0 ; i<3 ; i++)
+        {
+            frames.add(new TextureRegion(dead,i*26,0,26,26));
+        }
+        DeadAnimation = new Animation(0.1f,frames);
         statetime = 0;
         setBounds(getX(),getY() ,60/MagiGO.PPM , 60/MagiGO.PPM);
 

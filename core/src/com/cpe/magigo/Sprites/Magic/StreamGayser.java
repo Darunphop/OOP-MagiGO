@@ -33,6 +33,7 @@ public class StreamGayser extends Magic{
             body.setGravityScale(0);
             Sprite x = new Sprite(texture);
             x.setSize((10 + (7 * i)) * 4 / MagiGO.PPM, (10 + (7 * i)) * 4 / MagiGO.PPM);
+            //x.setPosition(screen.getPlayer().b2body.getPosition().x+((0.2f + 0.4f * i) * speed),screen.getPlayer().b2body.getPosition().y-(20 + (14f * i))/0.2f);
             x.setPosition(0,0);
             x.setColor(Element.getColor(element));
             x.setAlpha(0.8f);

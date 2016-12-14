@@ -23,7 +23,7 @@ public class Crystal extends InteractiveTileObject {
 
     public void hit()
     {
-        play.status_Crystal.setCurrentHP(play.status_Crystal.getCurrentHP()-3);
+        play.status_Crystal.setCurrentHP(play.status_Crystal.getCurrentHP()-5);
     }
     public float getDmg(){return dmg;}
     public ElementType getElement(){return elementType;}

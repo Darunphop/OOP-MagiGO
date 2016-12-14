@@ -5,14 +5,49 @@ filter: Nearest,Nearest
 repeat: none
 monster_R
   rotate: false
-  xy: 1, 1
+  xy: 1, 60
   size: 231, 58
   orig: 231, 58
   offset: 0, 0
   index: -1
 monster
   rotate: false
+  xy: 1, 1
+  size: 229, 57
+  orig: 229, 57
+  offset: 0, 0
+  index: -1
+monster_dark
+  rotate: false
+  xy: 234, 61
+  size: 229, 57
+  orig: 229, 57
+  offset: 0, 0
+  index: -1
+monster_fire
+  rotate: false
+  xy: 465, 61
+  size: 229, 57
+  orig: 229, 57
+  offset: 0, 0
+  index: -1
+monster_light
+  rotate: false
+  xy: 696, 61
+  size: 229, 57
+  orig: 229, 57
+  offset: 0, 0
+  index: -1
+monster_water
+  rotate: false
   xy: 234, 2
+  size: 229, 57
+  orig: 229, 57
+  offset: 0, 0
+  index: -1
+monster_wind
+  rotate: false
+  xy: 465, 2
   size: 229, 57
   orig: 229, 57
   offset: 0, 0
