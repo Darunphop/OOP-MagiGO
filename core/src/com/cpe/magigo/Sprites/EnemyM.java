@@ -35,9 +35,22 @@ public class EnemyM extends Enemy {
         super.draw(batch);
     }
 
+    public TextureRegion getFrame() {
+        TextureRegion region;
+        region = walkAnimation.getKeyFrame(statetime,true);
+        if(b2body.getLinearVelocity().x > 0 && region.isFlipX() == false){
+            region.flip(false, false);
+        }
+        if(b2body.getLinearVelocity().x < 0 && region.isFlipX() == false){
+            region.flip(true, false);
+        }
+        return region;
+    }
+
     public void update(float dt)
     {
         statetime += dt;
+        setRegion(getFrame());
         if(b2body.getPosition().x > 640/MagiGO.PPM){
             b2body.setLinearVelocity(velocity2);
         }
