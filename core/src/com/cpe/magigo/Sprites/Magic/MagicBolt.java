@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
@@ -17,7 +18,7 @@ import com.cpe.magigo.System.ElementType;
 public class MagicBolt extends Magic{
     private Texture texture;
     private Body body;
-    private float speed = 3f;
+    private float speed = 5f;
 
     public MagicBolt(ElementType e) {
         super(e);
@@ -36,8 +37,15 @@ public class MagicBolt extends Magic{
         if (!screen.getPlayer().isRunningRight())
             speed *= -1;
         body.setLinearVelocity(speed,0);
-        bullets.add(x);
+        bullets.add(body);
 
+    }
+
+    @Override
+    public void update() {
+        for (Fixture fix:body.getFixtureList()){
+
+        }
     }
 
     @Override

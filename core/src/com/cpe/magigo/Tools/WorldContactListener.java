@@ -30,6 +30,17 @@ public class WorldContactListener implements ContactListener {
                 {
                     ((Crystal)fixB.getUserData()).hit();
                 }
+                break;
+            case MagiGO.MAGIC_BIT | MagiGO.ENEMY_BIT:
+                if(fixA.getFilterData().categoryBits == MagiGO.CRYSTAL_BIT)
+                {
+                    ((Magic)fixA.getUserData()).hit();
+                }
+                else
+                {
+                    ((Magic)fixB.getUserData()).hit();
+                }
+                break;
         }
     }
 

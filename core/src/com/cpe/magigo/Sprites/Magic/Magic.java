@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Disposable;
 import com.cpe.magigo.MagiGO;
@@ -19,15 +21,15 @@ import java.util.ArrayList;
 public abstract class Magic  {
     protected ElementType element;
     protected PlayScreen screen;
-    protected ArrayList<Sprite> bullets;
+    protected ArrayList<Body> bullets;
     public Magic(ElementType e) {
         this.element = e;
     }
     public Magic(ElementType e,PlayScreen screen) {
         this.element = e;
         this.screen = screen;
-        bullets = new ArrayList<Sprite>();
-        screen.magics.add(bullets);
+        bullets = new ArrayList<Body>();
+        screen.magics.add(this);
     }
 
     public Magic() {
@@ -50,10 +52,12 @@ public abstract class Magic  {
         fixtureDef.friction = 0.4f;
         fixtureDef.restitution = 0.6f;
         fixtureDef.filter.categoryBits = MagiGO.MAGIC_BIT;
-        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT;
+        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT;
+        fixtureDef.isSensor = true;
 
         // Create our fixture and attach it to the body
         Fixture fixture = body.createFixture(fixtureDef);
+        fixture.setUserData(this);
 
 // Remember to dispose of any shapes after you're done with them!
 // BodyDef and FixtureDef don't need disposing, but shapes do.
@@ -62,8 +66,14 @@ public abstract class Magic  {
         return body;
     }
 
-    public ArrayList<Sprite> getBullets(){
+    public ArrayList<Body> getBullets(){
         return this.bullets;
+    }
+    public void hit(){
+        Gdx.app.log("MAGIC", "ENEMY CONTACT");
+    }
+    public void update(){
+
     }
     public abstract void excecute(PlayScreen screen);
 

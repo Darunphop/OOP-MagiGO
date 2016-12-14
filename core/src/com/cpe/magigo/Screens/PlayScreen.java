@@ -80,8 +80,9 @@ public class PlayScreen implements Screen {
     private B2WorldCreator creator;
     public float Timecount;
     public float Timer;
+
     //Magic Objects
-    public ArrayList<ArrayList<Sprite>> magics;
+    public ArrayList<Magic> magics;
 
 
 
@@ -118,7 +119,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContactListener());
 
-        magics = new ArrayList<ArrayList<Sprite>>();
+        magics = new ArrayList<Magic>();
 
     }
     public TextureAtlas getAtlas()
@@ -206,6 +207,9 @@ public class PlayScreen implements Screen {
             enemy.update(dt);
         }
 
+        for (Magic magic:magics){
+            magic.update();
+        }
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -246,10 +250,18 @@ public class PlayScreen implements Screen {
         hp.draw(game.batch);
         hp_char.draw(game.batch);
         //magic objects render
-        Array<Body> tmpBody = new Array<Body>();
-        world.getBodies(tmpBody);
-        for (Body body:tmpBody){
-            if (body.getUserData() instanceof Sprite){
+//        Array<Body> tmpBody = new Array<Body>();
+//        world.getBodies(tmpBody);
+//        for (Body body:tmpBody){
+//            if (body.getUserData() instanceof Sprite){
+//                Sprite sprite = (Sprite) body.getUserData();
+//                sprite.setPosition(body.getPosition().x-6f/MagiGO.PPM,body.getPosition().y-6f/MagiGO.PPM);
+//                sprite.draw(game.batch);
+//            }
+//        }
+
+        for (Magic magic:magics){
+            for (Body body:magic.getBullets()){
                 Sprite sprite = (Sprite) body.getUserData();
                 sprite.setPosition(body.getPosition().x-6f/MagiGO.PPM,body.getPosition().y-6f/MagiGO.PPM);
                 sprite.draw(game.batch);
