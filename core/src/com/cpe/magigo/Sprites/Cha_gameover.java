@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
+import com.cpe.magigo.Screens.GameoverScreen;
 import com.cpe.magigo.Screens.PlayScreen;
 
 /**
@@ -16,7 +17,7 @@ import com.cpe.magigo.Screens.PlayScreen;
 public class Cha_gameover extends Sprite {
 
     protected World world;
-    protected PlayScreen sceen;
+    protected GameoverScreen sceen;
     public Body b2body;
     private float statetime;
     private Sprite character;
@@ -24,7 +25,7 @@ public class Cha_gameover extends Sprite {
     private TextureRegion pr_r ;
     private Animation stunAnimation;
     private Array<TextureRegion> frames;
-    public Cha_gameover(PlayScreen screen)
+    public Cha_gameover(GameoverScreen screen)
     {
         this.world = screen.getWorld();
         this.sceen = screen;
