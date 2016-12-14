@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.Status;
 
 /**
@@ -17,8 +18,8 @@ public class EnemyR extends Enemy {
     private float statetime;
     private Animation walkAnimation;
     private Array<TextureRegion> frames;
-    public EnemyR(PlayScreen screen, float x, float y) {
-        super(screen, x, y);
+    public EnemyR(PlayScreen screen, float x, float y, ElementType e) {
+        super(screen, x, y,e);
         frames = new Array<TextureRegion>();
         for ( int i = 0 ; i < 3 ; i++)
             frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_R"), i * 45 , 0 , 45 , 70  ));

@@ -22,16 +22,18 @@ public abstract class Enemy extends Sprite{
     public Body b2body;
     public Vector2 velocity;
     public Vector2 velocity2;
-    public Enemy(PlayScreen screen ,float x , float y)
+
+    public Enemy(PlayScreen screen ,float x , float y,ElementType e)
     {
         this.world = screen.getWorld();
         this.sceen = screen;
+        this.element = e;
         setPosition(x , y);
         defineEnemy();
         this.status = new Status();
         velocity = new Vector2(0.8f,-1);
         velocity2 = new Vector2(-0.8f,-1);
-        element = ElementType.NEUTRAL;
+       // element = ElementType.NEUTRAL;
     }
 
     protected abstract void defineEnemy();

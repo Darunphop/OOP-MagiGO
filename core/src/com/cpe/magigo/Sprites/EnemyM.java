@@ -19,15 +19,18 @@ public class EnemyM extends Enemy {
     private float statetime;
     private Animation walkAnimation;
     private Array<TextureRegion> frames;
-    public EnemyM(PlayScreen screen, float x, float y) {
-        super(screen, x, y);
-        frames = new Array<TextureRegion>();
-        for ( int i = 0 ; i < 3 ; i++)
-            frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster"),i * 60 , 0 , 50 , 65   ));
+    public EnemyM(PlayScreen screen, float x, float y,ElementType e) {
+        super(screen, x, y,e);
+        this.status = new Status(20f,1f,1f, e);
+        Array<TextureRegion> frames = new Array<TextureRegion>();
+        for ( int i = 0 ; i < 3 ; i++){
+            TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster"));
+
+            frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster"),i * 60 , 0 , 50 , 65   ));}
         walkAnimation = new Animation(0.1f , frames);
         statetime = 0;
         setBounds(getX(),getY() ,60/MagiGO.PPM , 60/MagiGO.PPM);
-        this.status = new Status(20f,1f,1f, ElementType.NEUTRAL);
+
     }
 
     public void draw(Batch batch)
