@@ -48,7 +48,7 @@ public class MagicSequence {
 
     public Magic sequenceAnalyse(){
         if (size >= 3){
-            if (elementList.size() == 1 && size==5){
+            if (elementList.size() == 1 && size>=3){
                 if (elementList.containsKey(ElementType.FIRE)) return new MagicBolt(ElementType.FIRE);
                 else if (elementList.containsKey(ElementType.WATER)) return new MagicBolt(ElementType.WATER);
                 else if (elementList.containsKey(ElementType.WIND)) return new MagicBolt(ElementType.WIND);
