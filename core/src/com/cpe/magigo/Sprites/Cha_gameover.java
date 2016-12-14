@@ -27,7 +27,7 @@ public class Cha_gameover extends Sprite {
     private Array<TextureRegion> frames;
     public Cha_gameover(GameoverScreen screen)
     {
-        this.world = screen.getWorld();
+        //this.world = screen.getWorld();
         this.sceen = screen;
         frames = new Array<TextureRegion>();
         for ( int i = 0 ; i < 3 ; i++)

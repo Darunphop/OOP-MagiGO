@@ -31,7 +31,7 @@ public class MagiGO extends Game {
 
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new MainmenuScreen(this));
+		setScreen(new GameoverScreen(this,100,10));
 	}
 
 	@Override
