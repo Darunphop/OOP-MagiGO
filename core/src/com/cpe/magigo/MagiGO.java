@@ -16,7 +16,7 @@ public class MagiGO extends Game {
 	public static final short DEFAULT_BIT = 1;
 	public static final short MAGIGO_BIT = 2;
 	public static final short PLATFORM_BIT = 4;
-	public static final short DESTROY_BIT = 8;
+	public static final short MAGIC_BIT = 8;
 	public static final short MAGIGO_HEAD_BIT = 16;
 	public static final short MAGIGO_LEG_BIT = 32;
 	public static final short MAGIGO_JUMP_BIT = 64;
