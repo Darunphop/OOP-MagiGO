@@ -47,7 +47,7 @@ public class PlayScreen implements Screen {
     //basic screen variable
     private OrthographicCamera gamecam;
     private Viewport gamePort;
-    private Hud hud;
+    public Hud hud;
     private MagicCombineInterface MCI;
 
     //Tower variable
@@ -73,7 +73,7 @@ public class PlayScreen implements Screen {
     private Box2DDebugRenderer b2dr;
     private B2WorldCreator creator;
 
-
+    public float Timer;
 
     public PlayScreen(MagiGO game){
         atlas = new TextureAtlas("character/character.pack");
@@ -182,12 +182,13 @@ public class PlayScreen implements Screen {
         handleInput(dt);
 
         world.step(1/60f ,6,2);
-
+        Timer+=1*dt;
         //player Texture
         player.update(dt);
         /*malee.update(dt);
         range.update(dt);*/
         hp.update(Hp);
+        creator.update(dt);
         for (Enemy enemy:creator.getEnemyMs() )
         {
             enemy.update(dt);

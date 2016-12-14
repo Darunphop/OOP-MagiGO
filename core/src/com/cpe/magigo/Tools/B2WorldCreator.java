@@ -17,6 +17,7 @@ import com.cpe.magigo.Sprites.Platform;
  */
 public class B2WorldCreator {
     private Array<EnemyM> EnemyMs;
+    private PlayScreen play;
     public B2WorldCreator(PlayScreen screen){
         World world = screen.getWorld();
         TiledMap map = screen.getMap();
@@ -24,6 +25,8 @@ public class B2WorldCreator {
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
+        EnemyMs = new Array<EnemyM>();
+        play = screen;
 
         //create Ground object
         for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
@@ -69,16 +72,26 @@ public class B2WorldCreator {
         }
 
         //create all malee Enemy
-        EnemyMs = new Array<EnemyM>();
-        for(MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class))
-        {
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            EnemyMs.add(new EnemyM(screen,rect.getX() / MagiGO.PPM , rect.getY() / MagiGO.PPM));
-        }
     }
 
     public Array<EnemyM> getEnemyMs() {
         return EnemyMs;
+    }
+    public void update(float dt){
+        World world = play.getWorld();
+        TiledMap map = play.getMap();
+        BodyDef bdef = new BodyDef();
+        PolygonShape shape = new PolygonShape();
+        FixtureDef fdef = new FixtureDef();
+        Body body;
+
+        while(play.Timer >=2f  ) {
+            for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class )) {
+                Rectangle rect = ((RectangleMapObject) object).getRectangle();
+                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM));
+            }
+            play.Timer -=2f;
+        }
     }
 }

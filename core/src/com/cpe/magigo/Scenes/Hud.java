@@ -19,7 +19,7 @@ public class Hud implements Disposable{
     public Stage stage;
     private Viewport viewport;
 
-    private Integer worldTimer;
+    public Integer worldTimer;
     private float timeCount;
     private static Integer score;
 
@@ -32,7 +32,7 @@ public class Hud implements Disposable{
 
     public Hud (SpriteBatch sb)
     {
-        worldTimer = 60;
+        worldTimer = 0;
         timeCount = 0;
         score = 0;
 
@@ -65,11 +65,11 @@ public class Hud implements Disposable{
     public void update(float dt){
         timeCount += dt;
         if(timeCount >= 1 ){
-            if(worldTimer==0){
+            /*if(worldTimer==0){
                 worldTimer = 0;
             }
-            else
-                worldTimer--;
+            else*/
+                worldTimer++;
             countdownLabel.setText(String.format("%03d",worldTimer));
             timeCount = 0;
         }
