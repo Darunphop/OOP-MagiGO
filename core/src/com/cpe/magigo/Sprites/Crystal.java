@@ -19,6 +19,6 @@ public class Crystal extends InteractiveTileObject {
 
     public void hit()
     {
-        play.Hp -= 3;
+        play.hp_crystal -= 3;
     }
 }
