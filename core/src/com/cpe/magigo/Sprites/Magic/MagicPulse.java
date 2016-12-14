@@ -63,14 +63,16 @@ public class MagicPulse extends Magic{
 
     @Override
     public void hit(Enemy e) {
-        e.velocity = new Vector2(e.velocity.x/2,0);
-        e.velocity2 = new Vector2(e.velocity.x/2,0);
+        float speedx = (new Element(e.element).isWeak(element))?0:e.velocity.x/2;
+        float speedx2 = (new Element(e.element).isWeak(element))?0:e.velocity2.x/2;
+        e.velocity = new Vector2(speedx,0);
+        e.velocity2 = new Vector2(speedx2,0);
     }
 
     @Override
     public void update(float dt) {
         startTime += dt;
-        if (startTime > 100*dt){
+        if (startTime > 200*dt){
             deconstruct();
         }
     }
