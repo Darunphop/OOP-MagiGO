@@ -54,6 +54,8 @@ public class Magician extends Sprite {
         runningRight = true;
         status = new Status();
         this.screen = screen;
+        status.setMaxHP(100);
+        status.setCurrentHP(100);
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
@@ -247,4 +249,5 @@ public class Magician extends Sprite {
     public boolean isRunningRight() {
         return runningRight;
     }
+
 }

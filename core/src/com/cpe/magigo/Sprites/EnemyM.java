@@ -44,6 +44,9 @@ public class EnemyM extends Enemy {
         if(b2body.getLinearVelocity().x < 0 && region.isFlipX() == false){
             region.flip(true, false);
         }
+        if(b2body.getLinearVelocity().x > 0 && region.isFlipX() == true){
+            region.flip(true, false);
+        }
         return region;
     }
 
@@ -80,4 +83,5 @@ public class EnemyM extends Enemy {
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
     }
+
 }
