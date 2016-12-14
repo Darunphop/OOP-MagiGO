@@ -77,7 +77,7 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
     private B2WorldCreator creator;
-
+    public float Timecount;
     public float Timer;
     //Magic Objects
     public ArrayList<Magic> magics;
@@ -192,6 +192,7 @@ public class PlayScreen implements Screen {
 
         world.step(1/60f ,6,2);
         Timer+=1*dt;
+        Timecount+=1*dt;
         //player Texture
         player.update(dt);
         /*malee.update(dt);
@@ -203,6 +204,7 @@ public class PlayScreen implements Screen {
         {
             enemy.update(dt);
         }
+
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
