@@ -50,6 +50,7 @@ public abstract class Magic  {
         fixtureDef.friction = 0.4f;
         fixtureDef.restitution = 0.6f;
         fixtureDef.filter.categoryBits = MagiGO.MAGIC_BIT;
+        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT;
 
         // Create our fixture and attach it to the body
         Fixture fixture = body.createFixture(fixtureDef);

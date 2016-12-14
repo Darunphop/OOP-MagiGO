@@ -215,6 +215,8 @@ public class PlayScreen implements Screen {
 
         gamecam.update();
         renderer.setView(gamecam);
+
+
     }
 
     @Override
@@ -249,6 +251,7 @@ public class PlayScreen implements Screen {
         for (Body body:tmpBody){
             if (body.getUserData() instanceof Sprite){
                 Sprite sprite = (Sprite) body.getUserData();
+                sprite.setPosition(body.getPosition().x-6f/MagiGO.PPM,body.getPosition().y-6f/MagiGO.PPM);
                 sprite.draw(game.batch);
             }
         }
