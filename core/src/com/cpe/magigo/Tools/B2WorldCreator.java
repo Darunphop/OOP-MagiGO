@@ -86,7 +86,7 @@ public class B2WorldCreator {
         FixtureDef fdef = new FixtureDef();
         Body body;
 
-        while(play.Timer >=2f  ) {
+        while(play.Timer >=2000000f  ) {
             for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class )) {
                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
                 EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM));

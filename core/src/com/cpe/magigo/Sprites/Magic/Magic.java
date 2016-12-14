@@ -11,18 +11,23 @@ import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.ElementType;
 
+import java.util.ArrayList;
+
 /**
  * Created by ICQCQ on 15-Nov-16.
  */
-public abstract class Magic  extends Sprite {
+public abstract class Magic  {
     protected ElementType element;
     protected PlayScreen screen;
+    protected ArrayList<Sprite> bullets;
     public Magic(ElementType e) {
         this.element = e;
     }
     public Magic(ElementType e,PlayScreen screen) {
         this.element = e;
         this.screen = screen;
+        bullets = new ArrayList<Sprite>();
+        screen.magics.add(bullets);
     }
 
     public Magic() {
@@ -54,6 +59,10 @@ public abstract class Magic  extends Sprite {
        // circle.dispose();
         Gdx.app.log("MAGIC", "Magic Create");
         return body;
+    }
+
+    public ArrayList<Sprite> getBullets(){
+        return this.bullets;
     }
     public abstract void excecute(PlayScreen screen);
 

@@ -20,6 +20,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -79,7 +80,7 @@ public class PlayScreen implements Screen {
 
     public float Timer;
     //Magic Objects
-    public ArrayList<Magic> magics;
+    public ArrayList<ArrayList<Sprite>> magics;
 
 
     public PlayScreen(MagiGO game){
@@ -115,7 +116,7 @@ public class PlayScreen implements Screen {
 
         world.setContactListener(new WorldContactListener());
 
-        magics = new ArrayList<Magic>();
+        magics = new ArrayList<ArrayList<Sprite>>();
 
     }
     public TextureAtlas getAtlas()
@@ -237,9 +238,13 @@ public class PlayScreen implements Screen {
         //range.draw(game.batch);
         hp.draw(game.batch);
         //magic objects render
-        for (Magic magic:magics){
-            magic.draw(game.batch);
-            Gdx.app.log("Render", ""+magic.getClass());
+        Array<Body> tmpBody = new Array<Body>();
+        world.getBodies(tmpBody);
+        for (Body body:tmpBody){
+            if (body.getUserData() instanceof Sprite){
+                Sprite sprite = (Sprite) body.getUserData();
+                sprite.draw(game.batch);
+            }
         }
 
         game.batch.end();
