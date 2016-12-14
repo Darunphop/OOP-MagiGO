@@ -86,6 +86,20 @@ public class WorldContactListener implements ContactListener {
                 }
                 fixM.hitFloor();
                 break;
+            case MagiGO.MAGIC_OB_BIT | MagiGO.ENEMY_BIT:
+
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIC_OB_BIT)
+                {
+                    fixM = (Magic) fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
+                }
+                else
+                {
+                    fixM = (Magic) fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
+                }
+                fixM.hit(fixE);
+                break;
         }
     }
 

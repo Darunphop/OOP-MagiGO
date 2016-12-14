@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Disposable;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.Sprites.Enemy;
 import com.cpe.magigo.Sprites.Magician;
 import com.cpe.magigo.System.ElementType;
 
@@ -97,6 +98,7 @@ public abstract class Magic  {
         bullets.clear();
         //screen.clearMagic(this);
     }
+    public void hit(Enemy e){}
     public void hitFloor(){}
     public abstract void excecute(PlayScreen screen);
 

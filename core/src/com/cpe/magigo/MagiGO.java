@@ -21,7 +21,7 @@ public class MagiGO extends Game {
 	public static final short MAGIC_BIT = 8;
 	public static final short MAGIGO_HEAD_BIT = 16;
 	public static final short MAGIGO_LEG_BIT = 32;
-	public static final short MAGIGO_JUMP_BIT = 64;
+	public static final short MAGIC_OB_BIT = 64;
 	public static final short OBJECT_BIT = 128;
 	public static final short ENEMY_BIT = 256;
 	public static final short CRYSTAL_BIT = 512;
