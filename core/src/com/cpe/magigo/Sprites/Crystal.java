@@ -13,6 +13,12 @@ public class Crystal extends InteractiveTileObject {
         super(screen, bounds);
         fixture.setUserData(this);
         setCategoryFilter(MagiGO.CRYSTAL_BIT);
+        play = screen;
 
+    }
+
+    public void hit()
+    {
+        play.Hp -= 10;
     }
 }

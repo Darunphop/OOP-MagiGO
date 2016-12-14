@@ -101,6 +101,9 @@ public class Magician extends Sprite {
 
         switch (currentState)
         {
+            case DEAD:
+                region = magicianDead.getKeyFrame(stateTimer);
+                break;
             case JUMPING:
                 region = magicianJump.getKeyFrame(stateTimer);
                 break;
@@ -109,9 +112,7 @@ public class Magician extends Sprite {
                 break;
             case FALLING:
             case STANDING:
-            case DEAD:
-                region = magicianDead.getKeyFrame(stateTimer);
-                break;
+
             default:
                 region = MagicianStand;
                 break;
@@ -149,7 +150,7 @@ public class Magician extends Sprite {
 
 
         fdef.shape = shape;
-        b2body.createFixture(fdef);
+        b2body.createFixture(fdef).setUserData(this);
 
         EdgeShape head = new EdgeShape();
         head.set(new Vector2(-2 / MagiGO.PPM, 17 / MagiGO.PPM), new Vector2(2 / MagiGO.PPM, 17 / MagiGO.PPM));
@@ -232,10 +233,10 @@ public class Magician extends Sprite {
         return this.attack;
     }
 
-    public void hit(Enemy enemy , PlayScreen screen)
+    public void hit()
     {
-        screen.Hp -= 10;
-        if(screen.Hp <= 0)
+        Health -= 10;
+        if(Health <= 0)
             magicianIsDead = true;
     }
 

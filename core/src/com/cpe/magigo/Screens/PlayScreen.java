@@ -60,6 +60,7 @@ public class PlayScreen implements Screen {
     private Magician player;
     private EnemyM malee;
     private EnemyR range;
+    private Crystal crystal;
 
 
     //Tilemap variable
@@ -106,6 +107,8 @@ public class PlayScreen implements Screen {
         MCI = new MagicCombineInterface(game.batch, player);
 
         world.setContactListener(new WorldContactListener());
+
+        //test
 
     }
     public TextureAtlas getAtlas()
@@ -184,7 +187,7 @@ public class PlayScreen implements Screen {
         player.update(dt);
         /*malee.update(dt);
         range.update(dt);*/
-        hp.update();
+        hp.update(Hp);
         for (Enemy enemy:creator.getEnemyMs() )
         {
             enemy.update(dt);

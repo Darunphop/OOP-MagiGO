@@ -17,10 +17,10 @@ public class HPGauge extends Sprite {
     private Sprite HP_BG;
     private Texture BG = new Texture("HealtBar/source/health_bar.png");
     private TextureRegion BG_R;
-    private int Hp=100;
-    public HPGauge()
+    public int Hp;
+    public HPGauge(int hp)
     {
-       // this.Hp = hp;
+        this.Hp = hp;
         BG_R = new TextureRegion(BG);
         FG_R = new TextureRegion(FG);
         HP_FG = new Sprite(FG_R,0,0,FG_R.getRegionWidth(),FG_R.getRegionHeight());
@@ -29,8 +29,9 @@ public class HPGauge extends Sprite {
         HP_FG.setOrigin(0,0);
     }
 
-    public void update(float dt)
+    public void update(int dt)
     {
+        this.Hp = dt;
         HP_BG.setPosition((MagiGO.V_WIDTH/2-270)/MagiGO.PPM, 100 / MagiGO.PPM);
         HP_FG.setPosition((MagiGO.V_WIDTH/2-270)/MagiGO.PPM, 100 / MagiGO.PPM);
         HP_BG.setScale(0.65f/MagiGO.PPM,0.5f/MagiGO.PPM);
