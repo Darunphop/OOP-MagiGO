@@ -45,6 +45,7 @@ public class EnemyM extends Enemy {
             b2body.setLinearVelocity(velocity);
         setPosition(b2body.getPosition().x - getWidth()/2 , b2body.getPosition().y - getHeight()/2);
         setRegion(walkAnimation.getKeyFrame(statetime , true));
+
     }
 
     @Override
