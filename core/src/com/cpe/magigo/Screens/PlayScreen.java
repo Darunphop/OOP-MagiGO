@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ai.steer.behaviors.ReachOrientation;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -85,6 +86,7 @@ public class PlayScreen implements Screen {
     public ArrayList<Magic> magics;
 
     public ArrayList<Body> deleteList;
+    private Music music;
 
 
 
@@ -117,6 +119,9 @@ public class PlayScreen implements Screen {
         range = new EnemyR(this , 0.32f , 0.32f);*/
         hp = new HPGauge(status_Crystal.getCurrentHP());
         hp_char = new HP_Char(player.getStatus().getCurrentHP());
+        music = MagiGO.manager.get("soundtrack/Main.ogg",Music.class);
+        music.setLooping(true);
+        music.play();
 
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
@@ -287,7 +292,7 @@ public class PlayScreen implements Screen {
             MCI.stage.draw();
 
         if(status_Crystal.getCurrentHP()<=0 || health <= 0){
-
+            music.stop();
             game.setScreen(new GameoverScreen(game,getHud().getScore(),getHud().getWorldTimer()));
             dispose();
         }
