@@ -211,7 +211,7 @@ public class PlayScreen implements Screen {
         }
 
         for (Magic magic:magics){
-            magic.update();
+            magic.update(dt);
         }
 
         //camera on your character
