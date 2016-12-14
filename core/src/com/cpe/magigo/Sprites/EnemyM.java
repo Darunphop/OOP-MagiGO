@@ -35,9 +35,25 @@ public class EnemyM extends Enemy {
         super.draw(batch);
     }
 
+    public TextureRegion getFrame() {
+        TextureRegion region;
+        region = walkAnimation.getKeyFrame(statetime,true);
+        if(b2body.getLinearVelocity().x > 0 && region.isFlipX() == false){
+            region.flip(false, false);
+        }
+        if(b2body.getLinearVelocity().x < 0 && region.isFlipX() == false){
+            region.flip(true, false);
+        }
+        if(b2body.getLinearVelocity().x > 0 && region.isFlipX() == true){
+            region.flip(true, false);
+        }
+        return region;
+    }
+
     public void update(float dt)
     {
         statetime += dt;
+        setRegion(getFrame());
         if(b2body.getPosition().x > 640/MagiGO.PPM){
             b2body.setLinearVelocity(velocity2);
         }
@@ -51,6 +67,7 @@ public class EnemyM extends Enemy {
     @Override
     protected void defineEnemy()
     {
+        Status status = new Status();
         BodyDef bodydef = new BodyDef();
         bodydef.position.set(getX(),getY());
         bodydef.type = BodyDef.BodyType.DynamicBody;
@@ -66,4 +83,5 @@ public class EnemyM extends Enemy {
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
     }
+
 }

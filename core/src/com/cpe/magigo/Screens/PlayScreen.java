@@ -56,7 +56,8 @@ public class PlayScreen implements Screen {
     private MagicCombineInterface MCI;
 
     //Tower variable
-    public int Hp=80;
+    public int hp_crystal=80;
+    public int hp_magician = 80;
     private HPGauge hp;
     private HP_Char hp_char;
     private float health=10;
@@ -80,6 +81,7 @@ public class PlayScreen implements Screen {
     private B2WorldCreator creator;
     public float Timecount;
     public float Timer;
+    public Status status_Crystal;
 
     //Magic Objects
     public ArrayList<Magic> magics;
@@ -108,12 +110,13 @@ public class PlayScreen implements Screen {
         creator = new B2WorldCreator(this);
 
         //create mario in our game world
+        status_Crystal = new Status(100f,100f,1,1,new Element(ElementType.NEUTRAL));
         player = new Magician(this);
 
         /* malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);*/
-        hp = new HPGauge(Hp);
-        hp_char = new HP_Char(Hp);
+        hp = new HPGauge(status_Crystal.getCurrentHP());
+        hp_char = new HP_Char(player.getStatus().getCurrentHP());
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
 
@@ -199,8 +202,8 @@ public class PlayScreen implements Screen {
         player.update(dt);
         /*malee.update(dt);
         range.update(dt);*/
-        hp.update(Hp);
-        hp_char.update(Hp);
+        hp.update(status_Crystal.getCurrentHP());
+        hp_char.update(hp_magician);
         creator.update(dt);
         for (Enemy enemy:creator.getEnemyMs() )
         {

@@ -54,6 +54,8 @@ public class Magician extends Sprite {
         runningRight = true;
         status = new Status();
         this.screen = screen;
+        status.setMaxHP(100);
+        status.setCurrentHP(100);
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
@@ -137,6 +139,7 @@ public class Magician extends Sprite {
 
     public void defineMagician()
     {
+        status = new Status(100f,100f,1,1,new Element(ElementType.NEUTRAL));
         BodyDef bodydef = new BodyDef();
         bodydef.position.set(640/ MagiGO.PPM,384/ MagiGO.PPM);
         bodydef.type = BodyDef.BodyType.DynamicBody;
@@ -222,6 +225,9 @@ public class Magician extends Sprite {
         return stateTimer;
     }
 
+    public Status getStatus() {
+        return status;
+    }
 
     public void jump(){
         if ( getState() != State.JUMPING  && getState() != State.FALLING) {
@@ -243,4 +249,5 @@ public class Magician extends Sprite {
     public boolean isRunningRight() {
         return runningRight;
     }
+
 }
