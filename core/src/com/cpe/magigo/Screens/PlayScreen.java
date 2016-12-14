@@ -59,6 +59,7 @@ public class PlayScreen implements Screen {
     //HP variable
     private HPGauge hp;
     private HP_Char hp_char;
+    private float health;
 
     //Character variable
     private Magician player;
@@ -116,6 +117,7 @@ public class PlayScreen implements Screen {
         range = new EnemyR(this , 0.32f , 0.32f);*/
         hp = new HPGauge(status_Crystal.getCurrentHP());
         hp_char = new HP_Char(player.getStatus().getCurrentHP());
+
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
 
@@ -194,7 +196,7 @@ public class PlayScreen implements Screen {
     public void update(float dt)
     {
             handleInput(dt);
-
+            health = player.getStatus().getCurrentHP();
             world.step(1 / 60f, 6, 2);
             Timer += 1 * dt;
             Timecount += 1 * dt;
@@ -284,7 +286,7 @@ public class PlayScreen implements Screen {
         if (MCI.isReady())
             MCI.stage.draw();
 
-        if(status_Crystal.getCurrentHP()<=0){
+        if(status_Crystal.getCurrentHP()<=0 || health <= 0){
             game.setScreen(new GameoverScreen(game,getHud().getScore(),getHud().getWorldTimer()));
             dispose();
         }
