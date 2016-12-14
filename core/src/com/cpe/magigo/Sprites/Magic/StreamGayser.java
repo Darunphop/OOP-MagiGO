@@ -53,7 +53,7 @@ public class StreamGayser extends Magic{
         try {
             StreamGayser attack = new StreamGayser(element,screen);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+
         }
 
     }

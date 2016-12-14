@@ -94,7 +94,6 @@ public class Magician extends Sprite {
         setRegion(getFrame(dt));
 //        Gdx.app.log("POS", ""+( b2body.getPosition().x +" , "+ b2body.getPosition().y)) ;
 
-
     }
 
 
@@ -247,12 +246,7 @@ public class Magician extends Sprite {
         return this.attack;
     }
 
-    public void hit()
-    {
-        Health -= 10;
-        if(Health <= 0)
-            magicianIsDead = true;
-    }
+
 
     public boolean isRunningRight() {
         return runningRight;
@@ -260,5 +254,7 @@ public class Magician extends Sprite {
     public void hit(float dmg, ElementType eatk){
         this.status.damageCal(dmg,status.getElement().getElement(),eatk);
         Gdx.app.log("Magician ", "Hp = " + status.getCurrentHP());
+        if(Health <= 0)
+            magicianIsDead = true;
     }
 }
