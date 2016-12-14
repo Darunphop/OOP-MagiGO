@@ -12,7 +12,7 @@ import com.cpe.magigo.Sprites.Magic.Magic;
 
 public class HPGauge extends Sprite {
     private Sprite HP_FG ;
-    private Texture FG = new Texture("HealtBar/source/fullhealth_bar.png");
+    private Texture FG = new Texture("HealtBar/source/fullhealth bar_crystal.png");
     private TextureRegion FG_R;
     private Sprite HP_BG;
     private Texture BG = new Texture("HealtBar/source/health_bar.png");
