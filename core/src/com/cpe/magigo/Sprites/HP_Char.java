@@ -10,15 +10,15 @@ import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.Sprites.Magic.Magic;
 
-public class HPGauge extends Sprite {
+public class HP_Char extends Sprite {
     private Sprite HP_FG ;
-    private Texture FG = new Texture("HealtBar/source/fullhealth bar_crystal.png");
+    private Texture FG = new Texture("HealtBar/source/fullhealth_bar.png");
     private TextureRegion FG_R;
     private Sprite HP_BG;
     private Texture BG = new Texture("HealtBar/source/health_bar.png");
     private TextureRegion BG_R;
     public int Hp;
-    public HPGauge(int hp)
+    public HP_Char(int hp)
     {
         this.Hp = hp;
         BG_R = new TextureRegion(BG);
@@ -32,10 +32,10 @@ public class HPGauge extends Sprite {
     public void update(int dt)
     {
         this.Hp = dt;
-        HP_BG.setPosition((MagiGO.V_WIDTH/2-270)/MagiGO.PPM, 100 / MagiGO.PPM);
+        HP_BG.setPosition((MagiGO.V_WIDTH/2-270)/MagiGO.PPM, 30 / MagiGO.PPM);
         HP_BG.setScale(0.65f/MagiGO.PPM,0.5f/MagiGO.PPM);
         HP_FG.setSize(this.Hp*(FG_R.getRegionWidth()/100),FG_R.getRegionHeight());
-        HP_FG.setPosition((MagiGO.V_WIDTH/2-210)/MagiGO.PPM, 100 / MagiGO.PPM);
+        HP_FG.setPosition((MagiGO.V_WIDTH/2-210)/MagiGO.PPM, 30 / MagiGO.PPM);
         HP_FG.setRegion(90,0,(this.Hp*(FG_R.getRegionWidth()/100)),FG_R.getRegionHeight());
         HP_FG.setScale(0.65f/MagiGO.PPM,0.5f/MagiGO.PPM);
     }

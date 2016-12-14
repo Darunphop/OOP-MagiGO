@@ -58,6 +58,7 @@ public class PlayScreen implements Screen {
     //Tower variable
     public int Hp=100;
     private HPGauge hp;
+    private HP_Char hp_char;
     private float health=10;
     private Status towerStatus;
 
@@ -77,10 +78,11 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
     private B2WorldCreator creator;
-
+    public float Timecount;
     public float Timer;
     //Magic Objects
     public ArrayList<ArrayList<Sprite>> magics;
+
 
 
     public PlayScreen(MagiGO game){
@@ -110,7 +112,7 @@ public class PlayScreen implements Screen {
         /* malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);*/
         hp = new HPGauge(Hp);
-
+        hp_char = new HP_Char(Hp);
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
 
@@ -191,16 +193,19 @@ public class PlayScreen implements Screen {
 
         world.step(1/60f ,6,2);
         Timer+=1*dt;
+        Timecount+=1*dt;
         //player Texture
         player.update(dt);
         /*malee.update(dt);
         range.update(dt);*/
         hp.update(Hp);
+        hp_char.update(Hp);
         creator.update(dt);
         for (Enemy enemy:creator.getEnemyMs() )
         {
             enemy.update(dt);
         }
+
 
         //camera on your character
         gamecam.position.x = 640/MagiGO.PPM;
@@ -237,6 +242,7 @@ public class PlayScreen implements Screen {
         }
         //range.draw(game.batch);
         hp.draw(game.batch);
+        hp_char.draw(game.batch);
         //magic objects render
         Array<Body> tmpBody = new Array<Body>();
         world.getBodies(tmpBody);
