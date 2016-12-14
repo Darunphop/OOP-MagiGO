@@ -24,8 +24,8 @@ public abstract class Enemy extends Sprite{
         setPosition(x , y);
         defineEnemy();
         this.status = new Status();
-        velocity = new Vector2(1,-1);
-        velocity2 = new Vector2(-1,-1);
+        velocity = new Vector2(0.8f,-1);
+        velocity2 = new Vector2(-0.8f,-1);
     }
 
     protected abstract void defineEnemy();

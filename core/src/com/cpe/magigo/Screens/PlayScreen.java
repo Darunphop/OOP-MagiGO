@@ -56,7 +56,7 @@ public class PlayScreen implements Screen {
     private MagicCombineInterface MCI;
 
     //Tower variable
-    public int Hp=100;
+    public int Hp=80;
     private HPGauge hp;
     private HP_Char hp_char;
     private float health=10;
