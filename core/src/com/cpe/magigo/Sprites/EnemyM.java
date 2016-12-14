@@ -31,7 +31,7 @@ public class EnemyM extends Enemy {
             for (int i = 0; i < 3; i++) {
                 TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster"));
 
-                frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster"), i * 60, 0, 50, 65));
+                frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster"), i * 60, 0, 50, 60));
             }
             walkAnimation = new Animation(0.1f, frames);
             break;
@@ -39,7 +39,7 @@ public class EnemyM extends Enemy {
                 for (int i = 0; i < 3; i++) {
                     TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_fire"));
 
-                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_fire"), i * 60, 0, 50, 65));
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_fire"), i * 60, 0, 50, 60));
                 }
                 walkAnimation = new Animation(0.1f, frames);
                 break;
@@ -47,7 +47,7 @@ public class EnemyM extends Enemy {
                 for (int i = 0; i < 3; i++) {
                     TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_water"));
 
-                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_water"), i * 60, 0, 50, 65));
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_water"), i * 60, 0, 50, 60));
                 }
                 walkAnimation = new Animation(0.1f, frames);
                 break;
@@ -55,7 +55,7 @@ public class EnemyM extends Enemy {
                 for (int i = 0; i < 3; i++) {
                     TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_wind"));
 
-                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_wind"), i * 60, 0, 50, 65));
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_wind"), i * 60, 0, 50, 60));
                 }
                 walkAnimation = new Animation(0.1f, frames);
                 break;
@@ -63,7 +63,7 @@ public class EnemyM extends Enemy {
                 for (int i = 0; i < 3; i++) {
                     TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_light"));
 
-                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_light"), i * 60, 0, 50, 65));
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_light"), i * 60, 0, 50, 60));
                 }
                 walkAnimation = new Animation(0.1f, frames);
                 break;
@@ -71,7 +71,7 @@ public class EnemyM extends Enemy {
                 for (int i = 0; i < 3; i++) {
                     TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster_dark"));
 
-                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_dark"), i * 60, 0, 50, 65));
+                    frames.add(new TextureRegion(screen.getAtlastMon().findRegion("monster_dark"), i * 60, 0, 50, 60));
                 }
                 walkAnimation = new Animation(0.1f, frames);
                 break;

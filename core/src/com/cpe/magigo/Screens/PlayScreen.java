@@ -287,6 +287,7 @@ public class PlayScreen implements Screen {
             MCI.stage.draw();
 
         if(status_Crystal.getCurrentHP()<=0 || health <= 0){
+
             game.setScreen(new GameoverScreen(game,getHud().getScore(),getHud().getWorldTimer()));
             dispose();
         }
