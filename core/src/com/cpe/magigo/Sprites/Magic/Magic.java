@@ -97,6 +97,7 @@ public abstract class Magic  {
         bullets.clear();
         //screen.clearMagic(this);
     }
+    public void hitFloor(){}
     public abstract void excecute(PlayScreen screen);
 
 }

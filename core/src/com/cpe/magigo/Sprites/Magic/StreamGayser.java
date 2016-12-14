@@ -15,11 +15,12 @@ import com.cpe.magigo.System.ElementType;
 public class StreamGayser extends Magic{
     private Texture texture;
     private Body body[];
+    private float time = 0;
     private float speed = 1f;
     private float damage = 5f;
     public StreamGayser(ElementType e) {super(e);
     }
-    public StreamGayser(ElementType e,PlayScreen screen) throws InterruptedException {
+    public StreamGayser(ElementType e,PlayScreen screen){
         super(e,screen);
 //        body = new Body[4];
         setDmg(damage);
@@ -39,21 +40,26 @@ public class StreamGayser extends Magic{
 
             bullets.add(body);
         }
-        Timer.schedule(new Timer.Task(){
-            @Override
-            public void run() {
-                deconstruct();
-            }
-        }, 0.35f);
+//        Timer.schedule(new Timer.Task(){
+//            @Override
+//            public void run() {
+//                deconstruct();
+//            }
+//        }, 0.35f);
 
     }
 
     @Override
     public void excecute(PlayScreen screen)  {
-        try {
             StreamGayser attack = new StreamGayser(element,screen);
-        } catch (InterruptedException e) {
 
+    }
+
+    @Override
+    public void update(float dt) {
+        time += dt;
+        if (time > 20*dt){
+            deconstruct();
         }
 
     }
