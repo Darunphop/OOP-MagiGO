@@ -20,20 +20,20 @@ public class WorldContactListener implements ContactListener {
         Fixture fixB = contact.getFixtureB();
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
-        switch (cDef){
+       /* switch (cDef){
             case MagiGO.ENEMY_BIT | MagiGO.CRYSTAL_BIT:
                 if(fixA.getFilterData().categoryBits == MagiGO.ENEMY_BIT)
                     ((Enemy)fixA.getUserData()).reversVelocity(true, false);
                 else
                     ((Enemy)fixB.getUserData()).reversVelocity(true, false);
                 break;
-            /*case MagiGO.MAGIGO_LEG_BIT | MagiGO.ENEMY_BIT:
+                case MagiGO.MAGIGO_LEG_BIT | MagiGO.ENEMY_BIT:
                 if(fixA.getFilterData().categoryBits == MagiGO.MAGIGO_LEG_BIT)
                     ((Magician)fixA.getUserData()).Died();
                 else
                     ((Magician)fixB.getUserData()).Died();
-                break;*/
-        }
+                break;
+        }*/
     }
 
     @Override
