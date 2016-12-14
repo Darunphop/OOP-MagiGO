@@ -3,12 +3,16 @@ package com.cpe.magigo;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cpe.magigo.Screens.GameoverScreen;
 import com.cpe.magigo.Screens.MainmenuScreen;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.sun.xml.internal.ws.policy.sourcemodel.AssertionData;
 
 public class MagiGO extends Game {
 	public static final int V_WIDTH = 1280;
@@ -27,10 +31,16 @@ public class MagiGO extends Game {
 	public static final short CRYSTAL_BIT = 512;
 
 	public SpriteBatch batch;
+	public static AssetManager manager;
 
 
 	public void create () {
 		batch = new SpriteBatch();
+		manager = new AssetManager();
+		manager.load("soundtrack/Main.ogg",Music.class);
+		manager.load("soundtrack/Platscreen.ogg",Music.class);
+		manager.load("soundtrack/Gameover.ogg",Music.class);
+		manager.finishLoading();
 		setScreen(new MainmenuScreen(this));
 	}
 

@@ -1,6 +1,7 @@
 package com.cpe.magigo.Screens;
 
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -33,11 +34,15 @@ public class GameoverScreen implements Screen {
     Texture Background;
     private int score;
     private int timer;
+    private Music music;
     private SpriteBatch batch;
     public GameoverScreen(Game game,int score,int timer) {
         this.game = game;
         this.timer = timer;
         this.score = score;
+        music = MagiGO.manager.get("soundtrack/Gameover.ogg",Music.class);
+        music.setLooping(true);
+        music.play();
         viewport = new FitViewport(MagiGO.V_WIDTH, MagiGO.V_HEIGHT, new OrthographicCamera());
         Background = new Texture("scene/Gameover.png");
         stage = new Stage(viewport, ((MagiGO) game).batch);
@@ -78,6 +83,7 @@ public class GameoverScreen implements Screen {
 
         batch.begin();
         if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)){
+            music.stop();
             game.setScreen(new MainmenuScreen((MagiGO)game));
             dispose();
         }

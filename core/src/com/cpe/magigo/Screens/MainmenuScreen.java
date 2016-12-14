@@ -4,6 +4,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -17,6 +19,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cpe.magigo.MagiGO;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import org.omg.CORBA.Current;
 
 /**
  * Created by Toufu on 14/12/2559.
@@ -27,9 +30,13 @@ public class MainmenuScreen implements Screen {
     private Stage stage;
     Texture Background;
     private SpriteBatch batch;
+    private Music music;
     public MainmenuScreen(Game game){
         this.game=game;
 
+        music = MagiGO.manager.get("soundtrack/Platscreen.ogg",Music.class);
+        music.setLooping(true);
+        music.play();
         viewport = new FitViewport(MagiGO.V_WIDTH,MagiGO.V_HEIGHT,new OrthographicCamera());
         Background = new Texture("scene/menu.png");
         stage = new Stage(viewport ,((MagiGO)game).batch);
@@ -49,8 +56,10 @@ public class MainmenuScreen implements Screen {
     @Override
     public void render(float delta) {
         if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)){
+            music.stop();
             game.setScreen(new PlayScreen((MagiGO)game));
             dispose();
+
         }
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
