@@ -21,7 +21,7 @@ public class EnemyM extends Enemy {
     private Array<TextureRegion> frames;
     public EnemyM(PlayScreen screen, float x, float y,ElementType e) {
         super(screen, x, y,e);
-        this.status = new Status(20f,1f,1f, e);
+        this.status = new Status(20f,5f,1f, e);
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for ( int i = 0 ; i < 3 ; i++){
             TextureRegion temp = new TextureRegion(screen.getAtlastMon().findRegion("monster"));

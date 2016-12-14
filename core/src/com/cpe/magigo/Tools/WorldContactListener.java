@@ -18,22 +18,31 @@ public class WorldContactListener implements ContactListener {
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
+        Crystal fixC;
+        Enemy fixE;
+        Magic fixM;
 
         int cDef = fixA.getFilterData().categoryBits | fixB.getFilterData().categoryBits;
         switch (cDef){
             case MagiGO.CRYSTAL_BIT | MagiGO.ENEMY_BIT:
                 if(fixA.getFilterData().categoryBits == MagiGO.CRYSTAL_BIT)
                 {
-                    ((Crystal)fixA.getUserData()).hit();
+                    fixC = (Crystal)fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
                 }
                 else
                 {
-                    ((Crystal)fixB.getUserData()).hit();
+                    fixC = (Crystal)fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
                 }
+                fixC.hit();
+                fixE.hit(fixC.getDmg(), fixC.getElement());
+                if (fixE.isDead())
+                    fixE.deconstruct();
+
                 break;
             case MagiGO.MAGIC_BIT | MagiGO.ENEMY_BIT:
-                Magic fixM;
-                Enemy fixE;
+
                 if(fixA.getFilterData().categoryBits == MagiGO.MAGIC_BIT)
                 {
                     fixM = (Magic)fixA.getUserData();
