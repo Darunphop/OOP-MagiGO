@@ -33,9 +33,12 @@
  <tileset firstgid="1169" name="wind3" tilewidth="16" tileheight="16" tilecount="9" columns="3">
   <image source="source/wind3.png" width="48" height="48"/>
  </tileset>
+ <tileset firstgid="1178" name="ground1" tilewidth="16" tileheight="16" tilecount="1" columns="1">
+  <image source="source/ground1.png" width="16" height="16"/>
+ </tileset>
  <layer name="Background" width="80" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt0LkNwlAUAMEf0Im5r6IowNgtIBGQQQtQANAhrwaepS/LE0y80jazUhr+NidlQcqSlBUpa1I2pGxJ2ZGyJ+VAyhEAAAAAAAAAgKpOpZQ2nCuo1R1CF/pwCdcJuiXdw8M///zzb4T888+/8Rrq3zO8Juid9Anf8AMyuuLc
+   eJztw8sNgCAABTAOboIfBHVgp3UHX6KXNmmdSqm+PhtdjK5GN6PN6G60Gx1GD6On0UtVVVVVVVVV1V/fqqqqH30AacQrHQ==
   </data>
  </layer>
  <layer name="Graphic" width="80" height="48">
