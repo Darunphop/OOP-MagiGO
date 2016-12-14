@@ -16,6 +16,7 @@ public abstract class InteractiveTileObject {
     protected TiledMapTile tile;
     protected Rectangle bounds;
     protected Body body;
+    protected PlayScreen play;
 
     protected Fixture fixture;
 
