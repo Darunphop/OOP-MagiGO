@@ -115,7 +115,7 @@ public class PlayScreen implements Screen {
         /* malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);*/
         hp = new HPGauge(status_Crystal.getCurrentHP());
-        hp_char = new HP_Char(hp_magician);
+        hp_char = new HP_Char(player.getStatus().getCurrentHP());
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
 

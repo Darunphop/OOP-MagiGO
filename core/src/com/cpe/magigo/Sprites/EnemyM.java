@@ -51,6 +51,7 @@ public class EnemyM extends Enemy {
     @Override
     protected void defineEnemy()
     {
+        Status status = new Status();
         BodyDef bodydef = new BodyDef();
         bodydef.position.set(getX(),getY());
         bodydef.type = BodyDef.BodyType.DynamicBody;
