@@ -17,6 +17,7 @@ public class MagicPulse extends Magic{
     private Texture texture;
     private float startTime;
     private Body body;
+    private float speed = 3f;
     Sprite x;
     private float damage = 0f;
     public MagicPulse(ElementType e) {
@@ -30,13 +31,13 @@ public class MagicPulse extends Magic{
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(screen.getPlayer().b2body.getPosition().x,screen.getPlayer().b2body.getPosition().y);
+        bodyDef.position.set(screen.getPlayer().b2body.getPosition().x+1f,screen.getPlayer().b2body.getPosition().y+0.5f);
 
         Body body = screen.getWorld().createBody(bodyDef);
 
 
         CircleShape circle = new CircleShape();
-        circle.setRadius(80f/ MagiGO.PPM);
+        circle.setRadius(50f/ MagiGO.PPM);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
@@ -58,19 +59,24 @@ public class MagicPulse extends Magic{
         x.setColor(Element.getColor(element));
         x.setAlpha(0.3f);
         body.setUserData(x);
+        if (!screen.getPlayer().isRunningRight())
+            speed *= -1;
+        body.setLinearVelocity(speed,0);
         bullets.add(body);
     }
 
     @Override
     public void hit(Enemy e) {
-        e.velocity = new Vector2(e.velocity.x/2,0);
-        e.velocity2 = new Vector2(e.velocity.x/2,0);
+        float speedx = (new Element(e.element).isWeak(element))?e.velocity.x/4f:e.velocity.x/1.5f;
+        float speedx2 = (new Element(e.element).isWeak(element))?e.velocity2.x/4f:e.velocity2.x/1.5f;
+        e.velocity = new Vector2(speedx,0);
+        e.velocity2 = new Vector2(speedx2,0);
     }
 
     @Override
     public void update(float dt) {
         startTime += dt;
-        if (startTime > 100*dt){
+        if (startTime > 200*dt){
             deconstruct();
         }
     }

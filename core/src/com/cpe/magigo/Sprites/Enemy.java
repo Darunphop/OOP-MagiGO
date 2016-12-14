@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
@@ -18,7 +19,7 @@ public abstract class Enemy extends Sprite{
     protected World world;
     protected PlayScreen sceen;
     protected Status status;
-    protected ElementType element;
+    public ElementType element;
     public Body b2body;
     public Vector2 velocity;
     public Vector2 velocity2;
@@ -58,7 +59,7 @@ public abstract class Enemy extends Sprite{
         sceen.deleteList.add(b2body);
     }
     public void deconstruct2(){
-        sceen.getHud().addScore(100);
+        Hud.addScore(100);
         sceen.deleteList.add(b2body);
     }
 
@@ -68,4 +69,8 @@ public abstract class Enemy extends Sprite{
          super.draw(batch);
     }
     public Status getStatus(){return status;}
+
+    public ElementType getElement() {
+        return element;
+    }
 }
