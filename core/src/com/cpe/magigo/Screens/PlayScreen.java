@@ -57,6 +57,7 @@ public class PlayScreen implements Screen {
     //Tower variable
     public int Hp=100;
     private HPGauge hp;
+    private HP_Char hp_char;
     private float health=10;
     private Status towerStatus;
 
@@ -109,7 +110,7 @@ public class PlayScreen implements Screen {
         /* malee = new EnemyM(this , 0.32f , 0.32f);
         range = new EnemyR(this , 0.32f , 0.32f);*/
         hp = new HPGauge(Hp);
-
+        hp_char = new HP_Char(Hp);
         //create MCI
         MCI = new MagicCombineInterface(game.batch, player);
 
@@ -195,6 +196,7 @@ public class PlayScreen implements Screen {
         /*malee.update(dt);
         range.update(dt);*/
         hp.update(Hp);
+        hp_char.update(Hp);
         creator.update(dt);
         for (Enemy enemy:creator.getEnemyMs() )
         {
@@ -236,6 +238,7 @@ public class PlayScreen implements Screen {
         }
         //range.draw(game.batch);
         hp.draw(game.batch);
+        hp_char.draw(game.batch);
         //magic objects render
         for (Magic magic:magics){
             magic.draw(game.batch);
