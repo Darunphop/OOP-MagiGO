@@ -166,22 +166,22 @@ public class MagicSequence {
                     else if (elementList.containsKey(ElementType.DARK)) return new ElementalShield(ElementType.DARK);
                 }
             }else
-            if ((elementList.containsKey(ElementType.LIGHT) && elementList.containsKey(ElementType.DARK)) && (elementList.get(ElementType.DARK).intValue() == 1 && elementList.get(ElementType.LIGHT).intValue() ==1)) {
-                removeElement(ElementType.DARK);
-                removeElement(ElementType.LIGHT);
-                if (elementList.size() == 1) {
+            if ((elementList.containsKey(ElementType.LIGHT) && elementList.containsKey(ElementType.DARK)) && (elementList.get(ElementType.DARK).intValue() == 1 && elementList.get(ElementType.LIGHT).intValue() ==1)){
+                removeElement(ElementType.DARK);removeElement(ElementType.LIGHT);
+                if (elementList.size() == 1){
                     if (elementList.containsKey(ElementType.FIRE)) return new Blink();
                     if (elementList.containsKey(ElementType.WATER)) return new Recall();
                     if (elementList.containsKey(ElementType.WIND)) return new Flying();
-                } else if (elementList.size() == 2) {
-                    if (elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WIND))
-                        return new Recall();
-                    if (elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.WIND))
-                        return new Blink();
-                    if (elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WATER))
-                        return new Flying();
+                }else
+                if (elementList.size() == 2){
+                    if (elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WIND)) return new Recall();
+                    if (elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.WIND)) return new Blink();
+                    if (elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WATER)) return new Flying();
                 }
-            }
+            }else
+                if (size == 5)
+                    if (elementList.containsKey(ElementType.FIRE) && elementList.containsKey(ElementType.WATER) && elementList.containsKey(ElementType.WIND) && elementList.containsKey(ElementType.LIGHT) && elementList.containsKey(ElementType.DARK))
+                        return new Recharge();
             return new Failure();
         }else return new Failure();
     }

@@ -271,7 +271,7 @@ public class PlayScreen implements Screen {
         for (Magic magic:magics){
             for (Body body:magic.getBullets()){
                 Sprite sprite = (Sprite) body.getUserData();
-                sprite.setPosition(body.getPosition().x-6f/MagiGO.PPM,body.getPosition().y-6f/MagiGO.PPM);
+                sprite.setPosition(body.getPosition().x-(sprite.getWidth()/2),body.getPosition().y-(sprite.getHeight()/2));
                 sprite.draw(game.batch);
             }
         }

@@ -200,7 +200,7 @@ public class Magician extends Sprite {
             currentState = State.CASTING;
             Gdx.app.log("State", "CASTING");
         }else {//excecute spell
-            //Gdx.app.log("State", attack.sequenceAnalyse().getClass().getName());
+           // Gdx.app.log("State", attack.sequenceAnalyse().getClass().getName());
             attack.sequenceAnalyse().excecute(screen);
 
             cancelCasting();

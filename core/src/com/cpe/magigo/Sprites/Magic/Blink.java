@@ -25,6 +25,7 @@ public class Blink extends Translocation{
             target = 12.5f;
         }
         screen.getPlayer().b2body.setTransform(new Vector2(target,screen.getPlayer().b2body.getPosition().y),screen.getPlayer().b2body.getAngle());
+        Gdx.app.log("Blink",""+target) ;
     }
 
 

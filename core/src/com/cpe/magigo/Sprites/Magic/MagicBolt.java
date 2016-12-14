@@ -28,12 +28,10 @@ public class MagicBolt extends Magic{
         super(e,screen);
         setDmg(damage);
         texture = new Texture(("magic/bolt/1.png"));
-        this.body = createMagic();
+        this.body = createMagic(6f,0.2f,0f);
         body.setGravityScale(0);
-//        setRegion(new Texture(("element/element mini/fire2.png")));
         Sprite x = new Sprite(texture);
         x.setSize(12f/MagiGO.PPM,12f/MagiGO.PPM);
-//        x.setPosition(body.getPosition().x-6f/MagiGO.PPM,body.getPosition().y-6f/MagiGO.PPM);
         x.setColor(Element.getColor(element));
         body.setUserData(x);
         if (!screen.getPlayer().isRunningRight())

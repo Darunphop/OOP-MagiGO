@@ -36,16 +36,16 @@ public abstract class Magic  {
     public Magic() {
     }
 
-    protected Body createMagic(){
+    protected Body createMagic(float size,float xpad,float ypad){
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(screen.getPlayer().b2body.getPosition().x+0.2f,screen.getPlayer().b2body.getPosition().y);
+        bodyDef.position.set(screen.getPlayer().b2body.getPosition().x+xpad,screen.getPlayer().b2body.getPosition().y+ypad);
 
         Body body = screen.getWorld().createBody(bodyDef);
 
 
         CircleShape circle = new CircleShape();
-        circle.setRadius(6f/ MagiGO.PPM);
+        circle.setRadius(size/ MagiGO.PPM);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
@@ -63,7 +63,7 @@ public abstract class Magic  {
 // Remember to dispose of any shapes after you're done with them!
 // BodyDef and FixtureDef don't need disposing, but shapes do.
        // circle.dispose();
-        Gdx.app.log("MAGIC", "Magic Create");
+
         return body;
     }
 
