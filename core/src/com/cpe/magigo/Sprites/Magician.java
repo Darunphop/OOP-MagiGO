@@ -37,6 +37,7 @@ public class Magician extends Sprite {
     private Animation magicianRun;
     private Animation magicianJump;
     private Animation magicianDead;
+    private Animation magicianCasting;
 
     private float stateTimer;
     private boolean runningRight;
@@ -71,6 +72,10 @@ public class Magician extends Sprite {
             frame.add(new TextureRegion(getTexture(),i*62  , 76 , 62 , 60 ));
         }
         magicianJump = new Animation(0.1f , frame);
+        for (int i = 7 ; i < 11 ; i++) {
+            frame.add(new TextureRegion(getTexture(), i * 63, 5, 62, 60));
+        }
+        magicianCasting = new Animation(0.1f,frame);
         for(int i = 0 ; i < 9 ;i++)
         {
             frame.add(new TextureRegion(getTexture(),((i*62) + 124),74,62,60));
@@ -104,7 +109,10 @@ public class Magician extends Sprite {
         switch (currentState)
         {
             case DEAD:
-                region = magicianDead.getKeyFrame(stateTimer);
+                region = magicianDead.getKeyFrame(stateTimer , true);
+                break;
+            case CASTING:
+                region = magicianCasting.getKeyFrame(stateTimer,true);
                 break;
             case JUMPING:
                 region = magicianJump.getKeyFrame(stateTimer);
