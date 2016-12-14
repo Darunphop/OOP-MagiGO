@@ -19,7 +19,7 @@ public class Hud implements Disposable{
     public Stage stage;
     private Viewport viewport;
 
-    public Integer worldTimer;
+    private Integer worldTimer;
     private float timeCount;
     private static Integer score;
 
