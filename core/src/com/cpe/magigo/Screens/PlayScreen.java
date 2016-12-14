@@ -81,7 +81,7 @@ public class PlayScreen implements Screen {
     private B2WorldCreator creator;
     public float Timecount;
     public float Timer;
-    private Status status_Crystal;
+    public Status status_Crystal;
     //Magic Objects
     public ArrayList<ArrayList<Sprite>> magics;
 
@@ -109,7 +109,7 @@ public class PlayScreen implements Screen {
         creator = new B2WorldCreator(this);
 
         //create mario in our game world
-        status_Crystal = new Status(100f,10f,1,1,new Element(ElementType.NEUTRAL));
+        status_Crystal = new Status(100f,100f,1,1,new Element(ElementType.NEUTRAL));
         player = new Magician(this);
 
         /* malee = new EnemyM(this , 0.32f , 0.32f);
