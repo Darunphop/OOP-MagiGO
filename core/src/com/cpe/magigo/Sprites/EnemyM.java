@@ -18,13 +18,16 @@ import com.cpe.magigo.System.Status;
  */
 public class EnemyM extends Enemy {
     private float statetime;
+    public float hp_p=10;
     private Animation walkAnimation;
     private Animation DeadAnimation;
     private TextureRegion dead = new TextureRegion(new Texture("enemy/Enemy/Monster_die.png"));
     private Array<TextureRegion> frames;
-    public EnemyM(PlayScreen screen, float x, float y,ElementType e) {
+    public EnemyM(PlayScreen screen, float x, float y,ElementType e,float dt) {
         super(screen, x, y,e);
-        this.status = new Status(20f,5f,1f, e);
+        if(dt%60==0)
+            hp_p += 10f;
+        this.status = new Status(20f,hp_p,1f, e);
         Array<TextureRegion> frames = new Array<TextureRegion>();
         switch (e) {
             case NEUTRAL:

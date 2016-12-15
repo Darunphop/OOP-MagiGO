@@ -133,37 +133,37 @@ public class B2WorldCreator {
                     case 1:
                         for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
                             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                         }
                         break;
                     case 2:
                         for (MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class)) {
                             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                         }
                         break;
                     case 3:
                         for (MapObject object : map.getLayers().get(9).getObjects().getByType(RectangleMapObject.class)) {
                             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                         }
                         break;
                     case 4:
                         for (MapObject object : map.getLayers().get(10).getObjects().getByType(RectangleMapObject.class)) {
                             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                         }
                         break;
                     case 5:
                         for (MapObject object : map.getLayers().get(11).getObjects().getByType(RectangleMapObject.class)) {
                             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                         }
                         break;
                     case 6:
                         for (MapObject object : map.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)) {
                             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                            EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                         }
                         break;
                 }
@@ -186,37 +186,37 @@ public class B2WorldCreator {
                         case 1:
                             for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 2:
                             for (MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 3:
                             for (MapObject object : map.getLayers().get(9).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 4:
                             for (MapObject object : map.getLayers().get(10).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 5:
                             for (MapObject object : map.getLayers().get(11).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 6:
                             for (MapObject object : map.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                     }
@@ -241,37 +241,37 @@ public class B2WorldCreator {
                         case 1:
                             for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 2:
                             for (MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 3:
                             for (MapObject object : map.getLayers().get(9).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 4:
                             for (MapObject object : map.getLayers().get(10).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 5:
                             for (MapObject object : map.getLayers().get(11).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 6:
                             for (MapObject object : map.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                     }
@@ -295,37 +295,37 @@ public class B2WorldCreator {
                         case 1:
                             for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 2:
                             for (MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 3:
                             for (MapObject object : map.getLayers().get(9).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 4:
                             for (MapObject object : map.getLayers().get(10).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 5:
                             for (MapObject object : map.getLayers().get(11).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 6:
                             for (MapObject object : map.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                     }
@@ -352,37 +352,37 @@ public class B2WorldCreator {
                         case 1:
                             for (MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 2:
                             for (MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 3:
                             for (MapObject object : map.getLayers().get(9).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 4:
                             for (MapObject object : map.getLayers().get(10).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 5:
                             for (MapObject object : map.getLayers().get(11).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                         case 6:
                             for (MapObject object : map.getLayers().get(12).getObjects().getByType(RectangleMapObject.class)) {
                                 Rectangle rect = ((RectangleMapObject) object).getRectangle();
-                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType));
+                                EnemyMs.add(new EnemyM(play, rect.getX() / MagiGO.PPM, rect.getY() / MagiGO.PPM,elementType,dt));
                             }
                             break;
                     }
