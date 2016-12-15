@@ -2,7 +2,9 @@ package com.cpe.magigo.Sprites.Magic;
 
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.math.Vector2;
+import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
 
 /**
@@ -10,7 +12,10 @@ import com.cpe.magigo.Screens.PlayScreen;
  */
 public class Blink extends Translocation{
     private float distance;
+    Music music;
     public Blink() {
+        music = MagiGO.manager.get("soundtrack/blink.ogg",Music.class);
+        music.play();
         distance = 1.95f;
     }
 
