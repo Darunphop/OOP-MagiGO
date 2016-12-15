@@ -15,6 +15,7 @@ public class Blink extends Translocation{
     Music music;
     public Blink() {
         music = MagiGO.manager.get("soundtrack/blink.ogg",Music.class);
+        music.setVolume(2f);
         music.play();
         distance = 1.95f;
     }

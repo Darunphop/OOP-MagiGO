@@ -70,6 +70,7 @@ public abstract class Enemy extends Sprite{
         sceen.deleteList.add(b2body);
     }
     public void deconstruct2(){
+        music.play();
         Hud.addScore(100);
         sceen.deleteList.add(b2body);
     }

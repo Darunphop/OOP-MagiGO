@@ -61,6 +61,7 @@ public class Magician extends Sprite {
         this.screen = screen;
         status = new Status(100,0,0,ElementType.NEUTRAL);
         music  = MagiGO.manager.get("soundtrack/Casting.ogg",Music.class);
+        music.setVolume(0.2f);
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
