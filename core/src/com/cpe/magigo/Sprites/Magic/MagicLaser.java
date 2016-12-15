@@ -25,7 +25,7 @@ public class MagicLaser extends Magic{
         super(e, screen);
         setDmg(damage);
         time = 0;
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/laser/1.png"));
 //        for (int i = 1; i < 9; i++) {
 //            Body body;
 //            if (!screen.getPlayer().isRunningRight())
@@ -63,7 +63,7 @@ public class MagicLaser extends Magic{
                 body = createMagic(15, 0f, 0f);
                 body.setGravityScale(0);
                 Sprite x = new Sprite(texture);
-                x.setSize(9 / MagiGO.PPM, 9 / MagiGO.PPM);
+                x.setSize(50 / MagiGO.PPM, 20 / MagiGO.PPM);
                 x.setPosition(0, 0);
                 x.setColor(Element.getColor(element));
                 body.setUserData(x);

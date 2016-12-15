@@ -27,7 +27,7 @@ public class ElementalMagnetic extends Magic{
         super(e, screen);
         startTime = 0;
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/magnet/1.png"));
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;

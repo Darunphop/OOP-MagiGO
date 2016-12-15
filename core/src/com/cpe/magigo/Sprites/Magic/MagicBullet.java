@@ -31,7 +31,7 @@ public class MagicBullet extends Magic{
             body = createMagic(9, 0f, 0f);
             body.setGravityScale(0);
             Sprite x = new Sprite(texture);
-            x.setSize( 9 / MagiGO.PPM, 9 / MagiGO.PPM);
+            x.setSize( 24 / MagiGO.PPM, 24 / MagiGO.PPM);
             x.setPosition(0,0);
             x.setColor(Element.getColor(element));
             body.setUserData(x);

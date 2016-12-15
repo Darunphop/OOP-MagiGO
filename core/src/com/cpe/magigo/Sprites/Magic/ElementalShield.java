@@ -25,7 +25,7 @@ public class ElementalShield extends Magic{
     public ElementalShield(ElementType e,PlayScreen screen){
         super(e,screen);
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/shield/1.png"));
         for (int i = -1; i <= 1; i++) {
             Body body;
             body = createMagic(50, -screen.getPlayer().b2body.getPosition().x + MagiGO.V_WIDTH/2/MagiGO.PPM,-screen.getPlayer().b2body.getPosition().y + MagiGO.V_HEIGHT/2/MagiGO.PPM
@@ -35,9 +35,10 @@ public class ElementalShield extends Magic{
             body.getFixtureList().get(0).getFilterData().categoryBits = MagiGO.MAGIC_OB_BIT;
             body.getFixtureList().get(0).setSensor(false);
             Sprite x = new Sprite(texture);
-            x.setSize( 9 / MagiGO.PPM, 9 / MagiGO.PPM);
+            x.setSize(110 / MagiGO.PPM, 110 / MagiGO.PPM);
             x.setPosition(0,0);
             x.setColor(Element.getColor(element));
+            x.setAlpha(0.4f);
             body.setLinearVelocity(0, 0);
             body.setUserData(x);
             bullets.add(body);

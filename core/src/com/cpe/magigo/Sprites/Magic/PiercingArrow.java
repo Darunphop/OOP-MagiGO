@@ -22,11 +22,11 @@ public class PiercingArrow extends Magic{
     public PiercingArrow(ElementType e,PlayScreen screen) {
         super(e,screen);
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/arrow/1.png"));
         this.body = createMagic(12f,0.2f,0f);
         body.setGravityScale(0);
         Sprite x = new Sprite(texture);
-        x.setSize(12f/ MagiGO.PPM,12f/MagiGO.PPM);
+        x.setSize(35f/ MagiGO.PPM,12f/MagiGO.PPM);
         x.setColor(Element.getColor(element));
         body.setUserData(x);
         if (!screen.getPlayer().isRunningRight())
@@ -49,7 +49,7 @@ public class PiercingArrow extends Magic{
     @Override
     public void update(float dt) {
         time += dt;
-        if (time > 20*dt){
+        if (time > 500*dt){
             deconstruct();
         }
     }
