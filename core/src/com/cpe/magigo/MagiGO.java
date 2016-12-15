@@ -41,7 +41,8 @@ public class MagiGO extends Game {
 		manager.load("soundtrack/Main.ogg",Music.class);
 		manager.load("soundtrack/Platscreen.ogg",Music.class);
 		manager.load("soundtrack/Gameover.ogg",Music.class);
-		manager.load("soundtrack/Casting.mp3",Sound.class);
+		manager.load("soundtrack/Casting.ogg",Music.class);
+		manager.load("soundtrack/Mon_die.ogg",Music.class);
 		manager.finishLoading();
 		setScreen(new MainmenuScreen(this));
 	}

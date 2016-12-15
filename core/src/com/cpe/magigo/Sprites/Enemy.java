@@ -2,6 +2,7 @@ package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
@@ -31,7 +32,7 @@ public abstract class Enemy extends Sprite{
 
     public Enemy(PlayScreen screen ,float x , float y,ElementType e)
     {
-        music = MagiGO.manager.get("soundtrack/Casting.mp3",Music.class);
+        music = MagiGO.manager.get("soundtrack/Mon_die.ogg",Music.class);
         this.world = screen.getWorld();
         this.sceen = screen;
         this.element = e;

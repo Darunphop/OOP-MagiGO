@@ -1,6 +1,7 @@
 package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -39,6 +40,8 @@ public class Magician extends Sprite {
     private Animation magicianDead;
     private Animation magicianCasting;
 
+    private Music music;
+
     private float stateTimer;
     private boolean runningRight;
     private boolean timeToRedefineMagician;
@@ -57,6 +60,7 @@ public class Magician extends Sprite {
         status = new Status();
         this.screen = screen;
         status = new Status(100,0,0,ElementType.NEUTRAL);
+        music  = MagiGO.manager.get("soundtrack/Casting.ogg",Music.class);
 
 
         Array<TextureRegion> frame = new Array<TextureRegion>();
@@ -111,6 +115,7 @@ public class Magician extends Sprite {
                 region = magicianDead.getKeyFrame(stateTimer , true);
                 break;
             case CASTING:
+                music.play();
                 region = magicianCasting.getKeyFrame(stateTimer,true);
                 break;
             case JUMPING:
