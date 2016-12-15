@@ -23,6 +23,8 @@ public abstract class Enemy extends Sprite{
     public Body b2body;
     public Vector2 velocity;
     public Vector2 velocity2;
+    public Vector2 velocity3;
+    public Vector2 velocity4;
 
     public Enemy(PlayScreen screen ,float x , float y,ElementType e)
     {
@@ -34,6 +36,8 @@ public abstract class Enemy extends Sprite{
         this.status = new Status();
         velocity = new Vector2(0.8f,-1);
         velocity2 = new Vector2(-0.8f,-1);
+        velocity3 = new Vector2(0.5f,-1);
+        velocity4 = new Vector2(-0.5f,-1);
        // element = ElementType.NEUTRAL;
     }
 

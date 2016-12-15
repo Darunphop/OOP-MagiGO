@@ -29,6 +29,7 @@ public class MagiGO extends Game {
 	public static final short OBJECT_BIT = 128;
 	public static final short ENEMY_BIT = 256;
 	public static final short CRYSTAL_BIT = 512;
+	public static final short BOSS_BIT = 1024;
 
 	public SpriteBatch batch;
 	public static AssetManager manager;

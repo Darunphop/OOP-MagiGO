@@ -54,7 +54,7 @@ public abstract class Magic  {
         fixtureDef.friction = 0.4f;
         fixtureDef.restitution = 0.6f;
         fixtureDef.filter.categoryBits = MagiGO.MAGIC_BIT;
-        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.OBJECT_BIT | MagiGO.DEFAULT_BIT;
+        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.OBJECT_BIT | MagiGO.DEFAULT_BIT | MagiGO.BOSS_BIT ;
         fixtureDef.isSensor = true;
 
         // Create our fixture and attach it to the body
