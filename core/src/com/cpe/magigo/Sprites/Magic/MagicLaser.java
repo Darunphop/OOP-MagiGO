@@ -55,7 +55,7 @@ public class MagicLaser extends Magic{
     @Override
     public void update(float dt) {
         time += dt;
-        if (!(time > 0.5)){
+        if (!(time > 0.5*screen.magicCharge)){
             //for (int i = 1; i < 9; i++) {
                 Body body;
                 if (!screen.getPlayer().isRunningRight())
@@ -69,10 +69,14 @@ public class MagicLaser extends Magic{
                 body.setUserData(x);
                 body.setLinearVelocity(speed, 0);
                 bullets.add(body);
+
             screen.signalToClear = false;
             //}
-        }else if(time >2)
+        }else if(time >2){
+            screen.useMagicCharge();
             deconstruct();
-        screen.signalToClear = true;
+            screen.signalToClear = true;
+        }
+
     }
 }

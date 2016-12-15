@@ -386,12 +386,8 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public boolean useMagicCharge() {
-        if (magicCharge > 0){
-            magicCharge--;
-            return true;
-        }else
-            return false;
+    public void useMagicCharge() {
+        magicCharge = 0;
     }
 
     public void clearMagic(Magic magic){
