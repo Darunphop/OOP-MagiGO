@@ -11,6 +11,7 @@ import com.cpe.magigo.System.ElementType;
  */
 public class Crystal extends InteractiveTileObject {
     private float dmg;
+    public float factor;
     private ElementType elementType;
     public Crystal(PlayScreen screen, Rectangle bounds) {
         super(screen, bounds);
@@ -19,15 +20,16 @@ public class Crystal extends InteractiveTileObject {
         play = screen;
         dmg = 100;
         elementType = ElementType.NEUTRAL;
+        factor = 1;
     }
 
     public void hit()
     {
-        play.status_Crystal.setCurrentHP(play.status_Crystal.getCurrentHP()-5);
+        play.status_Crystal.setCurrentHP(play.status_Crystal.getCurrentHP()-(5*factor));
     }
     public void hit2()
     {
-        play.status_Crystal.setCurrentHP(play.status_Crystal.getCurrentHP()-20);
+        play.status_Crystal.setCurrentHP(play.status_Crystal.getCurrentHP()-(20*factor));
     }
 
     public float getDmg(){return dmg;}
