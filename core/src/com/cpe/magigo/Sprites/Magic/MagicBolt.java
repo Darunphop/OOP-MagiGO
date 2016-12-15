@@ -16,6 +16,7 @@ import com.cpe.magigo.System.ElementType;
  * Created by darunphop on 14-Nov-16.
  */
 public class MagicBolt extends Magic{
+    private float startTime=0;
     private Texture texture;
     private Body body;
     private float speed = 5f;
@@ -50,4 +51,13 @@ public class MagicBolt extends Magic{
     public void hit() {
         deconstruct();
     }
+
+    @Override
+    public void update(float dt) {
+        startTime += dt;
+        if (startTime > 500*dt){
+            deconstruct();
+        }
+    }
+
 }

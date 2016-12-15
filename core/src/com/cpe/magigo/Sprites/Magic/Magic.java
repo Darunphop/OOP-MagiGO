@@ -54,7 +54,7 @@ public abstract class Magic  {
         fixtureDef.friction = 0.4f;
         fixtureDef.restitution = 0.6f;
         fixtureDef.filter.categoryBits = MagiGO.MAGIC_BIT;
-        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT;
+        fixtureDef.filter.maskBits = MagiGO.PLATFORM_BIT | MagiGO.ENEMY_BIT | MagiGO.OBJECT_BIT | MagiGO.DEFAULT_BIT;
         fixtureDef.isSensor = true;
 
         // Create our fixture and attach it to the body
@@ -83,7 +83,7 @@ public abstract class Magic  {
     }
 
     public void setDmg(float dmg) {
-        this.dmg = dmg;
+        this.dmg = (dmg<0)?0:dmg;
     }
 
     public ElementType getElement() {
