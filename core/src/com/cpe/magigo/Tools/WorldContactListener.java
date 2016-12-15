@@ -100,6 +100,67 @@ public class WorldContactListener implements ContactListener {
                 }
                 fixM.hit(fixE);
                 break;
+           /* case MagiGO.CRYSTAL_BIT | MagiGO.BOSS_BIT:
+                if(fixA.getFilterData().categoryBits == MagiGO.CRYSTAL_BIT)
+                {
+                    fixC = (Crystal)fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
+                }
+                else
+                {
+                    fixC = (Crystal)fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
+                }
+                fixC.hit2();
+                fixE.hit(fixC.getDmg(), fixC.getElement());
+                if (fixE.isDead())
+                    fixE.deconstruct();
+
+                break;
+            case MagiGO.MAGIC_BIT | MagiGO.BOSS_BIT:
+
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIC_BIT)
+                {
+                    fixM = (Magic)fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
+                }
+                else
+                {
+                    fixM = (Magic)fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
+                }
+                fixM.hit();
+                fixE.hit(fixM.getDmg(), fixM.getElement());
+                if (fixE.isDead())
+                    fixE.deconstruct2();
+                break;
+            case MagiGO.MAGIGO_BIT | MagiGO.BOSS_BIT:
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIGO_BIT)
+                {
+                    fixMC = (Magician) fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
+                }
+                else
+                {
+                    fixMC = (Magician) fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
+                }
+                fixMC.hit(fixE.getStatus().getAtk(), fixE.getStatus().getElement().getElement());
+                break;
+            case MagiGO.MAGIC_OB_BIT | MagiGO.BOSS_BIT:
+
+                if(fixA.getFilterData().categoryBits == MagiGO.MAGIC_OB_BIT)
+                {
+                    fixM = (Magic) fixA.getUserData();
+                    fixE = (Enemy)fixB.getUserData();
+                }
+                else
+                {
+                    fixM = (Magic) fixB.getUserData();
+                    fixE = (Enemy)fixA.getUserData();
+                }
+                fixM.hit(fixE);
+                break;*/
         }
     }
 

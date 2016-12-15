@@ -35,6 +35,7 @@ import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 import com.cpe.magigo.System.Status;
 import com.cpe.magigo.Tools.B2WorldCreator;
+import com.cpe.magigo.Tools.BossControl;
 import com.cpe.magigo.Tools.WorldContactListener;
 
 import java.util.ArrayList;
@@ -78,8 +79,10 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
     private B2WorldCreator creator;
+   // private BossControl boss;
     public float Timecount;
     public float Timer;
+    public float Timer2;
     public Status status_Crystal;
 
     //Magic Objects
@@ -110,6 +113,7 @@ public class PlayScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         creator = new B2WorldCreator(this);
+       // boss = new BossControl(this);
 
         //create mario in our game world
         status_Crystal = new Status(100f,1,1,ElementType.NEUTRAL);
@@ -204,6 +208,7 @@ public class PlayScreen implements Screen {
             health = player.getStatus().getCurrentHP();
             world.step(1 / 60f, 6, 2);
             Timer += 1 * dt;
+            Timer2 += 1 * dt;
             Timecount += 1 * dt;
             //player Texture
             player.update(dt);
@@ -212,9 +217,13 @@ public class PlayScreen implements Screen {
             hp.update(status_Crystal.getCurrentHP());
             hp_char.update(player.getStatus().getCurrentHP());
             creator.update(dt);
+            //boss.update(dt);
             for (Enemy enemy : creator.getEnemyMs()) {
                 enemy.update(dt);
             }
+           /* for (Enemy enemy : boss.getEnemyRs()) {
+                 enemy.update(dt);
+             }*/
 
         for (Magic magic:magics){
             magic.update(dt);
@@ -261,6 +270,10 @@ public class PlayScreen implements Screen {
         {
             enemy.draw(game.batch);
         }
+       /* for (Enemy enemy:boss.getEnemyRs() )
+        {
+            enemy.draw(game.batch);
+        }*/
         //range.draw(game.batch);
         hp.draw(game.batch);
         hp_char.draw(game.batch);
