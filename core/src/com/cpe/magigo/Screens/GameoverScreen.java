@@ -36,6 +36,8 @@ public class GameoverScreen implements Screen {
     private int timer;
     private Music music;
     private SpriteBatch batch;
+    private String score_tt;
+    private String time_tt;
     public GameoverScreen(Game game,int score,int timer) {
         this.game = game;
         this.timer = timer;
@@ -48,21 +50,29 @@ public class GameoverScreen implements Screen {
         stage = new Stage(viewport, ((MagiGO) game).batch);
         Label.LabelStyle timeLabel = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
 
+        score_tt ="                                                                        Your Score                    "+score;
+        time_tt = "                                                                        Your time                    "+timer;
         batch = new SpriteBatch();
 
         Table table = new Table();
         table.center();
         table.setFillParent(true);
 
-        Label gameOverLabel = new Label(String.format("%06d",score),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        gameOverLabel.setFontScale(3,3);
-        Label gameOverLabels = new Label(String.format("%06d",timer),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        gameOverLabels.setFontScale(3,3);
-        Label playAgainLabel = new Label("Click to Play Again", timeLabel);
+        Label gameOverLabel = new Label(score_tt,new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        //gameOverLabel.setFontScale(3,3);
+       // Label scoreLabel1 = new Label(" SCORE",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+       // scoreLabel1.setFontScale(3,3);
+        Label gameOverLabels = new Label(time_tt,new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        //gameOverLabels.setFontScale(3,3);
+        //Label timeLabel2 = new Label(" TIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        //timeLabel2.setFontScale(3,3);
+        Label playAgainLabel = new Label("                                                                        Press Spacebar to Play Again", timeLabel);
 
         table.add(gameOverLabel).expandX();
+        //table.add(scoreLabel1);
         table.row();
         table.add(gameOverLabels).expandX();
+        //table.add(timeLabel2);
         table.row();
         table.add(playAgainLabel).expandX().padTop(10f);
 
@@ -82,7 +92,7 @@ public class GameoverScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
             music.stop();
             game.setScreen(new MainmenuScreen((MagiGO)game));
             dispose();
