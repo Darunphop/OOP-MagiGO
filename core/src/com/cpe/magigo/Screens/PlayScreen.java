@@ -86,7 +86,12 @@ public class PlayScreen implements Screen {
     public ArrayList<Magic> magics;
 
     public ArrayList<Body> deleteList;
+    public ArrayList<Magic> deleteMagicList;
     private Music music;
+
+    public int magicCharge;
+
+    public boolean signalToClear;
 
 
 
@@ -130,7 +135,10 @@ public class PlayScreen implements Screen {
 
         magics = new ArrayList<Magic>();
         deleteList = new ArrayList<Body>();
+        deleteMagicList = new ArrayList<Magic>();
+        magicCharge = 0;
 
+        signalToClear = false;
     }
     public TextureAtlas getAtlas()
     {
@@ -234,6 +242,15 @@ public class PlayScreen implements Screen {
                 world.destroyBody(body);
             }
             deleteList.clear();
+        if (signalToClear){
+            for (Magic magic: deleteMagicList){
+                magics.remove(magic);
+            }
+            deleteMagicList.clear();
+            signalToClear = false;
+        }
+
+
 
 
     }
@@ -359,8 +376,26 @@ public class PlayScreen implements Screen {
         hud.dispose();
     }
 
+    public int getMagicCharge() {
+        return magicCharge;
+    }
+
+    public void addMagicCharge() {
+        if (magicCharge < 3){
+            magicCharge++;
+        }
+    }
+
+    public boolean useMagicCharge() {
+        if (magicCharge > 0){
+            magicCharge--;
+            return true;
+        }else
+            return false;
+    }
+
     public void clearMagic(Magic magic){
-        magics.remove(magic);
+        deleteMagicList.add(magic);
     }
     public Magician getPlayer() {
         return player;

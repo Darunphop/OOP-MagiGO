@@ -20,7 +20,7 @@ public class MagicBolt extends Magic{
     private Texture texture;
     private Body body;
     private float speed = 5f;
-    private float damage = 10f;
+    private float damage = 8f;
 
     public MagicBolt(ElementType e) {
         super(e);

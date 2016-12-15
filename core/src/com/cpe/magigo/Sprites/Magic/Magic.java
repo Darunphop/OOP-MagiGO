@@ -96,7 +96,8 @@ public abstract class Magic  {
             screen.deleteList.add(body);
         }
         bullets.clear();
-        //screen.clearMagic(this);
+        screen.clearMagic(this);
+        screen.signalToClear=true;
     }
     public void hit(Enemy e){}
     public void hitFloor(){}

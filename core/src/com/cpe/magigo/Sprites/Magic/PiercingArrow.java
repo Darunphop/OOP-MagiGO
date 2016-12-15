@@ -45,4 +45,12 @@ public class PiercingArrow extends Magic{
     public void hit() {
         setDmg(--damage);
     }
+    private float time = 0;
+    @Override
+    public void update(float dt) {
+        time += dt;
+        if (time > 20*dt){
+            deconstruct();
+        }
+    }
 }
