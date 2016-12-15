@@ -22,7 +22,7 @@ public class MagicMine extends Magic{
     public MagicMine(ElementType e,PlayScreen screen) {
         super(e,screen);
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/mine/1.png"));
         this.body = createMagic(18f,0.3f*(screen.getPlayer().isRunningRight()?1:-1),-0.25f);
         body.setGravityScale(0);
         Sprite x = new Sprite(texture);

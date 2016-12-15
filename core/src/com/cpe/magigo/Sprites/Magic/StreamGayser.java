@@ -23,7 +23,7 @@ public class StreamGayser extends Magic{
         super(e,screen);
 //        body = new Body[4];
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/geyser/1.png"));
         for (int i = 0; i < 4; i++) {
             Body body;
             if (!screen.getPlayer().isRunningRight())
@@ -33,7 +33,7 @@ public class StreamGayser extends Magic{
             Sprite x = new Sprite(texture);
             x.setSize((10 + (7 * i)) * 4 / MagiGO.PPM, (10 + (7 * i)) * 4 / MagiGO.PPM);
             x.setColor(Element.getColor(element));
-            x.setAlpha(0.8f);
+            x.setAlpha(0.9f);
             body.setUserData(x);
 
             bullets.add(body);
