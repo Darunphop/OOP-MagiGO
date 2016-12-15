@@ -24,7 +24,7 @@ public class ChainLighting extends Magic{
     public ChainLighting(ElementType e,PlayScreen screen) {
         super(e,screen);
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/chain/1.png"));
         this.body = createMagic(8f,0.2f,-0.18f);
         body.setGravityScale(0);
         Sprite x = new Sprite(texture);

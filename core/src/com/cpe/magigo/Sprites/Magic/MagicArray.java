@@ -57,7 +57,7 @@ public class MagicArray extends Magic{
         x = new Sprite(texture);
         x.setSize(180f/ MagiGO.PPM,180f/MagiGO.PPM);
         x.setColor(Element.getColor(element));
-        x.setAlpha(0.3f);
+        x.setAlpha(0.4f);
         body.setUserData(x);
         bullets.add(body);
     }

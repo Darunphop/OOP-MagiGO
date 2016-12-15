@@ -27,7 +27,7 @@ public class MagicPulse extends Magic{
         super(e,screen);
         startTime = 0;
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/pulse/1.png"));
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -55,9 +55,9 @@ public class MagicPulse extends Magic{
 
         body.setGravityScale(0);
         x = new Sprite(texture);
-        x.setSize(180f/ MagiGO.PPM,180f/MagiGO.PPM);
+        x.setSize(180f/ MagiGO.PPM,140f/MagiGO.PPM);
         x.setColor(Element.getColor(element));
-        x.setAlpha(0.3f);
+        x.setAlpha(0.8f);
         body.setUserData(x);
         if (!screen.getPlayer().isRunningRight())
             speed *= -1;
@@ -76,7 +76,7 @@ public class MagicPulse extends Magic{
     @Override
     public void update(float dt) {
         startTime += dt;
-        if (startTime > 200*dt){
+        if (startTime > 500*dt){
             deconstruct();
         }
     }

@@ -25,7 +25,7 @@ public class MagicBomb extends Magic{
     public MagicBomb(ElementType e,PlayScreen screen) {
         super(e,screen);
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
+        texture = new Texture(("magic/bomb/1.png"));
         this.body = createMagic(6f,0.2f*(screen.getPlayer().isRunningRight()?1:-1),0.2f);
         body.setGravityScale(2);
         Sprite x = new Sprite(texture);
