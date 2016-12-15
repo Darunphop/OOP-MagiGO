@@ -35,6 +35,7 @@ public class MainmenuScreen implements Screen {
         this.game=game;
 
         music = MagiGO.manager.get("soundtrack/Platscreen.ogg",Music.class);
+        music.setVolume(2f);
         music.setLooping(true);
         music.play();
         viewport = new FitViewport(MagiGO.V_WIDTH,MagiGO.V_HEIGHT,new OrthographicCamera());

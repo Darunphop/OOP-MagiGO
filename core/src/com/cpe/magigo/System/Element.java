@@ -34,6 +34,9 @@ public  class Element {
                  weak = ElementType.LIGHT;
                  color = Color.PURPLE;
                  break;
+             case NEUTRAL:
+                 weak = ElementType.NEUTRAL;
+                 color = Color.GRAY;
              default:
                  weak = ElementType.NULL;
                  break;
@@ -61,6 +64,9 @@ public  class Element {
                  break;
              case DARK:
                  color = Color.PURPLE;
+                 break;
+             case NEUTRAL:
+                 color = Color.GRAY;
                  break;
              default:
                  color = Color.CHARTREUSE;

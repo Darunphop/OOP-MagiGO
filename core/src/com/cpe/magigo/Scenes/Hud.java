@@ -46,16 +46,16 @@ public class Hud implements Disposable{
         countdownLabel = new Label(String.format("%03d",worldTimer),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         scoreLabel = new Label(String.format("%06d",score),new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        levelLabel = new Label("stage01",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        worldLabel = new Label("DAYTIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        /*levelLabel = new Label("stage01",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        worldLabel = new Label("DAYTIME",new Label.LabelStyle(new BitmapFont(), Color.WHITE));*/
         MagiGOLabel = new Label("Magicians",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         table.add(MagiGOLabel).expandX().padTop(10);
-        table.add(worldLabel).expandX().padTop(10);
+        //table.add(worldLabel).expandX().padTop(10);
         table.add(timeLabel).expandX().padTop(10);
         table.row();
         table.add(scoreLabel).expandX();
-        table.add(levelLabel).expandX();
+      //  table.add(levelLabel).expandX();
         table.add(countdownLabel).expandX();
 
         stage.addActor(table);

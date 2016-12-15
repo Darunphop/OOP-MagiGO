@@ -1,11 +1,14 @@
 package com.cpe.magigo.Sprites;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Scenes.Hud;
 import com.cpe.magigo.Screens.PlayScreen;
 import com.cpe.magigo.System.Element;
@@ -25,9 +28,11 @@ public abstract class Enemy extends Sprite{
     public Vector2 velocity2;
     public Vector2 velocity3;
     public Vector2 velocity4;
+    public Music music;
 
     public Enemy(PlayScreen screen ,float x , float y,ElementType e)
     {
+        music = MagiGO.manager.get("soundtrack/Mon_die.ogg",Music.class);
         this.world = screen.getWorld();
         this.sceen = screen;
         this.element = e;
@@ -59,10 +64,13 @@ public abstract class Enemy extends Sprite{
     public boolean isDead(){
         return status.getCurrentHP() == 0f;
     }
-    public void deconstruct(){
+    public void deconstruct()
+    {
+        music.play();
         sceen.deleteList.add(b2body);
     }
     public void deconstruct2(){
+        music.play();
         Hud.addScore(100);
         sceen.deleteList.add(b2body);
     }

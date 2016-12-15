@@ -129,6 +129,7 @@ public class PlayScreen implements Screen {
         hp = new HPGauge(status_Crystal.getCurrentHP());
         hp_char = new HP_Char(player.getStatus().getCurrentHP());
         music = MagiGO.manager.get("soundtrack/Main.ogg",Music.class);
+        music.setVolume(0.5f);
         music.setLooping(true);
         music.play();
 
