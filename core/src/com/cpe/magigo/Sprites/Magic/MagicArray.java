@@ -2,10 +2,12 @@ package com.cpe.magigo.Sprites.Magic;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Timer;
 import com.cpe.magigo.MagiGO;
 import com.cpe.magigo.Screens.PlayScreen;
+import com.cpe.magigo.Sprites.Enemy;
 import com.cpe.magigo.System.Element;
 import com.cpe.magigo.System.ElementType;
 
@@ -17,7 +19,6 @@ public class MagicArray extends Magic{
     private float startTime;
     private Body body;
     Sprite x;
-    int flag = 0;
     private float damage = 8f;
     public MagicArray(ElementType e) {
         super(e);
@@ -26,8 +27,32 @@ public class MagicArray extends Magic{
         super(e,screen);
         startTime = 0;
         setDmg(damage);
-        texture = new Texture(("magic/bolt/1.png"));
-        this.body = createMagic(80f,0,0);
+        texture = new Texture(("magic/array/1.png"));
+
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(screen.getPlayer().b2body.getPosition().x,screen.getPlayer().b2body.getPosition().y);
+
+        Body body = screen.getWorld().createBody(bodyDef);
+
+
+        CircleShape circle = new CircleShape();
+        circle.setRadius(80f/ MagiGO.PPM);
+
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = circle;
+        fixtureDef.density = 0.5f;
+        fixtureDef.friction = 0.4f;
+        fixtureDef.restitution = 0.6f;
+        fixtureDef.filter.categoryBits = MagiGO.MAGIC_OB_BIT;
+        fixtureDef.filter.maskBits =  MagiGO.ENEMY_BIT | MagiGO.MAGIC_OB_BIT;
+        fixtureDef.isSensor = true;
+
+        // Create our fixture and attach it to the body
+        Fixture fixture = body.createFixture(fixtureDef);
+        fixture.setUserData(this);
+
+
         body.setGravityScale(0);
         x = new Sprite(texture);
         x.setSize(180f/ MagiGO.PPM,180f/MagiGO.PPM);
@@ -38,6 +63,14 @@ public class MagicArray extends Magic{
     }
 
     @Override
+    public void hit(Enemy e) {
+        float speedx = (new Element(e.element).isWeak(element))?0f:e.velocity.x/1.5f;
+        float speedx2 = (new Element(e.element).isWeak(element))?0f:e.velocity2.x/1.5f;
+        e.velocity = new Vector2(speedx,0);
+        e.velocity2 = new Vector2(speedx2,0);
+    }
+
+    @Override
     public void excecute(PlayScreen screen) {
         MagicArray attack = new MagicArray(element,screen);
     }
@@ -45,9 +78,8 @@ public class MagicArray extends Magic{
     @Override
     public void update(float dt) {
         startTime += dt;
-        if (startTime > 100*dt && flag==0){
+        if (startTime > 100*dt){
             deconstruct();
-            flag=1;
         }
 
     }
